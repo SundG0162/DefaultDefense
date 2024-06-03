@@ -12,6 +12,6 @@ public:
 	void update();
 	void render();
 private:
-	Scene* _activeScene = nullptr;
+	Scene* _pActiveScene = nullptr;
 	map<string, Scene*> _sceneMap;
 };

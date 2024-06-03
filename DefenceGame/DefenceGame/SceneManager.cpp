@@ -12,20 +12,20 @@ void SceneManager::loadScene(const string& sceneName)
 	auto iter = _sceneMap.find(sceneName);
 	if (iter != _sceneMap.end())
 	{
-		_activeScene = iter->second;
-		_activeScene->init();
+		_pActiveScene = iter->second;
+		_pActiveScene->init();
 	}
 }
 void SceneManager::init()
 {
-	_activeScene = nullptr;
+	_pActiveScene = nullptr;
 }
 void SceneManager::update()
 {
-	_activeScene->update();
+	_pActiveScene->update();
 }
 
 void SceneManager::render()
 {
-	_activeScene->render();
+	_pActiveScene->render();
 }

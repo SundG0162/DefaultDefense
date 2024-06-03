@@ -10,4 +10,3 @@ public:
 	void update();
 	void render();
 };
-
