@@ -19,6 +19,9 @@ static template* getInstance()\
 
 #define GET_SINGLETON(template) template::getInstance()
 
+#define MAP_WIDTH 31
+#define MAP_HEIGHT 20
+
 using std::cin;
 using std::cout;
 using std::wcin;

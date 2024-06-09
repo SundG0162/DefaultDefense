@@ -2,11 +2,21 @@
 #include <Windows.h>
 #include <iostream>
 #include "console.h"
+#include "Define.h"
+#include "SceneManager.h"
 
 using namespace std;
 
 TransitionScene::~TransitionScene() {}
+
 TransitionScene::TransitionScene() {}
+
+void TransitionScene::init()
+{
+}
+void TransitionScene::update()
+{
+}
 
 void TransitionScene:: render()
 {
@@ -67,4 +77,6 @@ void TransitionScene:: render()
     }
     setColor((int)COLOR::WHITE);
     system("cls");
+
+    GET_SINGLETON(SceneManager)->loadScene(GET_SINGLETON(SceneManager)->transitionSceneName);
 }

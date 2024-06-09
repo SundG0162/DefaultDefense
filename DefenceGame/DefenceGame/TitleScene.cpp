@@ -5,13 +5,20 @@
 #include "console.h"
 #include <fcntl.h>
 #include <io.h>
+#include "SceneManager.h"
 
 using namespace std;
 
 TitleScene::TitleScene() {}
 TitleScene::~TitleScene() {}
 
-void TitleScene::init() {}
+void TitleScene::init() 
+{
+    srand(time(NULL));
+    system("title !!!!DefaultDefence!!!!");
+    setCursorVisible(false, 1);
+    lockResize();
+}
 
 void TitleScene::update()
 {
@@ -63,8 +70,10 @@ void TitleScene::render()
             }
             break;
         case KEY::SPACE:
+            GET_SINGLETON(SceneManager)->setTransition("InGameScene");
+            GET_SINGLETON(SceneManager)->loadScene("TransitionScene");
             system("cls");
-            break;
+            return;
         }
     }
 }

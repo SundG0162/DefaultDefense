@@ -3,6 +3,11 @@
 #include"Define.h"
 SceneManager* SceneManager::m_pInst = nullptr;
 
+void SceneManager::setTransition(string sceneName)
+{
+	transitionSceneName = sceneName;
+}
+
 void SceneManager::registerScene(const string& sceneName, Scene* scene)
 {
 	_sceneMap.insert({ sceneName, scene });
