@@ -2,6 +2,8 @@
 #include <fstream>
 #include <Windows.h>
 #include"console.h"
+#include"Cell.h"
+#include"MapManager.h"
 
 InGameScene::InGameScene()
 {
@@ -18,11 +20,32 @@ void InGameScene::init()
 	{
 		for (int i = 0; i < MAP_HEIGHT; i++)
 		{
-			mapRead.getline(arrMap[i], MAP_WIDTH);
-			if (mapRead.fail())
+			for (int j = 0; j < MAP_WIDTH; j++)
 			{
-				cout << "File Read Fail. Please Check the directory.";
-				break;
+				char read = mapRead.get();
+
+				if (read == '0')
+				{
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::GRAY , "  " }, j, i);
+				}
+				else if (read == '1')
+				{
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::LIGHT_GRAY, "  " }, j, i);
+				}
+				else if (read == '2')
+				{
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::LIGHT_BLUE, "  " }, j, i);
+				}
+				else if (read == '4')
+				{
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::YELLOW, "  " }, j, i);
+				}
+
+				if (mapRead.fail())
+				{
+					cout << "File read error.";
+					break;
+				}
 			}
 		}
 	}
@@ -38,27 +61,14 @@ void InGameScene::update()
 void InGameScene::render()
 {
 	gotoxy(0, 0);
-	for(int i = 0; i < MAP_HEIGHT; i++)
+	for (int i = 0; i < MAP_HEIGHT; i++)
 	{
 		for (int j = 0; j < MAP_WIDTH; j++)
 		{
-			if (arrMap[i][j] == '0')
-			{
-				cout << "¡á";
-			}
-			if (arrMap[i][j] == '1')
-			{
-				cout << "  ";
-			}
-			if (arrMap[i][j] == '2')
-			{
-				cout << "¢Ã";
-			}
-			if (arrMap[i][j] == '4')
-			{
-				cout << "¢Ë";
-			}
+			setColor((int)COLOR::WHITE, (int)GET_SINGLETON(MapManager)->getCell(j,i)->bgColor);
+			cout << GET_SINGLETON(MapManager)->getCell(j,i)->renderString;
 		}
 		cout << std::endl;
 	}
+	setColor((int)COLOR::WHITE, (int)COLOR::BLACK);
 }

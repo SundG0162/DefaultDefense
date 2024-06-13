@@ -19,26 +19,32 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Cell.cpp" />
     <ClCompile Include="console.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="InGameScene.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MapManager.cpp" />
     <ClCompile Include="mci.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="TitleScene.cpp" />
     <ClCompile Include="TransitionScene.cpp" />
+    <ClCompile Include="Entity.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Cell.h" />
     <ClInclude Include="console.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="InGameScene.h" />
+    <ClInclude Include="MapManager.h" />
     <ClInclude Include="mci.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="TitleScene.h" />
     <ClInclude Include="TransitionScene.h" />
+    <ClInclude Include="Entity.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

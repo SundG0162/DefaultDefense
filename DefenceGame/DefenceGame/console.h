@@ -1,4 +1,5 @@
 #pragma once
+#include<Windows.h>
 void fullScreen();
 //void gotoxy(int x, int y);
 BOOL gotoxy(int x, int y);

@@ -3,7 +3,7 @@ class Scene
 {
 public:
 	Scene();
-	~Scene();
+	virtual ~Scene();
 
 public:
 	virtual void init() abstract;

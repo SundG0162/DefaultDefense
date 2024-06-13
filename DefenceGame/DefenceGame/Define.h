@@ -2,22 +2,23 @@
 #include<iostream>
 #include<string>
 #include<map>
-#define DECLARE_SINGLETON(template) \
+#include<vector>
+#define DECLARE_SINGLETON(type) \
 private:\
-	template() {}\
-	~template() {}\
-	static template* m_pInst;\
+	type() {}\
+	~type() {}\
+	static type* m_pInst;\
 public:\
-static template* getInstance()\
+static type* getInstance()\
 {\
 	if(m_pInst == nullptr)\
 	{\
-		m_pInst = new template;\
+		m_pInst = new type;\
 	}\
 	return m_pInst;\
 }\
 
-#define GET_SINGLETON(template) template::getInstance()
+#define GET_SINGLETON(type) type::getInstance()
 
 #define MAP_WIDTH 31
 #define MAP_HEIGHT 20
@@ -29,3 +30,4 @@ using std::wcout;
 using std::string; 
 using std::wstring; 
 using std::map;
+using std::vector;
