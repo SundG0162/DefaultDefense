@@ -20,6 +20,12 @@ BOOL gotoxy(int x, int y)
 	return SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursor);
 }
 
+BOOL gotoxy(const Vector2& pos)
+{
+	COORD cursor = { pos.x,pos.y };
+	return SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), cursor);
+}
+
 
 
 COORD getCursorPos()

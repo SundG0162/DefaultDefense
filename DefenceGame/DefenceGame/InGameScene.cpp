@@ -26,19 +26,19 @@ void InGameScene::init()
 
 				if (read == '0')
 				{
-					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::GRAY , "  " }, j, i);
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::GRAY , "  " }, Vector2(j,i));
 				}
 				else if (read == '1')
 				{
-					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::LIGHT_GRAY, "  " }, j, i);
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::LIGHT_GRAY, "  " }, Vector2(j, i));
 				}
 				else if (read == '2')
 				{
-					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::LIGHT_BLUE, "  " }, j, i);
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::LIGHT_BLUE, "  " }, Vector2(j, i));
 				}
 				else if (read == '4')
 				{
-					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::YELLOW, "  " }, j, i);
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::YELLOW, "  " }, Vector2(j, i));
 				}
 
 				if (mapRead.fail())
@@ -65,8 +65,8 @@ void InGameScene::render()
 	{
 		for (int j = 0; j < MAP_WIDTH; j++)
 		{
-			setColor((int)COLOR::WHITE, (int)GET_SINGLETON(MapManager)->getCell(j,i)->bgColor);
-			cout << GET_SINGLETON(MapManager)->getCell(j,i)->renderString;
+			setColor((int)COLOR::WHITE, (int)GET_SINGLETON(MapManager)->getCell(Vector2(j,i))->bgColor);
+			cout << GET_SINGLETON(MapManager)->getCell(Vector2(j,i))->renderString;
 		}
 		cout << std::endl;
 	}

@@ -31,6 +31,7 @@
     <ClCompile Include="TitleScene.cpp" />
     <ClCompile Include="TransitionScene.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cell.h" />
@@ -45,6 +46,7 @@
     <ClInclude Include="TitleScene.h" />
     <ClInclude Include="TransitionScene.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

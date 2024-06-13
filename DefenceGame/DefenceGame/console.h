@@ -1,8 +1,10 @@
 #pragma once
 #include<Windows.h>
+#include"Vector2.h"
 void fullScreen();
 //void gotoxy(int x, int y);
 BOOL gotoxy(int x, int y);
+BOOL gotoxy(const Vector2& pos);
 COORD getCursorPos();
 void setCursorVisible(bool vis, DWORD size);
 void setColor(int txtColor = 15, int bgColor = 0);
