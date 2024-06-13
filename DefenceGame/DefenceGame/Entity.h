@@ -11,6 +11,9 @@ enum class ENTITY_TYPE
 
 class Entity
 {
+public:
+	Entity();
+	virtual ~Entity();
 protected:
 	ENTITY_TYPE _type;
 	Vector2 _currentPos;

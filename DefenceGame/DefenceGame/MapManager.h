@@ -10,6 +10,6 @@ public:
 	Cell* getCell(const Vector2& pos);
 	void registerEntityInCell(Entity* entity, const Vector2& pos);
 	void deregisterEntityInCell(Entity* entity, const Vector2& pos);
-public:
+private:
 	Cell arrMap[MAP_HEIGHT][MAP_WIDTH];
 };
