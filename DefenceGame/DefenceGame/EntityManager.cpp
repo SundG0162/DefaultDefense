@@ -7,26 +7,36 @@
 EntityManager* EntityManager::m_pInst = nullptr;
 void EntityManager::init()
 {
-	_allyMap.insert({ ALLY_TYPE::ARCHER, new Archer });
-
-	_enemyMap.insert({ ENEMY_TYPE::GOBLIN, new Goblin(ENTITY_TYPE::ENEMY, "■", COLOR::GREEN) });
+	_allyMap.insert(std::make_pair(ALLY_TYPE::ARCHER, []() -> Ally* { return new Archer(); }));
+	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOBLIN, []() -> Enemy* { return new Goblin(ENTITY_TYPE::ENEMY, "■", COLOR::GREEN); }));
 }
 
 Ally* EntityManager::spawnAlly(ALLY_TYPE type, const Vector2& pos)
 {
-	Ally* ally = _allyMap[type];
-	ally->setPos(pos);
-	_allyVec.push_back(ally);
-	return ally;
+	auto it = _allyMap.find(type);
+	if (it != _allyMap.end())
+	{
+		Ally* ally = (it->second)();
+		ally->setPos(pos);
+		_allyVec.push_back(ally);
+		return ally;
+	}
+	return nullptr;
 }
 
 Enemy* EntityManager::spawnEnemy(ENEMY_TYPE type, const Vector2& pos)
 {
-	Enemy* enemy = _enemyMap[type];
-	enemy->setPos(pos);
-	_enemyVec.push_back(enemy);
-	return enemy;
+	auto it = _enemyMap.find(type);
+	if (it != _enemyMap.end())
+	{
+		Enemy* enemy = (it->second)(); // 함수 포인터 호출하여 객체 생성
+		enemy->setPos(pos);
+		_enemyVec.push_back(enemy);
+		return enemy;
+	}
+	return nullptr;
 }
+
 
 void EntityManager::despawnAlly(Ally* ally)
 {
@@ -35,6 +45,7 @@ void EntityManager::despawnAlly(Ally* ally)
 	if (it != _allyVec.end())
 	{
 		_allyVec.erase(it);
+		delete& it;
 	}
 }
 
@@ -45,5 +56,6 @@ void EntityManager::despawnEnemy(Enemy* enemy)
 	if (it != _enemyVec.end())
 	{
 		_enemyVec.erase(it);
+		delete& it;
 	}
 }

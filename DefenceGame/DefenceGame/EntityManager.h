@@ -20,8 +20,8 @@ public:
 	vector<Enemy*> getEnemies() { return _enemyVec; }
 	vector<Ally*> getAllies() { return _allyVec; }
 private:
-	map<ALLY_TYPE, Ally*> _allyMap;
-	map<ENEMY_TYPE, Enemy*> _enemyMap;
+	map<ALLY_TYPE, Ally*(*)()> _allyMap;
+	map<ENEMY_TYPE, Enemy*(*)()> _enemyMap;
 	vector<Enemy*> _enemyVec;
 	vector<Ally*> _allyVec;
 };
