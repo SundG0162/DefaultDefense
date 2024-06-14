@@ -10,6 +10,17 @@ Enemy::Enemy(ENTITY_TYPE type, string renderString, const Vector2& spawnPos)
 	_currentPos = spawnPos;
 }
 
+Enemy::~Enemy()
+{
+}
+
+void Enemy::Move()
+{
+	GET_SINGLETON(MapManager)->deregisterEntityInCell(this, _currentPos);
+	_currentPos += _facingDir;
+	GET_SINGLETON(MapManager)->registerEntityInCell(this, _currentPos);
+}
+
 void Enemy::ModifyHP(int value)
 {
 	_hp += value;

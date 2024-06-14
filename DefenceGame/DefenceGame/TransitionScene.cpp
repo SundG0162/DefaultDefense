@@ -78,5 +78,5 @@ void TransitionScene:: render()
     setColor((int)COLOR::WHITE);
     system("cls");
 
-    GET_SINGLETON(SceneManager)->loadScene(GET_SINGLETON(SceneManager)->transitionSceneName);
+    GET_SINGLETON(SceneManager)->loadScene(GET_SINGLETON(SceneManager)->getTransitionScene());
 }

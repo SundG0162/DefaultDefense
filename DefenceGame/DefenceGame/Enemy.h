@@ -8,9 +8,10 @@ public:
 protected:
 	int _hp;
 	int _rewardGold;
-	int moveSpeed;
+	int _moveSpeed;
+	Vector2 _facingDir;
 public:
-	virtual void Move() abstract;
+	virtual void Move();
 	virtual void ModifyHP(int value);
 	virtual bool CheckDead();
 	virtual void Dead();

@@ -11,5 +11,5 @@ public:
 	void registerEntityInCell(Entity* entity, const Vector2& pos);
 	void deregisterEntityInCell(Entity* entity, const Vector2& pos);
 private:
-	Cell arrMap[MAP_HEIGHT][MAP_WIDTH];
+	Cell _arrMap[MAP_HEIGHT][MAP_WIDTH];
 };
