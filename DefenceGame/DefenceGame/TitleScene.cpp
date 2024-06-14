@@ -6,6 +6,7 @@
 #include <fcntl.h>
 #include <io.h>
 #include "SceneManager.h"
+#include"Key.h"
 
 using namespace std;
 
