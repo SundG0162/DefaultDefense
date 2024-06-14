@@ -19,10 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Ally.cpp" />
+    <ClCompile Include="Archer.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="console.cpp" />
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="EntityManager.cpp" />
+    <ClCompile Include="Goblin.cpp" />
     <ClCompile Include="InfoScene.cpp" />
     <ClCompile Include="InGameScene.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -36,11 +40,15 @@
     <ClCompile Include="Vector2.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ally.h" />
+    <ClInclude Include="Archer.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="console.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="EntityManager.h" />
+    <ClInclude Include="Goblin.h" />
     <ClInclude Include="InfoScene.h" />
     <ClInclude Include="InGameScene.h" />
     <ClInclude Include="MapManager.h" />
@@ -50,6 +58,7 @@
     <ClInclude Include="TitleScene.h" />
     <ClInclude Include="TransitionScene.h" />
     <ClInclude Include="Entity.h" />
+    <ClInclude Include="Type.h" />
     <ClInclude Include="Vector2.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

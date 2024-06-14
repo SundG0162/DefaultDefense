@@ -13,11 +13,16 @@ class EntityManager
 public:
 	void init();
 public:
-	Ally* spawnAlly(ALLY_TYPE type, const Vector2& pos);
-	Enemy* spawnEnemy(ENEMY_TYPE type, const Vector2& pos);
-	Entity* SpawnEntity(TRAP_TYPE type, const Vector2& pos);
+	unique_ptr<Ally> spawnAlly(ALLY_TYPE type, const Vector2& pos);
+	unique_ptr<Enemy> spawnEnemy(ENEMY_TYPE type, const Vector2& pos);
+	void despawnAlly(Ally* ally);
+	void despawnEnemy(Enemy* enemy);
+	vector<unique_ptr<Enemy>> getEnemies() { return _enemyVec; }
+	vector<unique_ptr<Ally>> getAllies() { return _allyVec; }
 private:
-	map<ALLY_TYPE, Ally*> _allyMap;
-	map<ENEMY_TYPE, Enemy*> _enemyMap;
+	map<ALLY_TYPE, unique_ptr<Ally>> _allyMap;
+	map<ENEMY_TYPE, unique_ptr<Enemy>> _enemyMap;
+	vector<unique_ptr<Enemy>> _enemyVec;
+	vector<unique_ptr<Ally>> _allyVec;
 };
 

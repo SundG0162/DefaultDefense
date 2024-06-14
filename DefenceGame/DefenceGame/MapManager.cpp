@@ -19,5 +19,6 @@ void MapManager::registerEntityInCell(Entity* entity, const Vector2& pos)
 
 void MapManager::deregisterEntityInCell(Entity* entity, const Vector2& pos)
 {
+	
 	_arrMap[pos.y][pos.x].deregisterEntity(entity);
 }

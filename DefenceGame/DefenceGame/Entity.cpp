@@ -11,6 +11,7 @@ Entity::~Entity()
 
 void Entity::setPos(const Vector2& pos)
 {
+	GET_SINGLETON(MapManager)->deregisterEntityInCell(this, _currentPos);
 	_currentPos = pos;
 	GET_SINGLETON(MapManager)->registerEntityInCell(this, _currentPos);
 }

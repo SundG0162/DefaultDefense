@@ -1,4 +1,10 @@
 #pragma once
+enum class MAP_TYPE
+{
+	WALL,
+	ROAD,
+	PLACE
+};
 enum class ENTITY_TYPE
 {
 	ALLY,
@@ -8,12 +14,12 @@ enum class ENTITY_TYPE
 
 enum class ALLY_TYPE
 {
-	DEFAULT
+	ARCHER
 };
 
 enum class ENEMY_TYPE
 {
-	DEFAULT
+	GOBLIN
 };
 
 enum class TRAP_TYPE
