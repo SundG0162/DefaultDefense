@@ -7,6 +7,7 @@
 #include "SceneManager.h"
 #include "console.h"
 #include "Key.h"
+#include "TitleScene.h"
 
 using namespace std;
 
@@ -71,18 +72,20 @@ void InfoScene::render()
             {
                 gotoxy(x - 39, y);
                 cout << " ";
-                gotoxy(x - 39, y - 8);
+                y -= 8;
+                gotoxy(x - 39, y);
                 cout << ">";
                 Sleep(100);
             }
             break;
 
         case KEY::DOWN:
-            if (y < originy + 8)
+            if (y < originy + 16)
             {
                 gotoxy(x - 39, y);
                 cout << " ";
-                gotoxy(x - 39, y + 8);
+                y += 8;
+                gotoxy(x - 39, y);
                 cout << ">";
                 Sleep(100);
             }
@@ -101,7 +104,7 @@ void InfoScene::render()
                 wcout << endl;
                 wcout << L"   ██████  ██       █████  ██    ██  ██████  ██    ██ ██ ██████  ███████" << endl;
                 wcout << L"   ██   ██ ██      ██   ██  ██  ██  ██       ██    ██ ██ ██   ██ ██     " << endl;
-                wcout << L" > ██████  ██      ███████   ████   ██   ███ ██    ██ ██ ██   ██ █████  " << endl;
+                wcout << L"   ██████  ██      ███████   ████   ██   ███ ██    ██ ██ ██   ██ █████  " << endl;
                 wcout << L"   ██      ██      ██   ██    ██    ██    ██ ██    ██ ██ ██   ██ ██     " << endl;
                 wcout << L"   ██      ███████ ██   ██    ██     ██████   ██████  ██ ██████  ███████" << endl;
 
@@ -119,7 +122,7 @@ void InfoScene::render()
                 cout << "스페이스바 - 선택" << endl;
                 cout << "esc - 뒤로가기" << endl;
             }
-            else if (originy + 8 == y)
+            if (originy + 8 == y)
             {
                 system("cls");
                 COORD Resolution = getConsoleResolution();
@@ -146,15 +149,16 @@ void InfoScene::render()
                 cout << "???" << endl;
                 cout << "???" << endl;
             }
-            else if (originy + 16 == y)
+            if (originy + 16 == y)
             {
-                GET_SINGLETON(SceneManager)->setTransition("TitleScene");
+                GET_SINGLETON(SceneManager)->setTransition("InfoScene");
                 GET_SINGLETON(SceneManager)->loadScene("TransitionScene");
             }
             break;
         }
     }
 }
+
 
 KEY InfoScene::KeyController()
 {
