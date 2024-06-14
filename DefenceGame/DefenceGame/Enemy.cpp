@@ -3,7 +3,7 @@
 #include"Define.h"
 
 
-Enemy::Enemy(ENTITY_TYPE type, string renderString, const Vector2& spawnPos)
+Enemy::Enemy(ENTITY_TYPE type, std::string renderString, const Vector2& spawnPos)
 {
 	_type = type;
 	_renderString = renderString;
