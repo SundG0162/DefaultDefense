@@ -1,13 +1,10 @@
 #pragma once
 #include "Scene.h"
+#include"Key.h"
 
 enum class MENU
 {
 	START, INFO, QUIT
-};
-enum class KEY
-{
-	UP, DOWN, SPACE
 };
 
 class TitleScene : public Scene

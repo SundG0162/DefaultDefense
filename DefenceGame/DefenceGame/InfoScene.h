@@ -1,10 +1,6 @@
 #pragma once
 #include"Scene.h"
-
-enum class KEY
-{
-    UP, DOWN, SPACE
-};
+#include"Key.h"
 
 class InfoScene : public Scene
 {
