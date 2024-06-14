@@ -18,7 +18,7 @@ void InGameScene::init()
 	std::fstream mapRead("Map\\Map1.txt");
 	if (mapRead.is_open())
 	{
-		for (int i = 0; i < MAP_HEIGHT; i++)
+		for (int i = 0; i < MAP_HEIGHT - 1; i++)
 		{
 			for (int j = 0; j < MAP_WIDTH; j++)
 			{
@@ -26,7 +26,7 @@ void InGameScene::init()
 
 				if (read == '0')
 				{
-					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::GRAY , "  " }, Vector2(j,i));
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::GRAY , "  " }, Vector2(j, i));
 				}
 				else if (read == '1')
 				{
@@ -34,7 +34,7 @@ void InGameScene::init()
 				}
 				else if (read == '2')
 				{
-					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::LIGHT_BLUE, "  " }, Vector2(j, i));
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::BLUE, "  " }, Vector2(j, i));
 				}
 				else if (read == '4')
 				{
@@ -60,15 +60,15 @@ void InGameScene::update()
 
 void InGameScene::render()
 {
-	gotoxy(0, 0);
+	gotoxy(30, 6);
 	for (int i = 0; i < MAP_HEIGHT; i++)
 	{
 		for (int j = 0; j < MAP_WIDTH; j++)
 		{
-			setColor((int)COLOR::WHITE, (int)GET_SINGLETON(MapManager)->getCell(Vector2(j,i))->bgColor);
-			cout << GET_SINGLETON(MapManager)->getCell(Vector2(j,i))->renderString;
+			setColor((int)COLOR::WHITE, (int)GET_SINGLETON(MapManager)->getCell(Vector2(j, i))->bgColor);
+			cout << GET_SINGLETON(MapManager)->getCell(Vector2(j, i))->renderString;
 		}
-		cout << std::endl;
+		gotoxy(30, 7 + i);
 	}
 	setColor((int)COLOR::WHITE, (int)COLOR::BLACK);
 }
