@@ -104,4 +104,5 @@ KEY TitleScene::KeyController()
     if (GetAsyncKeyState(VK_SPACE) & 0x8000) {
         return KEY::SPACE;
     }
+    return KEY::FAIL;
 }
