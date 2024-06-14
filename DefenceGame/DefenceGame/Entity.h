@@ -1,13 +1,8 @@
 #pragma once
 #include "Vector2.h"
 #include"Define.h"
+#include "Type.h"
 #include <string>
-enum class ENTITY_TYPE
-{
-	ALLY,
-	ENEMY,
-	TRAP
-};
 
 class Entity
 {
@@ -22,5 +17,6 @@ public:
 	ENTITY_TYPE getType() { return _type; }
 	Vector2 getPos() { return _currentPos; }
 	string getRenderString() { return _renderString; }
+	virtual void setPos(const Vector2& pos);
 };
 

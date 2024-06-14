@@ -5,6 +5,7 @@
 #include "InGameScene.h"
 #include"TransitionScene.h"
 #include"InfoScene.h"
+#include"EntityManager.h"
 
 Core::Core()
 {
@@ -15,7 +16,7 @@ Core::~Core()
 void Core::init()
 {
 	GET_SINGLETON(SceneManager)->init();
-
+	GET_SINGLETON(EntityManager)->init();
 	GET_SINGLETON(SceneManager)->registerScene("TitleScene", new TitleScene);
 	GET_SINGLETON(SceneManager)->registerScene("InGameScene", new InGameScene);
 	GET_SINGLETON(SceneManager)->registerScene("TransitionScene", new TransitionScene);

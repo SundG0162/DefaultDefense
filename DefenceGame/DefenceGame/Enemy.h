@@ -1,9 +1,10 @@
 #pragma once
 #include"Entity.h"
+#include"Define.h"
 class Enemy : public Entity
 {
 public:
-	Enemy(ENTITY_TYPE type, string renderString, const Vector2& spawnPos);
+	Enemy(ENTITY_TYPE type, std::string renderString, const Vector2& spawnPos);
 	virtual ~Enemy();
 protected:
 	int _hp;

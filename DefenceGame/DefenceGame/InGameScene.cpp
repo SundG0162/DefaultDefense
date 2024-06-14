@@ -60,6 +60,11 @@ void InGameScene::update()
 
 void InGameScene::render()
 {
+	mapRender();
+}
+
+void InGameScene::mapRender()
+{
 	gotoxy(30, 6);
 	for (int i = 0; i < MAP_HEIGHT; i++)
 	{
