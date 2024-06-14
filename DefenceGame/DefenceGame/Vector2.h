@@ -8,11 +8,11 @@ struct Vector2
 	int y;
 
 	Vector2 operator+(const Vector2& other);
-	Vector2 operator+=(const Vector2& other);
+	void operator+=(const Vector2& other);
 	Vector2 operator-(const Vector2& other);
-	Vector2 operator-=(const Vector2& other);
+	void operator-=(const Vector2& other);
 	Vector2 operator*(const Vector2& other);
-	Vector2 operator*=(const Vector2& other);
+	void operator*=(const Vector2& other);
 	Vector2 operator*(int scalar);
-	Vector2 operator*=(int scalar);
+	void operator*=(int scalar);
 };

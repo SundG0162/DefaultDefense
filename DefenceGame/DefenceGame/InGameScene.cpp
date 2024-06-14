@@ -4,7 +4,7 @@
 #include"console.h"
 #include"Cell.h"
 #include"MapManager.h"
-
+#include"EntityManager.h"
 InGameScene::InGameScene()
 {
 }
@@ -18,7 +18,7 @@ void InGameScene::init()
 	std::fstream mapRead("Map\\Map1.txt");
 	if (mapRead.is_open())
 	{
-		for (int i = 0; i < MAP_HEIGHT; i++)
+		for (int i = 0; i < MAP_HEIGHT - 1; i++)
 		{
 			for (int j = 0; j < MAP_WIDTH; j++)
 			{
@@ -26,19 +26,19 @@ void InGameScene::init()
 
 				if (read == '0')
 				{
-					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::GRAY , "  " }, Vector2(j,i));
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::GRAY , "  " , MAP_TYPE::WALL}, Vector2(j, i));
 				}
 				else if (read == '1')
 				{
-					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::LIGHT_GRAY, "  " }, Vector2(j, i));
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::LIGHT_GRAY, "  ", MAP_TYPE::ROAD }, Vector2(j, i));
 				}
 				else if (read == '2')
 				{
-					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::LIGHT_BLUE, "  " }, Vector2(j, i));
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::BLUE, "  ", MAP_TYPE::PLACE}, Vector2(j, i));
 				}
 				else if (read == '4')
 				{
-					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::YELLOW, "  " }, Vector2(j, i));
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::YELLOW, "  ", MAP_TYPE::WALL}, Vector2(j, i));
 				}
 
 				if (mapRead.fail())
@@ -55,20 +55,43 @@ void InGameScene::init()
 
 void InGameScene::update()
 {
-
+	enemyMove();
+	if (GetAsyncKeyState('A'))
+	{
+		GET_SINGLETON(EntityManager)->spawnEnemy(ENEMY_TYPE::GOBLIN, Vector2(0, 10));
+	}
 }
 
 void InGameScene::render()
 {
-	gotoxy(0, 0);
+	mapRender();
+}
+
+void InGameScene::enemyMove()
+{
+	for (auto& i : GET_SINGLETON(EntityManager)->getEnemies())
+	{
+		i->TryMove();
+	}
+}
+
+void InGameScene::mapRender()
+{
+	gotoxy(30, 6);
 	for (int i = 0; i < MAP_HEIGHT; i++)
 	{
 		for (int j = 0; j < MAP_WIDTH; j++)
 		{
-			setColor((int)COLOR::WHITE, (int)GET_SINGLETON(MapManager)->getCell(Vector2(j,i))->bgColor);
-			cout << GET_SINGLETON(MapManager)->getCell(Vector2(j,i))->renderString;
+			Vector2 pos = Vector2(j, i);
+			setColor((int)GET_SINGLETON(MapManager)->getCell(pos)->charColor, (int)GET_SINGLETON(MapManager)->getCell(Vector2(j, i))->bgColor);
+			entityRender(Vector2(j, i));
 		}
-		cout << std::endl;
+		gotoxy(30, 7 + i);
 	}
 	setColor((int)COLOR::WHITE, (int)COLOR::BLACK);
+}
+
+void InGameScene::entityRender(const Vector2& pos)
+{
+	cout << GET_SINGLETON(MapManager)->getCell(pos)->renderString;
 }

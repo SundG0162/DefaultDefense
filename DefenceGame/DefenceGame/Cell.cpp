@@ -10,11 +10,28 @@ Cell::Cell()
 void Cell::registerEntity(Entity* entity)
 {
 	entityVec.push_back(entity);
+	renderString = entity->getRenderString();
+	charColor = entity->getColor();
 }
 
 void Cell::deregisterEntity(Entity* entity)
 {
-	entityVec.erase(find(entityVec.begin(), entityVec.end(), entity));
+	auto it = find(entityVec.begin(), entityVec.end(), entity);
+	if (it != entityVec.end())
+	{
+		entityVec.erase(it);
+	}
+
+	if (entityVec.size() != 0)
+	{
+		renderString = entityVec.back()->getRenderString();
+		charColor = entityVec.back()->getColor();
+	}
+	else
+	{
+		renderString = "  ";
+		charColor = COLOR::WHITE;
+	}
 }
 
 void Cell::setRenderString(const string& str)

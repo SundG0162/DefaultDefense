@@ -1,17 +1,28 @@
 #include "Enemy.h"
 #include"MapManager.h"
 #include"Define.h"
+#include<time.h>
+#include"EntityManager.h"
 
-
-Enemy::Enemy(ENTITY_TYPE type, string renderString, const Vector2& spawnPos)
+Enemy::Enemy()
 {
-	_type = type;
-	_renderString = renderString;
-	_currentPos = spawnPos;
 }
 
 Enemy::~Enemy()
 {
+}
+
+void Enemy::TryMove()
+{
+	_moveTimer = clock();
+	gotoxy(0, 0);
+	cout << _currentPos.x << ", " << _currentPos.y;
+	if (_moveTimer - _lastMoveTime > _moveTime)
+	{
+		Move();
+		_lastMoveTime = _moveTimer;
+		_isMoved = true;
+	}
 }
 
 void Enemy::Move()
@@ -33,5 +44,5 @@ bool Enemy::CheckDead()
 
 void Enemy::Dead()
 {
-	GET_SINGLETON(MapManager)->deregisterEntityInCell(this, _currentPos);
+	GET_SINGLETON(EntityManager)->despawnEnemy(this);
 }
