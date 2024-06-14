@@ -3,7 +3,7 @@
 
 enum class MENU
 {
-	START, QUIT
+	START, INFO, QUIT
 };
 enum class KEY
 {

@@ -42,6 +42,8 @@ void TitleScene::render()
     gotoxy(x - 2, y);
     cout << "> 게임 시작";
     gotoxy(x, y + 1);
+    cout << "게임 정보";
+    gotoxy(x, y + 2);
     cout << "게임 종료";
 
     while (true)
@@ -60,7 +62,7 @@ void TitleScene::render()
             }
             break;
         case KEY::DOWN:
-            if (y < originy + 1)
+            if (y < originy + 2)
             {
                 gotoxy(x - 2, y);
                 cout << " ";
@@ -70,8 +72,20 @@ void TitleScene::render()
             }
             break;
         case KEY::SPACE:
-            GET_SINGLETON(SceneManager)->setTransition("InGameScene");
-            GET_SINGLETON(SceneManager)->loadScene("TransitionScene");
+            if (originy == y)
+            {
+                GET_SINGLETON(SceneManager)->setTransition("InGameScene");
+                GET_SINGLETON(SceneManager)->loadScene("TransitionScene");
+            }
+            if (originy + 1== y)
+            {
+                GET_SINGLETON(SceneManager)->setTransition("InfoScene");
+                GET_SINGLETON(SceneManager)->loadScene("TransitionScene");
+            }
+            if (originy + 2 == y)
+            {
+
+            }
             system("cls");
             return;
         }
