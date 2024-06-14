@@ -6,6 +6,7 @@
 #include "Define.h"
 #include "SceneManager.h"
 #include "console.h"
+#include"Key.h"
 
 using namespace std;
 
