@@ -69,7 +69,7 @@ void InGameScene::render()
 
 void InGameScene::enemyMove()
 {
-	for (auto i : GET_SINGLETON(EntityManager)->getEnemies())
+	for (auto& i : GET_SINGLETON(EntityManager)->getEnemies())
 	{
 		i->TryMove();
 	}
