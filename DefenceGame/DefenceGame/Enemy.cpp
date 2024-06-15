@@ -44,5 +44,5 @@ bool Enemy::CheckDead()
 
 void Enemy::Dead()
 {
-	GET_SINGLETON(EntityManager)->despawnEnemy(this);
+	GET_SINGLETON(EntityManager)->despawnEntity(this);
 }

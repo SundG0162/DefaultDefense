@@ -20,17 +20,16 @@ void Cell::deregisterEntity(Entity* entity)
 	if (it != entityVec.end())
 	{
 		entityVec.erase(it);
-	}
-
-	if (entityVec.size() != 0)
-	{
-		renderString = entityVec.back()->getRenderString();
-		charColor = entityVec.back()->getColor();
-	}
-	else
-	{
-		renderString = "  ";
-		charColor = COLOR::WHITE;
+		if (entityVec.size() != 0)
+		{
+			renderString = entityVec.back()->getRenderString();
+			charColor = entityVec.back()->getColor();
+		}
+		else
+		{
+			renderString = "  ";
+			charColor = COLOR::WHITE;
+		}
 	}
 }
 

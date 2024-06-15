@@ -22,4 +22,3 @@ public:
 	string getRenderString() { return _renderString; }
 	virtual void setPos(const Vector2& pos);
 };
-
