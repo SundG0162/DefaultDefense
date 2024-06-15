@@ -1,5 +1,6 @@
 #pragma once
 #include "Entity.h"
+#include"Enemy.h"
 class Ally : public Entity
 {
 public:
@@ -7,6 +8,7 @@ public:
 	virtual ~Ally();
 private:
 	int _attackTime = 500;
+	int _attackRange = 5;
 	int _damage = 5;
 	int _price = 20;
 public:
