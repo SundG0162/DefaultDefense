@@ -50,15 +50,14 @@ void InGameScene::init()
 		}
 	}
 	mapRead.close();
-
 }
-
+	
 void InGameScene::update()
 {
 	enemyMove();
 	if (GetAsyncKeyState('A'))
 	{
-		GET_SINGLETON(EntityManager)->spawnEnemy(ENEMY_TYPE::GOBLIN, Vector2(0, 10));
+		GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, Vector2(0, 10));
 	}
 }
 
@@ -71,7 +70,7 @@ void InGameScene::enemyMove()
 {
 	for (auto& i : GET_SINGLETON(EntityManager)->getEnemies())
 	{
-		i->TryMove();
+		i->tryMove();
 	}
 }
 

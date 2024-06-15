@@ -12,37 +12,37 @@ Enemy::~Enemy()
 {
 }
 
-void Enemy::TryMove()
+void Enemy::tryMove()
 {
 	_moveTimer = clock();
 	gotoxy(0, 0);
 	cout << _currentPos.x << ", " << _currentPos.y;
 	if (_moveTimer - _lastMoveTime > _moveTime)
 	{
-		Move();
+		move();
 		_lastMoveTime = _moveTimer;
 		_isMoved = true;
 	}
 }
 
-void Enemy::Move()
+void Enemy::move()
 {
 	GET_SINGLETON(MapManager)->deregisterEntityInCell(this, _currentPos);
 	_currentPos += _facingDir;
 	GET_SINGLETON(MapManager)->registerEntityInCell(this, _currentPos);
 }
 
-void Enemy::ModifyHP(int value)
+void Enemy::modifyHP(int value)
 {
 	_hp += value;
 }
 
-bool Enemy::CheckDead()
+bool Enemy::checkDead()
 {
 	return _hp <= 0;
 }
 
-void Enemy::Dead()
+void Enemy::dead()
 {
-	GET_SINGLETON(EntityManager)->despawnEnemy(this);
+	GET_SINGLETON(EntityManager)->despawnEntity(this);
 }

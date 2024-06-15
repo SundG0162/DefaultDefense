@@ -11,12 +11,12 @@ void EntityManager::init()
 	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOBLIN, []() -> Enemy* { return new Goblin(ENTITY_TYPE::ENEMY, "■", COLOR::GREEN); }));
 }
 
-Ally* EntityManager::spawnAlly(ALLY_TYPE type, const Vector2& pos)
+Ally* EntityManager::spawnEntity(ALLY_TYPE type, const Vector2& pos)
 {
 	auto it = _allyMap.find(type);
 	if (it != _allyMap.end())
 	{
-		Ally* ally = (it->second)();
+		Ally* ally = it->second();
 		ally->setPos(pos);
 		_allyVec.push_back(ally);
 		return ally;
@@ -24,12 +24,12 @@ Ally* EntityManager::spawnAlly(ALLY_TYPE type, const Vector2& pos)
 	return nullptr;
 }
 
-Enemy* EntityManager::spawnEnemy(ENEMY_TYPE type, const Vector2& pos)
+Enemy* EntityManager::spawnEntity(ENEMY_TYPE type, const Vector2& pos)
 {
 	auto it = _enemyMap.find(type);
 	if (it != _enemyMap.end())
 	{
-		Enemy* enemy = (it->second)(); // 함수 포인터 호출하여 객체 생성
+		Enemy* enemy = it->second();
 		enemy->setPos(pos);
 		_enemyVec.push_back(enemy);
 		return enemy;
@@ -38,7 +38,7 @@ Enemy* EntityManager::spawnEnemy(ENEMY_TYPE type, const Vector2& pos)
 }
 
 
-void EntityManager::despawnAlly(Ally* ally)
+void EntityManager::despawnEntity(Ally* ally)
 {
 	GET_SINGLETON(MapManager)->deregisterEntityInCell(ally, ally->getPos());
 	auto it = find(_allyVec.begin(), _allyVec.end(), ally);
@@ -49,7 +49,7 @@ void EntityManager::despawnAlly(Ally* ally)
 	}
 }
 
-void EntityManager::despawnEnemy(Enemy* enemy)
+void EntityManager::despawnEntity(Enemy* enemy)
 {
 	GET_SINGLETON(MapManager)->deregisterEntityInCell(enemy, enemy->getPos());
 	auto it = find(_enemyVec.begin(), _enemyVec.end(), enemy);
