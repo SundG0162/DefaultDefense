@@ -9,7 +9,7 @@ public:
 protected:
 	int _hp;
 	int _rewardGold;
-	int _moveTime = 2000;
+	int _moveTime;
 	int _lastMoveTime = 0;
 	Vector2 _facingDir = Vector2(1,0);
 	bool _isMoved = true;

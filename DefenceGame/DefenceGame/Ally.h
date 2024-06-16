@@ -6,7 +6,7 @@ class Ally : public Entity
 public:
 	Ally();
 	virtual ~Ally();
-private:
+protected:
 	int _attackTime = 500;
 	int _attackRange = 5;
 	int _damage = 5;

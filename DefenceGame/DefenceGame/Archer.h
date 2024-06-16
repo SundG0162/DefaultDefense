@@ -4,7 +4,7 @@
 class Archer : public Ally
 {
 public:
-	Archer();
+	Archer(int attackTime, int attackRange, int damage, int price);
 	~Archer();
 public:
 	void attack() override;
