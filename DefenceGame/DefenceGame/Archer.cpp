@@ -1,7 +1,10 @@
 #include "Archer.h"
 
-Archer::Archer(int attackTime, int attackRange, int damage, int price)
+Archer::Archer(ENTITY_TYPE type, std::string renderString, COLOR color, int attackTime, int attackRange, int damage, int price)
 {
+	_type = type;
+	_renderString = renderString;
+	_color = color;
 	_attackTime = attackTime;
 	_attackRange = attackRange;
 	_damage = damage;
