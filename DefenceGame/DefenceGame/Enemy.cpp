@@ -15,13 +15,10 @@ Enemy::~Enemy()
 void Enemy::tryMove()
 {
 	_moveTimer = clock();
-	gotoxy(0, 0);
-	cout << _currentPos.x << ", " << _currentPos.y;
 	if (_moveTimer - _lastMoveTime > _moveTime)
 	{
 		move();
 		_lastMoveTime = _moveTimer;
-		_isMoved = true;
 	}
 }
 
