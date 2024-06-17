@@ -17,6 +17,7 @@ Archer::~Archer()
 
 void Archer::attack()
 {
+	Enemy* target = defineTarget();
 }
 
 Enemy* Archer::defineTarget()

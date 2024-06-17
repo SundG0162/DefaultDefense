@@ -82,7 +82,8 @@ void InGameScene::mapRender()
 		for (int j = 0; j < MAP_WIDTH; j++)
 		{
 			Vector2 pos = Vector2(j, i);
-			setColor((int)GET_SINGLETON(MapManager)->getCell(pos)->charColor, (int)GET_SINGLETON(MapManager)->getCell(Vector2(j, i))->bgColor);
+			Cell* cell = GET_SINGLETON(MapManager)->getCell(pos);
+			setColor((int)cell->charColor, (int)cell->bgColor);
 			entityRender(Vector2(j, i));
 		}
 		gotoxy(30, 7 + i);
