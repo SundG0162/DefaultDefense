@@ -5,6 +5,7 @@
 #include"Cell.h"
 #include"MapManager.h"
 #include"EntityManager.h"
+
 InGameScene::InGameScene()
 {
 }
@@ -54,11 +55,22 @@ void InGameScene::init()
 	
 void InGameScene::update()
 {
+	COORD Resolution = getConsoleResolution();
+	int x = Resolution.X / 3;
+	int y = Resolution.Y / 5.5;
+	int originy = y;
+
 	enemyMove();
 	if (GetAsyncKeyState('A'))
 	{
 		GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, Vector2(0, 10));
 	}
+
+
+	gotoxy(x + 3, y - 5);
+	cout << " 현재 웨이브 :  " << endl;
+	gotoxy(x + 3, y - 4);
+	cout << "남은 적 수 : " << GET_SINGLETON(EntityManager)->getEnemies().size() << endl;
 }
 
 void InGameScene::render()
