@@ -102,11 +102,11 @@ void InfoScene::render()
 
                 gotoxy(x, y);
                 wcout << endl;
-                wcout << L"   ██████  ██       █████  ██    ██  ██████  ██    ██ ██ ██████  ███████" << endl;
-                wcout << L"   ██   ██ ██      ██   ██  ██  ██  ██       ██    ██ ██ ██   ██ ██     " << endl;
-                wcout << L"   ██████  ██      ███████   ████   ██   ███ ██    ██ ██ ██   ██ █████  " << endl;
-                wcout << L"   ██      ██      ██   ██    ██    ██    ██ ██    ██ ██ ██   ██ ██     " << endl;
-                wcout << L"   ██      ███████ ██   ██    ██     ██████   ██████  ██ ██████  ███████" << endl;
+                wcout << L"     ██████  ██       █████  ██    ██  ██████  ██    ██ ██ ██████  ███████" << endl;
+                wcout << L"     ██   ██ ██      ██   ██  ██  ██  ██       ██    ██ ██ ██   ██ ██     " << endl;
+                wcout << L"     ██████  ██      ███████   ████   ██   ███ ██    ██ ██ ██   ██ █████  " << endl;
+                wcout << L"     ██      ██      ██   ██    ██    ██    ██ ██    ██ ██ ██   ██ ██     " << endl;
+                wcout << L"     ██      ███████ ██   ██    ██     ██████   ██████  ██ ██████  ███████" << endl;
 
                 _setmode(_fileno(stdout), prevmode);
 
@@ -122,7 +122,7 @@ void InfoScene::render()
                 cout << "스페이스바 - 선택" << endl;
                 cout << "esc - 뒤로가기" << endl;
             }
-            if (originy + 8 == y)
+            else if (originy + 8 == y)
             {
                 system("cls");
                 COORD Resolution = getConsoleResolution();
@@ -132,11 +132,11 @@ void InfoScene::render()
 
                 gotoxy(x, y);
                 wcout << endl;
-                wcout << L"   ███████ ███    ██ ███████ ███    ███ ██    ██  ██████  ██    ██ ██ ██████  ███████" << endl;
-                wcout << L"   ██      ████   ██ ██      ████  ████  ██  ██  ██       ██    ██ ██ ██   ██ ██     " << endl;
-                wcout << L"   █████   ██ ██  ██ █████   ██ ████ ██   ████   ██   ███ ██    ██ ██ ██   ██ █████  " << endl;
-                wcout << L"   ██      ██  ██ ██ ██      ██  ██  ██    ██    ██    ██ ██    ██ ██ ██   ██ ██     " << endl;
-                wcout << L"   ███████ ██   ████ ███████ ██      ██    ██     ██████   ██████  ██ ██████  ███████" << endl;
+                wcout << L"     ███████ ███    ██ ███████ ███    ███ ██    ██  ██████  ██    ██ ██ ██████  ███████" << endl;
+                wcout << L"     ██      ████   ██ ██      ████  ████  ██  ██  ██       ██    ██ ██ ██   ██ ██     " << endl;
+                wcout << L"     █████   ██ ██  ██ █████   ██ ████ ██   ████   ██   ███ ██    ██ ██ ██   ██ █████  " << endl;
+                wcout << L"     ██      ██  ██ ██ ██      ██  ██  ██    ██    ██    ██ ██    ██ ██ ██   ██ ██     " << endl;
+                wcout << L"     ███████ ██   ████ ███████ ██      ██    ██     ██████   ██████  ██ ██████  ███████" << endl;
 
                 _setmode(_fileno(stdout), prevmode);
 
@@ -149,16 +149,17 @@ void InfoScene::render()
                 cout << "???" << endl;
                 cout << "???" << endl;
             }
-            if (originy + 16 == y)
+            else if (originy + 16 == y)
             {
-                GET_SINGLETON(SceneManager)->setTransition("InfoScene");
+                system("cls");
+                GET_SINGLETON(SceneManager)->setTransition("TitleScene");
                 GET_SINGLETON(SceneManager)->loadScene("TransitionScene");
+                return;
             }
             break;
         }
     }
 }
-
 
 KEY InfoScene::KeyController()
 {
