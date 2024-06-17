@@ -55,7 +55,7 @@ void InGameScene::init()
 	}
 	mapRead.close();
 
-	GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, Vector2(0, 10), ROAD_TYPE::SECOND);
+	GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, ENEMY_SPAWNPOS, ROAD_TYPE::SECOND);
 }
 	
 void InGameScene::update()

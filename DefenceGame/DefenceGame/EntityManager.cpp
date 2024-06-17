@@ -30,7 +30,9 @@ Enemy* EntityManager::spawnEntity(ENEMY_TYPE type, const Vector2& pos, ROAD_TYPE
 	if (it != _enemyMap.end())
 	{
 		Enemy* enemy = it->second();
-		enemy->setPos(pos);
+		Vector2 spawnPos = pos;
+		spawnPos = road == ROAD_TYPE::FIRST ? spawnPos : spawnPos + Vector2(0, 1);
+		enemy->setPos(spawnPos);
 		enemy->setRoad(road);
 		_enemyVec.push_back(enemy);
 		return enemy;
