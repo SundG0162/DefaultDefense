@@ -85,7 +85,7 @@ void TitleScene::render()
             }
             if (originy + 2 == y)
             {
-
+                exit(0);
             }
             system("cls");
             return;
