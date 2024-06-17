@@ -24,13 +24,14 @@ Ally* EntityManager::spawnEntity(ALLY_TYPE type, const Vector2& pos)
 	return nullptr;
 }
 
-Enemy* EntityManager::spawnEntity(ENEMY_TYPE type, const Vector2& pos)
+Enemy* EntityManager::spawnEntity(ENEMY_TYPE type, const Vector2& pos, ROAD_TYPE road)
 {
 	auto it = _enemyMap.find(type);
 	if (it != _enemyMap.end())
 	{
 		Enemy* enemy = it->second();
 		enemy->setPos(pos);
+		enemy->setRoad(road);
 		_enemyVec.push_back(enemy);
 		return enemy;
 	}

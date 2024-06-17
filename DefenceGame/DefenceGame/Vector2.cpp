@@ -42,3 +42,8 @@ void Vector2::operator*=(int scalar)
 	x += scalar;
 	y += scalar;
 }
+
+bool Vector2::operator==(const Vector2& other)
+{
+	return x == other.x && y == other.y;
+}

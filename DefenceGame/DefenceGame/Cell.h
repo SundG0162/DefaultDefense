@@ -7,9 +7,10 @@ class Cell
 {
 public:
 	Cell();
-	Cell(COLOR col, string str, MAP_TYPE type) : bgColor{ col }, renderString{ str }, _type{ type } {};
+	Cell(COLOR col, string str, MAP_TYPE type, ROAD_TYPE roadType) : bgColor{ col }, renderString{ str }, type{ type }, roadType{ roadType } {};
 public:
-	MAP_TYPE _type;
+	MAP_TYPE type;
+	ROAD_TYPE roadType;
 	COLOR bgColor = COLOR::BLACK;
 	COLOR charColor = COLOR::WHITE;
 	string renderString = "  ";

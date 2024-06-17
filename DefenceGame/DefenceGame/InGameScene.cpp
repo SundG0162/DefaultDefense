@@ -26,19 +26,23 @@ void InGameScene::init()
 
 				if (read == '0')
 				{
-					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::GRAY , "  " , MAP_TYPE::WALL}, Vector2(j, i));
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::GRAY , "  " , MAP_TYPE::WALL, ROAD_TYPE::NONE}, Vector2(j, i));
 				}
 				else if (read == '1')
 				{
-					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::LIGHT_GRAY, "  ", MAP_TYPE::ROAD }, Vector2(j, i));
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::LIGHT_GRAY, "  ", MAP_TYPE::ROAD, ROAD_TYPE::FIRST }, Vector2(j, i));
 				}
 				else if (read == '2')
 				{
-					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::BLUE, "  ", MAP_TYPE::PLACE}, Vector2(j, i));
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::BLUE, "  ", MAP_TYPE::PLACE, ROAD_TYPE::NONE }, Vector2(j, i));
+				}
+				else if (read == '3')
+				{
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::LIGHT_GRAY, "  ", MAP_TYPE::ROAD, ROAD_TYPE::SECOND }, Vector2(j, i));
 				}
 				else if (read == '4')
 				{
-					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::YELLOW, "  ", MAP_TYPE::WALL}, Vector2(j, i));
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::YELLOW, "  ", MAP_TYPE::WALL, ROAD_TYPE::NONE }, Vector2(j, i));
 				}
 
 				if (mapRead.fail())
@@ -50,15 +54,13 @@ void InGameScene::init()
 		}
 	}
 	mapRead.close();
+
+	GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, Vector2(0, 10), ROAD_TYPE::SECOND);
 }
 	
 void InGameScene::update()
 {
 	enemyMove();
-	if (GetAsyncKeyState('A'))
-	{
-		GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, Vector2(0, 10));
-	}
 }
 
 void InGameScene::render()

@@ -12,6 +12,13 @@ enum class ENTITY_TYPE
 	TRAP
 };
 
+enum class ROAD_TYPE
+{
+	FIRST,
+	SECOND,
+	NONE
+};
+
 enum class ALLY_TYPE
 {
 	ARCHER
