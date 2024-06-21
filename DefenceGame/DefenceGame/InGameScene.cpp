@@ -96,7 +96,7 @@ void InGameScene::mapRender()
 			Vector2 pos = Vector2(j, i);
 			Cell* cell = GET_SINGLETON(MapManager)->getCell(pos);
 			setColor((int)cell->charColor, (int)cell->bgColor);
-			entityRender(Vector2(j, i));
+			entityRender(pos);
 		}
 		gotoxy(30, 7 + i);
 	}
