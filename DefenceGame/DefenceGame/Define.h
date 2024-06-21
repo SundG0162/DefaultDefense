@@ -3,6 +3,7 @@
 #include<string>
 #include<map>
 #include<vector>
+#include"Vector2.h"
 #define DECLARE_SINGLETON(type) \
 private:\
 	type() {}\
@@ -22,6 +23,8 @@ static type* getInstance()\
 
 #define MAP_WIDTH 31
 #define MAP_HEIGHT 20
+
+#define ENEMY_SPAWNPOS Vector2(0,9)
 
 using std::cin;
 using std::cout;

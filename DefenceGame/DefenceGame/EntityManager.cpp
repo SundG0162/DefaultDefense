@@ -8,7 +8,7 @@ EntityManager* EntityManager::m_pInst = nullptr;
 void EntityManager::init()
 {
 	_allyMap.insert(std::make_pair(ALLY_TYPE::ARCHER, []() -> Ally* { return new Archer(ENTITY_TYPE::ALLY, "в║", COLOR::BLUE, 1000, 10, 5, 20); }));
-	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOBLIN, []() -> Enemy* { return new Goblin(ENTITY_TYPE::ENEMY, "бс", COLOR::GREEN, 10, 1000, 10); }));
+	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOBLIN, []() -> Enemy* { return new Goblin(ENTITY_TYPE::ENEMY, "бс", COLOR::GREEN, 10, 100, 10); }));
 }
 
 Ally* EntityManager::spawnEntity(ALLY_TYPE type, const Vector2& pos)
@@ -24,13 +24,16 @@ Ally* EntityManager::spawnEntity(ALLY_TYPE type, const Vector2& pos)
 	return nullptr;
 }
 
-Enemy* EntityManager::spawnEntity(ENEMY_TYPE type, const Vector2& pos)
+Enemy* EntityManager::spawnEntity(ENEMY_TYPE type, const Vector2& pos, ROAD_TYPE road)
 {
 	auto it = _enemyMap.find(type);
 	if (it != _enemyMap.end())
 	{
 		Enemy* enemy = it->second();
-		enemy->setPos(pos);
+		Vector2 spawnPos = pos;
+		spawnPos = road == ROAD_TYPE::FIRST ? spawnPos : spawnPos + Vector2(0, 1);
+		enemy->setPos(spawnPos);
+		enemy->setRoad(road);
 		_enemyVec.push_back(enemy);
 		return enemy;
 	}

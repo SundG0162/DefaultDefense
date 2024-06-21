@@ -14,7 +14,7 @@ public:
 	void init();
 public:
 	Ally* spawnEntity(ALLY_TYPE type, const Vector2& pos);
-	Enemy* spawnEntity(ENEMY_TYPE type, const Vector2& pos);
+	Enemy* spawnEntity(ENEMY_TYPE type, const Vector2& pos, ROAD_TYPE road);
 	void despawnEntity(Ally* ally);
 	void despawnEntity(Enemy* enemy);
 	vector<Enemy*> getEnemies() { return _enemyVec; }

@@ -15,4 +15,6 @@ struct Vector2
 	void operator*=(const Vector2& other);
 	Vector2 operator*(int scalar);
 	void operator*=(int scalar);
+	bool operator==(const Vector2& other);
+	
 };
