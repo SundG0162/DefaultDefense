@@ -1,6 +1,7 @@
 #pragma once
 #include"Scene.h"
 #include"Vector2.h"
+#include"Key.h"
 
 class InGameScene : public Scene
 {
@@ -14,5 +15,8 @@ public:
 public:
 	void enemyMove();
 	void mapRender();
+	void uiRender();
+	void selectUIRender();
 	void entityRender(const Vector2& pos);
+	KEY KeyController();
 };
