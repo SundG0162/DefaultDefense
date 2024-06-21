@@ -16,6 +16,7 @@ InGameScene::~InGameScene()
 
 void InGameScene::init()
 {
+	GET_SINGLETON(EntityManager)->init();
 	std::fstream mapRead("Map\\Map1.txt");
 	if (mapRead.is_open())
 	{
@@ -55,15 +56,19 @@ void InGameScene::init()
 		}
 	}
 	mapRead.close();
+
+	GET_SINGLETON(EntityManager)->spawnEntity(ALLY_TYPE::ARCHER, Vector2(3, 7));
+	GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, ENEMY_SPAWNPOS, ROAD_TYPE::FIRST);
 }
 	
 void InGameScene::update()
 {
-	enemyMove();
 	if (GetAsyncKeyState('A'))
 	{
 		GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, ENEMY_SPAWNPOS, ROAD_TYPE::FIRST);
 	}
+
+	entityUpdate();
 }
 
 void InGameScene::render()
@@ -73,11 +78,16 @@ void InGameScene::render()
 	selectUIRender();
 }
 
-void InGameScene::enemyMove()
+void InGameScene::entityUpdate()
 {
 	for (auto& i : GET_SINGLETON(EntityManager)->getEnemies())
 	{
-		i->tryMove();
+		i->update();
+	}
+
+	for (auto& i : GET_SINGLETON(EntityManager)->getAllies())
+	{
+		i->update();
 	}
 }
 

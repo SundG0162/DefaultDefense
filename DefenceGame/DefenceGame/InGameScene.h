@@ -13,7 +13,7 @@ public:
 	void update() override;
 	void render() override;
 public:
-	void enemyMove();
+	void entityUpdate();
 	void mapRender();
 	void uiRender();
 	void selectUIRender();
