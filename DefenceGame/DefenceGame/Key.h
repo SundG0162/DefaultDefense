@@ -2,5 +2,5 @@
 
 enum class KEY
 {
-    UP, DOWN, SPACE, FAIL
+    UP, DOWN, LEFT, RIGHT, SPACE, FAIL
 };

@@ -53,6 +53,7 @@
     <ClInclude Include="Goblin.h" />
     <ClInclude Include="InfoScene.h" />
     <ClInclude Include="InGameScene.h" />
+    <ClInclude Include="Key.h" />
     <ClInclude Include="MapManager.h" />
     <ClInclude Include="mci.h" />
     <ClInclude Include="Scene.h" />
