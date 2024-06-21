@@ -7,6 +7,7 @@
 
 Enemy::Enemy()
 {
+	
 }
 
 Enemy::~Enemy()

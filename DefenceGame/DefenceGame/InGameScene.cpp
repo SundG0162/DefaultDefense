@@ -15,6 +15,7 @@ InGameScene::~InGameScene()
 
 void InGameScene::init()
 {
+	GET_SINGLETON(EntityManager)->init();
 	std::fstream mapRead("Map\\Map1.txt");
 	if (mapRead.is_open())
 	{
@@ -53,9 +54,9 @@ void InGameScene::init()
 			}
 		}
 	}
-	mapRead.close();
-
+	GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, ENEMY_SPAWNPOS, ROAD_TYPE::FIRST);
 	GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, ENEMY_SPAWNPOS, ROAD_TYPE::SECOND);
+	mapRead.close();
 }
 	
 void InGameScene::update()
