@@ -10,15 +10,23 @@ protected:
 	int _hp;
 	int _rewardGold;
 	int _moveTime;
-	int _lastMoveTime = 0;
+	int _hitEffectTime = 200;
+	int _moveCount = 0;
+	bool _isHit = false;
 	Vector2 _facingDir = Vector2(1,0);
 	ROAD_TYPE _roadType;
-	bool _isMoved = true;
+	clock_t _timer;
 	clock_t _moveTimer;
+	clock_t _lastMoveTime = 0;
+	clock_t _hitTimer;
+	clock_t _lastHitTime = 0;
 public:
 	void setRoad(ROAD_TYPE type);
+	int getMoveCount() { return _moveCount; }
+	void update();
 	void tryMove();
 	void move();
+	void getDamage(int value);
 	void modifyHP(int value);
 	bool checkDead();
 	void tryRotate();

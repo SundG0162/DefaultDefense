@@ -11,6 +11,7 @@ public:
 	Entity();
 	virtual ~Entity();
 protected:
+	COLOR _originColor;
 	COLOR _color;
 	ENTITY_TYPE _type;
 	Vector2 _currentPos;

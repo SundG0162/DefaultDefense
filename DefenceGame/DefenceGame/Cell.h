@@ -20,6 +20,20 @@ public:
 	void deregisterEntity(Entity* entity);
 	void setRenderString(const string& str);
 	void setBGColor(COLOR color);
-	vector<Entity*> getEntities(ENTITY_TYPE type);
+	template<typename T>
+	vector<T*> getEntities(ENTITY_TYPE type);
 	vector<Entity*> getEntities() { return entityVec; }
 };
+
+template<typename T>
+std::vector<T*> Cell::getEntities(ENTITY_TYPE type) {
+	std::vector<T*> entities;
+	for (Entity* i : entityVec) {
+		if (type == i->getType()) {
+			T* specificEntity = dynamic_cast<T*>(i);
+			entities.push_back(specificEntity);
+
+		}
+	}
+	return entities;
+}

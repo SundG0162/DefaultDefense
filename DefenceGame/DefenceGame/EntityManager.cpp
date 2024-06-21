@@ -7,8 +7,8 @@
 EntityManager* EntityManager::m_pInst = nullptr;
 void EntityManager::init()
 {
-	_allyMap.insert(std::make_pair(ALLY_TYPE::ARCHER, []() -> Ally* { return new Archer(ENTITY_TYPE::ALLY, "¢º", COLOR::BLUE, 1000, 10, 5, 20); }));
-	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOBLIN, []() -> Enemy* { return new Goblin(ENTITY_TYPE::ENEMY, "¡á", COLOR::GREEN, 10, 100, 10); }));
+	_allyMap.insert(std::make_pair(ALLY_TYPE::ARCHER, []() -> Ally* { return new Archer(ENTITY_TYPE::ALLY, "¢º", COLOR::BLUE, 1000, 10, 1, 20); }));
+	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOBLIN, []() -> Enemy* { return new Goblin(ENTITY_TYPE::ENEMY, "¡á", COLOR::GREEN, 10, 1000, 10); }));
 }
 
 Ally* EntityManager::spawnEntity(ALLY_TYPE type, const Vector2& pos)
@@ -43,22 +43,24 @@ Enemy* EntityManager::spawnEntity(ENEMY_TYPE type, const Vector2& pos, ROAD_TYPE
 
 void EntityManager::despawnEntity(Ally* ally)
 {
-	GET_SINGLETON(MapManager)->deregisterEntityInCell(ally, ally->getPos());
 	auto it = find(_allyVec.begin(), _allyVec.end(), ally);
 	if (it != _allyVec.end())
 	{
+		GET_SINGLETON(MapManager)->deregisterEntityInCell(ally, ally->getPos());
 		_allyVec.erase(it);
-		delete& it;
+		delete ally;
 	}
+	gotoxy(0, 1);
+	cout << "»èÁ¦";
 }
 
 void EntityManager::despawnEntity(Enemy* enemy)
 {
-	GET_SINGLETON(MapManager)->deregisterEntityInCell(enemy, enemy->getPos());
 	auto it = find(_enemyVec.begin(), _enemyVec.end(), enemy);
 	if (it != _enemyVec.end())
 	{
+		GET_SINGLETON(MapManager)->deregisterEntityInCell(enemy, enemy->getPos());
 		_enemyVec.erase(it);
-		delete& it;
+		delete enemy;
 	}
 }

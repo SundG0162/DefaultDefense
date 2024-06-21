@@ -42,14 +42,3 @@ void Cell::setBGColor(COLOR color)
 {
 	bgColor = color;
 }
-
-vector<Entity*> Cell::getEntities(ENTITY_TYPE type)
-{
-	vector<Entity*> entities;
-	for (Entity* entity : entityVec)
-	{
-		if (type == entity->getType())
-			entities.push_back(entity);
-	}
-	return entities;
-}

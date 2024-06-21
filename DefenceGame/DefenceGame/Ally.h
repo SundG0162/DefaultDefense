@@ -8,10 +8,13 @@ public:
 	virtual ~Ally();
 protected:
 	int _attackTime = 500;
+	int _lastAttackTime = 0;
+	clock_t _attackTimer;
 	int _attackRange = 5;
 	int _damage = 5;
 	int _price = 20;
 public:
+	void update();
 	virtual void attack() abstract;
 	virtual Enemy* defineTarget() abstract;
 };
