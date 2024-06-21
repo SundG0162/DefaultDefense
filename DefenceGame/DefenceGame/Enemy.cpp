@@ -22,12 +22,12 @@ void Enemy::update()
 {
 	_timer = clock();
 	tryMove();
-	gotoxy(0, 0);
 	if (_isHit)
 	{
 		if (_timer - _lastHitTime > _hitEffectTime)
 		{
 			_color = _originColor;
+			GET_SINGLETON(MapManager)->getCell(_currentPos)->charColor = _color;
 			_isHit = false;
 		}
 	}
@@ -56,6 +56,7 @@ void Enemy::getDamage(int value)
 	_isHit = true;
 	_lastHitTime = _timer;
 	_color = COLOR::RED;
+	GET_SINGLETON(MapManager)->getCell(_currentPos)->charColor = _color;
 	modifyHP(-value);
 }
 

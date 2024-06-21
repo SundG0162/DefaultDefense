@@ -7,7 +7,7 @@
 EntityManager* EntityManager::m_pInst = nullptr;
 void EntityManager::init()
 {
-	_allyMap.insert(std::make_pair(ALLY_TYPE::ARCHER, []() -> Ally* { return new Archer(ENTITY_TYPE::ALLY, "¢º", COLOR::BLUE, 1000, 10, 1, 20); }));
+	_allyMap.insert(std::make_pair(ALLY_TYPE::ARCHER, []() -> Ally* { return new Archer(ENTITY_TYPE::ALLY, "¢º", COLOR::BLUE, 600, 10, 2, 20); }));
 	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOBLIN, []() -> Enemy* { return new Goblin(ENTITY_TYPE::ENEMY, "¡á", COLOR::GREEN, 10, 1000, 10); }));
 }
 
