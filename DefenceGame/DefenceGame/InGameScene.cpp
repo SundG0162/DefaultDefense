@@ -162,32 +162,63 @@ void InGameScene::selectUIRender()
 	gotoxy(92, 6);
 	cout << "■■■■■■■■■■■■■■" << endl;
 	gotoxy(92, 7);
-	cout << "■◇화염마법사| 사거리: 5칸 ■" << endl;
+	cout << "■◇화염마법사|사거리: 5칸■" << endl;
 	gotoxy(92, 8);
-	cout << "■가격: 100 | 공격력: 10  ■" << endl;
+	cout << "■가격: 100   |공격력: 10 ■" << endl;
 	gotoxy(92, 9);
 	cout << "■■■■■■■■■■■■■■" << endl << endl;
 
 	gotoxy(92, 11);
 	cout << "■■■■■■■■■■■■■■" << endl;
 	gotoxy(92, 12);
-	cout << "■◇얼음마법사| 사거리: 5칸 ■" << endl;
+	cout << "■◇얼음마법사|사거리: 5칸■" << endl;
 	gotoxy(92, 13);
-	cout << "■가격: 500 | 공격력: 5   ■" << endl;
+	cout << "■가격: 500   |공격력: 5  ■" << endl;
 	gotoxy(92, 14);
 	cout << "■■■■■■■■■■■■■■" << endl << endl;
 
 	gotoxy(92, 16);
 	cout << "■■■■■■■■■■■■■■" << endl;
 	gotoxy(92, 17);
-	cout << "■◇번개마법사| 사거리: 10칸■" << endl;
+	cout << "■◇번개마법사|사거리: ∞ ■" << endl;
 	gotoxy(92, 18);
-	cout << "■가격: 500 | 공격력: 20  ■" << endl;
+	cout << "■가격: 500   |공격력: 20 ■" << endl;
 	gotoxy(92, 19);
 	cout << "■■■■■■■■■■■■■■" << endl << endl;
 
 	gotoxy(103, 26);
 	cout << "2 / 3" << endl;
+
+	//3
+	gotoxy(92, 6);
+	cout << "■■■■■■■■■■■■■■" << endl;
+	gotoxy(92, 7);
+	cout << "■◇검병    | 사거리: 1칸 ■" << endl;
+	gotoxy(92, 8);
+	cout << "■가격: 20  | 공격력: 5   ■" << endl;
+	gotoxy(92, 9);
+	cout << "■■■■■■■■■■■■■■" << endl << endl;
+
+	gotoxy(92, 11);
+	cout << "■■■■■■■■■■■■■■" << endl;
+	gotoxy(92, 12);
+	cout << "■◇창병    | 사거리: 1칸 ■" << endl;
+	gotoxy(92, 13);
+	cout << "■가격: 50  | 공격력: 2   ■" << endl;
+	gotoxy(92, 14);
+	cout << "■■■■■■■■■■■■■■" << endl << endl;
+
+	gotoxy(92, 16);
+	cout << "■■■■■■■■■■■■■■" << endl;
+	gotoxy(92, 17);
+	cout << "■◇슬레이어 | 사거리: 1칸■" << endl;
+	gotoxy(92, 18);
+	cout << "■가격: 1000| 공격력: 200 ■" << endl;
+	gotoxy(92, 19);
+	cout << "■■■■■■■■■■■■■■" << endl << endl;
+
+	gotoxy(103, 26);
+	cout << "3 / 3" << endl;
 }
 
 void InGameScene::entityRender(const Vector2& pos)
