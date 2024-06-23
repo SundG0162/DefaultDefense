@@ -19,6 +19,7 @@ Ally* EntityManager::spawnEntity(ALLY_TYPE type, const Vector2& pos)
 		Ally* ally = it->second();
 		ally->setPos(pos);
 		_allyVec.push_back(ally);
+		_entityVec.push_back(ally);
 		return ally;
 	}
 	return nullptr;
@@ -35,6 +36,7 @@ Enemy* EntityManager::spawnEntity(ENEMY_TYPE type, const Vector2& pos, ROAD_TYPE
 		enemy->setPos(spawnPos);
 		enemy->setRoad(road);
 		_enemyVec.push_back(enemy);
+		_entityVec.push_back(enemy);
 		return enemy;
 	}
 	return nullptr;
@@ -48,19 +50,31 @@ void EntityManager::despawnEntity(Ally* ally)
 	{
 		GET_SINGLETON(MapManager)->deregisterEntityInCell(ally, ally->getPos());
 		_allyVec.erase(it);
-		delete ally;
+		_entityVec.erase(find(_entityVec.begin(), _entityVec.end(), (Entity*)ally));
+		_lazyDeleteVec.push_back(ally);
 	}
-	gotoxy(0, 1);
-	cout << "»èÁ¦";
 }
 
 void EntityManager::despawnEntity(Enemy* enemy)
 {
 	auto it = find(_enemyVec.begin(), _enemyVec.end(), enemy);
+
 	if (it != _enemyVec.end())
 	{
 		GET_SINGLETON(MapManager)->deregisterEntityInCell(enemy, enemy->getPos());
 		_enemyVec.erase(it);
-		delete enemy;
+		_entityVec.erase(find(_entityVec.begin(), _entityVec.end(), (Entity*)enemy));
+		_lazyDeleteVec.push_back(enemy);
+	}
+
+}
+
+void EntityManager::deleteEntity()
+{
+	for (auto& entity : _lazyDeleteVec)
+	{
+		auto it = find(_lazyDeleteVec.begin(), _lazyDeleteVec.end(), entity);
+		_lazyDeleteVec.erase(it);
+		delete entity;
 	}
 }

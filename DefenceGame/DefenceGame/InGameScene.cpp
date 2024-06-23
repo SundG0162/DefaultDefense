@@ -80,15 +80,13 @@ void InGameScene::render()
 
 void InGameScene::entityUpdate()
 {
-	for (auto& i : GET_SINGLETON(EntityManager)->getEnemies())
+	for (auto& entity : GET_SINGLETON(EntityManager)->getEntities())
 	{
-		i->update();
+		if (entity == nullptr)
+			continue;
+		entity->update();
 	}
-
-	for (auto& i : GET_SINGLETON(EntityManager)->getAllies())
-	{
-		i->update();
-	}
+	GET_SINGLETON(EntityManager)->deleteEntity();
 }
 
 void InGameScene::mapRender()
