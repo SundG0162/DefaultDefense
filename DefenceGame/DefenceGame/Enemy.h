@@ -15,15 +15,14 @@ protected:
 	bool _isHit = false;
 	Vector2 _facingDir = Vector2(1,0);
 	ROAD_TYPE _roadType;
-	clock_t _timer;
 	clock_t _moveTimer;
 	clock_t _lastMoveTime = 0;
 	clock_t _hitTimer;
 	clock_t _lastHitTime = 0;
 public:
+	void update() override;
 	void setRoad(ROAD_TYPE type);
 	int getMoveCount() { return _moveCount; }
-	void update();
 	void tryMove();
 	void move();
 	void getDamage(int value);

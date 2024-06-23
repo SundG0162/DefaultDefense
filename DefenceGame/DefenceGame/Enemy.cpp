@@ -20,7 +20,7 @@ void Enemy::setRoad(ROAD_TYPE type)
 
 void Enemy::update()
 {
-	_timer = clock();
+	Entity::update();
 	tryMove();
 	if (_isHit)
 	{

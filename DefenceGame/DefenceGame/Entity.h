@@ -11,12 +11,14 @@ public:
 	Entity();
 	virtual ~Entity();
 protected:
+	clock_t _timer;
 	COLOR _originColor;
 	COLOR _color;
 	ENTITY_TYPE _type;
 	Vector2 _currentPos;
 	string _renderString;
 public:
+	virtual void update();
 	COLOR getColor() { return _color; }
 	ENTITY_TYPE getType() { return _type; }
 	Vector2 getPos() { return _currentPos; }

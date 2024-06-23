@@ -9,6 +9,11 @@ Entity::~Entity()
 {
 }
 
+void Entity::update()
+{
+	_timer = clock();
+}
+
 void Entity::setPos(const Vector2& pos)
 {
 	GET_SINGLETON(MapManager)->deregisterEntityInCell(this, _currentPos);
