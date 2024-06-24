@@ -33,3 +33,12 @@ enum class TRAP_TYPE
 {
 	DEFAULT
 };
+
+enum class INGAMESCENE_STATE
+{
+	IDLE,
+	SELECT,
+	PLACE,
+	BATTLE,
+	NONE
+};

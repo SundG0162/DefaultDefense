@@ -3,8 +3,11 @@
 #include <Windows.h>
 #include"console.h"
 #include"Cell.h"
+#include"Type.h"
 #include"MapManager.h"
 #include"EntityManager.h"
+#include"IdleState.h"
+#include"InGameState.h"
 
 InGameScene::InGameScene()
 {
@@ -57,10 +60,12 @@ void InGameScene::init()
 	}
 	mapRead.close();
 
+	_stateMap.insert(std::make_pair(INGAMESCENE_STATE::IDLE, new IdleState()));
+
 	GET_SINGLETON(EntityManager)->spawnEntity(ALLY_TYPE::ARCHER, Vector2(3, 7));
 	GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, ENEMY_SPAWNPOS, ROAD_TYPE::FIRST);
 }
-	
+
 void InGameScene::update()
 {
 	if (GetAsyncKeyState('A'))
@@ -68,14 +73,23 @@ void InGameScene::update()
 		GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, ENEMY_SPAWNPOS, ROAD_TYPE::FIRST);
 	}
 
+	_currentState->update();
+
 	entityUpdate();
 }
 
 void InGameScene::render()
 {
 	mapRender();
+	_currentState->render();
+
 	uiRender();
 	selectUIRender();
+}
+
+void InGameScene::changeState(INGAMESCENE_STATE state)
+{
+
 }
 
 void InGameScene::entityUpdate()
