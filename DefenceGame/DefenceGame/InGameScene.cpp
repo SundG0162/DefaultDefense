@@ -89,7 +89,7 @@ void InGameScene::render()
 
 void InGameScene::changeState(INGAMESCENE_STATE state)
 {
-
+	_currentState = _stateMap[state];
 }
 
 void InGameScene::entityUpdate()
