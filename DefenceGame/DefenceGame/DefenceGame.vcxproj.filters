@@ -140,5 +140,14 @@
     <ClInclude Include="Direction.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Key.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameState.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="SelectState.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
