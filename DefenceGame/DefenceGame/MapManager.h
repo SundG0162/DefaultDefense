@@ -10,6 +10,8 @@ public:
 	Cell* getCell(const Vector2& pos);
 	void registerEntityInCell(Entity* entity, const Vector2& pos);
 	void deregisterEntityInCell(Entity* entity, const Vector2& pos);
+	Vector2 consolePosToCellPos(const Vector2& pos);
+	Vector2 cellPosToConsolePos(const Vector2& pos);
 private:
 	Cell _arrMap[MAP_HEIGHT][MAP_WIDTH];
 };

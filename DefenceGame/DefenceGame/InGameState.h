@@ -6,4 +6,3 @@ public:
 	virtual void update() abstract;
 	virtual void render() abstract;
 };
-

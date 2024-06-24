@@ -19,6 +19,18 @@ void MapManager::registerEntityInCell(Entity* entity, const Vector2& pos)
 
 void MapManager::deregisterEntityInCell(Entity* entity, const Vector2& pos)
 {
-	
+
 	_arrMap[pos.y][pos.x].deregisterEntity(entity);
+}
+
+Vector2 MapManager::consolePosToCellPos(const Vector2& pos)
+{
+	Vector2 cellPos((pos.x - 30) / 2, pos.y - 6);
+	return cellPos;
+}
+
+Vector2 MapManager::cellPosToConsolePos(const Vector2& pos)
+{
+	Vector2 consolePos(pos.x * 2 + 30, pos.y + 6);
+	return consolePos;
 }

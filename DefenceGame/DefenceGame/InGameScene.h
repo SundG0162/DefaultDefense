@@ -2,8 +2,9 @@
 #include"Scene.h"
 #include"Vector2.h"
 #include"Key.h"
-#include"InGameState.h"
-
+#include"Type.h"
+#include<map>
+class InGameState;
 class InGameScene : public Scene
 {
 public:
@@ -23,5 +24,5 @@ public:
 	KEY KeyController();
 private:
 	InGameState* _currentState;
-	map<INGAMESCENE_STATE, InGameState*> _stateMap;
+	std::map<INGAMESCENE_STATE, InGameState*> _stateMap;
 };
