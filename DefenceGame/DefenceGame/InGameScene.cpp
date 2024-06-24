@@ -8,6 +8,7 @@
 #include"EntityManager.h"
 #include"IdleState.h"
 #include"InGameState.h"
+#include"PlaceState.h"
 
 InGameScene::InGameScene()
 {
@@ -31,7 +32,7 @@ void InGameScene::init()
 
 				if (read == '0')
 				{
-					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::GRAY , "  " , MAP_TYPE::WALL, ROAD_TYPE::NONE }, Vector2(j, i));
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::GRAY, "  " , MAP_TYPE::WALL, ROAD_TYPE::NONE }, Vector2(j, i));
 				}
 				else if (read == '1')
 				{
@@ -39,7 +40,7 @@ void InGameScene::init()
 				}
 				else if (read == '2')
 				{
-					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::BLUE, "  ", MAP_TYPE::PLACE, ROAD_TYPE::NONE }, Vector2(j, i));
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::WHITE, "  ", MAP_TYPE::PLACE, ROAD_TYPE::NONE }, Vector2(j, i));
 				}
 				else if (read == '3')
 				{
@@ -61,6 +62,9 @@ void InGameScene::init()
 	mapRead.close();
 
 	_stateMap.insert(std::make_pair(INGAMESCENE_STATE::IDLE, new IdleState()));
+	_stateMap.insert(std::make_pair(INGAMESCENE_STATE::PLACE, new PlaceState(this)));
+	
+	changeState(INGAMESCENE_STATE::PLACE);
 
 	GET_SINGLETON(EntityManager)->spawnEntity(ALLY_TYPE::ARCHER, Vector2(3, 7));
 	GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, ENEMY_SPAWNPOS, ROAD_TYPE::FIRST);
@@ -71,6 +75,7 @@ void InGameScene::update()
 	if (GetAsyncKeyState('A'))
 	{
 		GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, ENEMY_SPAWNPOS, ROAD_TYPE::FIRST);
+		GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, ENEMY_SPAWNPOS, ROAD_TYPE::SECOND);
 	}
 
 	_currentState->update();
