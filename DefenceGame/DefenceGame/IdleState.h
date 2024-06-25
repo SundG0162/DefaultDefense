@@ -8,7 +8,5 @@ public:
 public:
 	void update() override;
 	void render() override;
-private:
-	KEY keyController();
 };
 

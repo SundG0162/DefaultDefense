@@ -27,6 +27,11 @@ void PlaceState::update()
 		_inGameScene->changeState(INGAMESCENE_STATE::IDLE);
 	}
 
+	if (keyController() == KEY::ESC)
+	{
+		GET_SINGLETON(EntityManager)->despawnEntity(GET_SINGLETON(Player)->getAlly());
+		_inGameScene->changeState(INGAMESCENE_STATE::SELECT);
+	}
 }
 
 void PlaceState::render()
@@ -45,7 +50,6 @@ void PlaceState::render()
 	cout << "¡Ú";
 	setColor((int)COLOR::WHITE, (int)COLOR::BLACK);
 }
-
 bool PlaceState::isInMap(const Vector2& pos)
 {
 	bool isXIn = _currentMousePos.x >= 0 && _currentMousePos.x < MAP_WIDTH;

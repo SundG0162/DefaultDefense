@@ -186,18 +186,3 @@ void SelectState::render()
 	gotoxy(48, 27);
 	cout << "Enter 또는 Space키로 구매";
 }
-
-KEY SelectState::keyController()
-{
-	if (_kbhit())
-	{
-		int key = _getch();
-		if (key == 0 || key == 224)
-		{
-			key = _getch();
-			return (KEY)key;
-		}
-		return (KEY)key;
-	}
-	return KEY::FAIL;
-}

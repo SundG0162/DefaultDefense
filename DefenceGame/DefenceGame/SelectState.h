@@ -15,8 +15,6 @@ public:
 	void update() override;
 	void render() override;
 private:
-	KEY keyController();
-private:
 	int _currentPage = 1;
 	int _currentSelectIndex = 1;
 };
