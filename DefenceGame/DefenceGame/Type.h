@@ -26,7 +26,11 @@ enum class ALLY_TYPE
 
 enum class ENEMY_TYPE
 {
-	GOBLIN = 1
+	GOBLIN = 1,
+	GOLDGOBLIN = 1,
+	OGRE = 1,
+	GOLEM = 1,
+	DRAGON = 1
 };
 
 enum class TRAP_TYPE
