@@ -66,6 +66,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SelectState.h" />
     <ClInclude Include="TitleScene.h" />
     <ClInclude Include="TransitionScene.h" />
     <ClInclude Include="Entity.h" />
