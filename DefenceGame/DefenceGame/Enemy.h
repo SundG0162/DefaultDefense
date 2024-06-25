@@ -23,6 +23,7 @@ public:
 	void update() override;
 	void setRoad(ROAD_TYPE type);
 	int getMoveCount() { return _moveCount; }
+	int getHP() { return _hp; }
 	void tryMove();
 	void move();
 	void getDamage(int value);

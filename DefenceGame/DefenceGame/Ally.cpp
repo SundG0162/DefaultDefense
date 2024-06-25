@@ -20,7 +20,7 @@ void Ally::update()
 
 void Ally::attack()
 {
-	vector<Enemy*> targetVec = defineTargets();
+	vector<Enemy*> targetVec = defineTarget();
 	for (auto target : targetVec)
 	{
 		target->getDamage(_damage);
