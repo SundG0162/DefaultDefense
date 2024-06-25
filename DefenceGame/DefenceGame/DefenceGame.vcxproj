@@ -22,6 +22,7 @@
     <ClCompile Include="Ally.cpp" />
     <ClCompile Include="Archer.cpp" />
     <ClCompile Include="Ballista.cpp" />
+    <ClCompile Include="BattleState.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="console.cpp" />
     <ClCompile Include="Core.cpp" />
@@ -58,6 +59,7 @@
     <ClInclude Include="Ally.h" />
     <ClInclude Include="Archer.h" />
     <ClInclude Include="Ballista.h" />
+    <ClInclude Include="BattleState.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="console.h" />
     <ClInclude Include="Core.h" />

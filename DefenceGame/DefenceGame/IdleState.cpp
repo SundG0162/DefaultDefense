@@ -26,6 +26,7 @@ void IdleState::update()
 	}
 	case KEY::THREE:
 	{
+		_inGameScene->changeState(INGAMESCENE_STATE::BATTLE);
 		GET_SINGLETON(WaveManager)->nextWave();
 		break;
 	}
