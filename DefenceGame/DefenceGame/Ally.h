@@ -17,6 +17,6 @@ public:
 	int getAttackRange() { return _attackRange; }
 	void update() override;
 	virtual void attack();
-	virtual vector<Enemy*> defineTarget() abstract;
+	virtual vector<Enemy*> defineTargets() abstract;
 };
 

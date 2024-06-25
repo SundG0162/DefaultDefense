@@ -17,7 +17,7 @@ Crossbowman::~Crossbowman()
 {
 }
 
-vector<Enemy*> Crossbowman::defineTarget()
+vector<Enemy*> Crossbowman::defineTargets()
 {
 	vector<Enemy*> targetVec;
 	int x = _currentPos.x - _attackRange / 2;
