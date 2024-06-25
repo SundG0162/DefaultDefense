@@ -17,7 +17,7 @@ Archer::~Archer()
 {
 }
 
-vector<Enemy*> Archer::defineTarget()
+vector<Enemy*> Archer::defineTargets()
 {
 	vector<Enemy*> targetVec;
 	Enemy* target = nullptr;

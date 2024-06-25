@@ -37,7 +37,7 @@ void PlaceState::update()
 void PlaceState::render()
 {
 	gotoxy(40, 0);
-	cout << "원하는 곳에 마우스를 클릭하여 아군을 설치하세요.";
+	cout << "원하는 곳에 마우스를 클릭하여 아군을 배치하세요.";
 	gotoxy(43, 1);
 	cout << "설치 가능한 위치에서 ★로 표시됩니다.";
 	Cell* cell = GET_SINGLETON(MapManager)->getCell(_currentMousePos);

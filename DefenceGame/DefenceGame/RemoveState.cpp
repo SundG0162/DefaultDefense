@@ -34,9 +34,9 @@ void RemoveState::update()
 void RemoveState::render()
 {
 	gotoxy(40, 0);
-	cout << "원하는 곳에 마우스를 클릭하여 아군을 삭제하세요.";
+	cout << "원하는 곳에 마우스를 클릭하여 아군을 방출하세요.";
 	gotoxy(43, 1);
-	cout << "삭제 가능한 위치에서 ▣로 표시됩니다.";
+	cout << "방출 가능한 위치에서 ▣로 표시됩니다.";
 
 	Cell* cell = GET_SINGLETON(MapManager)->getCell(_currentMousePos);
 	bool isValid = isInMap(_currentMousePos) && !isCellEmpty() && cell->type == MAP_TYPE::PLACE;

@@ -8,4 +8,3 @@ public:
 public:
 	vector<Enemy*> defineTargets() override;
 };
-

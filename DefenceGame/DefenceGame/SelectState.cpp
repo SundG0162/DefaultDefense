@@ -11,6 +11,26 @@ void SelectState::update()
 	KEY Key = keyController();
 	switch (Key)
 	{
+	case KEY::ONE:
+	{
+		_currentSelectIndex = 1;
+		break;
+	}
+	case KEY::TWO:
+	{
+		_currentSelectIndex = 2;
+		break;
+	}
+	case KEY::THREE:
+	{
+		_currentSelectIndex = 3;
+		break;
+	}
+	case KEY::FOUR:
+	{
+		_currentSelectIndex = 4;
+		break;
+	}
 	case KEY::RIGHT:
 	{
 		if (_currentPage < 3)
@@ -184,5 +204,5 @@ void SelectState::render()
 	cout << "◆";
 
 	gotoxy(48, 27);
-	cout << "Enter 또는 Space키로 구매";
+	cout << "Enter 또는 Space키로 고용";
 }
