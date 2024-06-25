@@ -30,6 +30,7 @@ public:
 	void modifyHP(int value);
 	bool checkDead();
 	void tryRotate();
+	bool isOnHouse();
 	bool isOnRoad(Vector2 dir);
 	void rotate(Vector2 dir);
 	void dead();

@@ -53,7 +53,7 @@ void InGameScene::init()
 				}
 				else if (read == '4')
 				{
-					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::YELLOW, "  ", MAP_TYPE::WALL, ROAD_TYPE::NONE }, Vector2(j, i));
+					GET_SINGLETON(MapManager)->setCell(Cell{ COLOR::YELLOW, "  ", MAP_TYPE::HOUSE, ROAD_TYPE::NONE }, Vector2(j, i));
 				}
 
 				if (mapRead.fail())

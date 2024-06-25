@@ -19,4 +19,3 @@ public:
 	virtual void attack();
 	virtual vector<Enemy*> defineTargets() abstract;
 };
-

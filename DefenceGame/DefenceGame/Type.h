@@ -3,7 +3,8 @@ enum class MAP_TYPE
 {
 	WALL,
 	ROAD,
-	PLACE
+	PLACE,
+	HOUSE
 };
 enum class ENTITY_TYPE
 {

@@ -4,6 +4,7 @@
 #include<time.h>
 #include"EntityManager.h"
 #include"Direction.h"
+#include"Player.h"
 
 Enemy::Enemy()
 {
@@ -49,6 +50,11 @@ void Enemy::move()
 	_currentPos += _facingDir;
 	_moveCount++;
 	GET_SINGLETON(MapManager)->registerEntityInCell(this, _currentPos);
+	if (isOnHouse())
+	{
+		GET_SINGLETON(Player)->modifyHP(-1);
+		GET_SINGLETON(EntityManager)->despawnEntity(this);
+	}
 }
 
 void Enemy::getDamage(int value)
@@ -105,5 +111,11 @@ bool Enemy::checkDead()
 void Enemy::dead()
 {
 	GET_SINGLETON(EntityManager)->despawnEntity(this);
+	GET_SINGLETON(Player)->modifyGold(_rewardGold);
+}
+
+bool Enemy::isOnHouse()
+{
+	return GET_SINGLETON(MapManager)->getCell(_currentPos)->type == MAP_TYPE::HOUSE;
 }
 

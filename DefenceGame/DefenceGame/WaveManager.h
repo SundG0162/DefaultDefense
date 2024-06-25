@@ -7,6 +7,7 @@ class WaveManager
 public:
 	void init();
 public:
+	int getCurrentWave() { return _currentWave; }
 	void nextWave();
 	void spawnEnemy();
 	bool isSpawnEnd() { return _currentSpawnEnemy == ENEMY_TYPE::END; }

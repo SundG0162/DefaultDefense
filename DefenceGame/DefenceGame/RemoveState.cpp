@@ -11,6 +11,10 @@ void RemoveState::update()
 {
 	_currentMousePos = GET_SINGLETON(MapManager)->consolePosToCellPos(getMousePos());
 
+	if (keyController() == KEY::ESC)
+	{
+		_inGameScene->changeState(INGAMESCENE_STATE::IDLE);
+	}
 	if (getMouseInput())
 	{
 		Cell* cell = GET_SINGLETON(MapManager)->getCell(_currentMousePos);
@@ -25,10 +29,7 @@ void RemoveState::update()
 			}
 		}
 	}
-	if (keyController() == KEY::ESC)
-	{
-		_inGameScene->changeState(INGAMESCENE_STATE::IDLE);
-	}
+
 }
 
 void RemoveState::render()
