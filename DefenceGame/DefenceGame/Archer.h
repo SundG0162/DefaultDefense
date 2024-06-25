@@ -7,5 +7,5 @@ public:
 	Archer(ENTITY_TYPE type, std::string renderString, COLOR color, int attackTime, int attackRange, int damage, int price);
 	~Archer();
 public:
-	vector<Enemy*> defineTarget() override;
+	vector<Enemy*> defineTargets() override;
 };

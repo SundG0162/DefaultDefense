@@ -1,8 +1,8 @@
-#include "Crossbowmen.h"
+#include "Crossbow.h"
 #include"Cell.h"
 #include"MapManager.h"
 
-Crossbowman::Crossbowman(ENTITY_TYPE type, std::string renderString, COLOR color, int attackTime, int attackRange, int damage, int price)
+Crossbow::Crossbow(ENTITY_TYPE type, std::string renderString, COLOR color, int attackTime, int attackRange, int damage, int price)
 {
 	_type = type;
 	_renderString = renderString;
@@ -13,11 +13,11 @@ Crossbowman::Crossbowman(ENTITY_TYPE type, std::string renderString, COLOR color
 	_price = price;
 }
 
-Crossbowman::~Crossbowman()
+Crossbow::~Crossbow()
 {
 }
 
-vector<Enemy*> Crossbowman::defineTargets()
+vector<Enemy*> Crossbow::defineTargets()
 {
 	vector<Enemy*> targetVec;
 	int x = _currentPos.x - _attackRange / 2;
