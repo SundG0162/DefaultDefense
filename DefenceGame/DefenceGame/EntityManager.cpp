@@ -1,6 +1,10 @@
 #include "EntityManager.h"
 #include "Archer.h"
 #include"Goblin.h"
+#include"GoldGoblin.h"
+#include"Ogre.h"
+#include"Golem.h"
+#include"Dragon.h"
 #include"Enemy.h"
 #include"Define.h"
 #include "MapManager.h"
@@ -9,6 +13,10 @@ void EntityManager::init()
 {
 	_allyMap.insert(std::make_pair(ALLY_TYPE::ARCHER, []() -> Ally* { return new Archer(ENTITY_TYPE::ALLY, "в║", COLOR::BLUE, 600, 10, 2, 20); }));
 	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOBLIN, []() -> Enemy* { return new Goblin(ENTITY_TYPE::ENEMY, "бс", COLOR::GREEN, 10, 1000, 10); }));
+	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOLDGOBLIN, []() -> Enemy* { return new GoldGoblin(ENTITY_TYPE::ENEMY, "бс", COLOR::GREEN, 10, 5000, 100); }));
+	_enemyMap.insert(std::make_pair(ENEMY_TYPE::OGRE, []() -> Enemy* { return new Ogre(ENTITY_TYPE::ENEMY, "бс", COLOR::GREEN, 50, 500, 100); }));
+	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOLEM, []() -> Enemy* { return new Golem(ENTITY_TYPE::ENEMY, "бс", COLOR::GREEN, 500, 100, 500); }));
+	_enemyMap.insert(std::make_pair(ENEMY_TYPE::DRAGON, []() -> Enemy* { return new Dragon(ENTITY_TYPE::ENEMY, "бс", COLOR::GREEN, 1000, 1000, 1500); }));
 }
 
 Ally* EntityManager::spawnEntity(ALLY_TYPE type, const Vector2& pos)
