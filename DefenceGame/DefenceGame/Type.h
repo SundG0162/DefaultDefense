@@ -38,10 +38,10 @@ enum class ALLY_TYPE
 enum class ENEMY_TYPE
 {
 	GOBLIN = 1,
-	GOLDGOBLIN = 2,
-	OGRE = 3,
-	GOLEM = 4,
-	DRAGON = 5,
+	GOLDGOBLIN,
+	OGRE,
+	GOLEM,
+	DRAGON,
 	END
 };
 
