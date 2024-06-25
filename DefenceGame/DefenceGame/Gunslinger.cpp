@@ -1,8 +1,8 @@
-#include "Archer.h"
+#include "Gunslinger.h"
 #include"Cell.h"
 #include"MapManager.h"
 
-Archer::Archer(ENTITY_TYPE type, std::string renderString, COLOR color, int attackTime, int attackRange, int damage, int price)
+Gunslinger::Gunslinger(ENTITY_TYPE type, std::string renderString, COLOR color, int attackTime, int attackRange, int damage, int price)
 {
 	_type = type;
 	_renderString = renderString;
@@ -13,11 +13,11 @@ Archer::Archer(ENTITY_TYPE type, std::string renderString, COLOR color, int atta
 	_price = price;
 }
 
-Archer::~Archer()
+Gunslinger::~Gunslinger()
 {
 }
 
-vector<Enemy*> Archer::defineTargets()
+vector<Enemy*> Gunslinger::defineTargets()
 {
 	vector<Enemy*> targetVec;
 	Enemy* target = nullptr;
@@ -39,7 +39,7 @@ vector<Enemy*> Archer::defineTargets()
 						target = i;
 						continue;
 					}
-					if (target->getMoveCount() < i->getMoveCount())
+					if (target->getHP() < i->getHP())
 					{
 						target = i;
 					}
