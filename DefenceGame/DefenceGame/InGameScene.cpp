@@ -62,11 +62,11 @@ void InGameScene::init()
 	}
 	mapRead.close();
 
-	_stateMap.insert(std::make_pair(INGAMESCENE_STATE::IDLE, new IdleState()));
+	_stateMap.insert(std::make_pair(INGAMESCENE_STATE::IDLE, new IdleState(this)));
 	_stateMap.insert(std::make_pair(INGAMESCENE_STATE::SELECT, new SelectState(this)));
 	_stateMap.insert(std::make_pair(INGAMESCENE_STATE::PLACE, new PlaceState(this)));
 	
-	changeState(INGAMESCENE_STATE::SELECT);
+	changeState(INGAMESCENE_STATE::IDLE);
 
 	GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, ENEMY_SPAWNPOS, ROAD_TYPE::FIRST);
 }

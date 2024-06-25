@@ -10,7 +10,7 @@
 class SelectState : public InGameState
 {
 public:
-	SelectState(InGameScene* inGameScene) : _inGameScene{ inGameScene } {};
+	SelectState(InGameScene* inGameScene);
 public:
 	void update() override;
 	void render() override;
@@ -19,5 +19,4 @@ private:
 private:
 	int _currentPage = 1;
 	int _currentSelectIndex = 1;
-	InGameScene* _inGameScene;
 };

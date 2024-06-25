@@ -1,6 +1,11 @@
 #include "SelectState.h"
 #include"Player.h"
 #include<conio.h>
+
+SelectState::SelectState(InGameScene* inGameScene)
+{
+	_inGameScene = inGameScene;
+}
 void SelectState::update()
 {
 	KEY Key = keyController();
@@ -40,6 +45,10 @@ void SelectState::update()
 	}
 	case KEY::SPACE:
 	{
+		GET_SINGLETON(Player)->
+			setAlly(GET_SINGLETON(EntityManager)->
+				spawnEntity((ALLY_TYPE)(_currentPage * _currentSelectIndex), Vector2(28, 19)));
+		_inGameScene->changeState(INGAMESCENE_STATE::PLACE);
 		break;
 	}
 	case KEY::ESC:
@@ -173,6 +182,9 @@ void SelectState::render()
 	int selectMarkY = 7 + 5 * (_currentSelectIndex - 1);
 	gotoxy(93, selectMarkY);
 	cout << "◆";
+
+	gotoxy(48, 27);
+	cout << "Enter 또는 Space키로 구매";
 }
 
 KEY SelectState::keyController()

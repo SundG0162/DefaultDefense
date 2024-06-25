@@ -15,11 +15,8 @@ Core::~Core()
 }
 void Core::init()
 {
-	//콘솔 드래그, 클릭 막는코드
-	DWORD consoleModePrev;
-	HANDLE handle = GetStdHandle(STD_INPUT_HANDLE);    
-	GetConsoleMode(handle, &consoleModePrev);    
-	SetConsoleMode(handle, consoleModePrev & ~ENABLE_QUICK_EDIT_MODE);
+	lockDragAndClick();
+	lockConsoleScroll();
 
 	GET_SINGLETON(SceneManager)->init();
 	GET_SINGLETON(SceneManager)->registerScene("TitleScene", new TitleScene);
