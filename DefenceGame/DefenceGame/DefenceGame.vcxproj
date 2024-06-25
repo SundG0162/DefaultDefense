@@ -24,7 +24,7 @@
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="console.cpp" />
     <ClCompile Include="Core.cpp" />
-    <ClCompile Include="DeleteState.cpp" />
+    <ClCompile Include="RemoveState.cpp" />
     <ClCompile Include="Direction.cpp" />
     <ClCompile Include="Enemy.cpp" />
     <ClCompile Include="EntityManager.cpp" />
@@ -53,7 +53,7 @@
     <ClInclude Include="console.h" />
     <ClInclude Include="Core.h" />
     <ClInclude Include="Define.h" />
-    <ClInclude Include="DeleteState.h" />
+    <ClInclude Include="RemoveState.h" />
     <ClInclude Include="Direction.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="EntityManager.h" />

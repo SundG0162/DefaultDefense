@@ -90,7 +90,7 @@
     <ClCompile Include="SelectState.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="DeleteState.cpp">
+    <ClCompile Include="RemoveState.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
@@ -176,7 +176,7 @@
     <ClInclude Include="SelectState.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="DeleteState.h">
+    <ClInclude Include="RemoveState.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

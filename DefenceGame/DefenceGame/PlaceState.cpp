@@ -18,13 +18,13 @@ void PlaceState::update()
 
 	if (getMouseInput())
 	{
-		if (!isInMap(_currentMousePos)) return;
-		if (!isCellEmpty()) return;
 		Cell* cell = GET_SINGLETON(MapManager)->getCell(_currentMousePos);
-		if (cell->type != MAP_TYPE::PLACE)
-			return;
-		GET_SINGLETON(Player)->getAlly()->setPos(_currentMousePos);
-		_inGameScene->changeState(INGAMESCENE_STATE::IDLE);
+		bool isValid = isInMap(_currentMousePos) && isCellEmpty() && cell->type == MAP_TYPE::PLACE;
+		if (isValid)
+		{
+			GET_SINGLETON(Player)->getAlly()->setPos(_currentMousePos);
+			_inGameScene->changeState(INGAMESCENE_STATE::IDLE);
+		}
 	}
 
 	if (keyController() == KEY::ESC)
@@ -40,15 +40,15 @@ void PlaceState::render()
 	cout << "원하는 곳에 마우스를 클릭하여 아군을 설치하세요.";
 	gotoxy(43, 1);
 	cout << "설치 가능한 위치에서 ★로 표시됩니다.";
-	if (!isInMap(_currentMousePos)) return;
-	if (!isCellEmpty()) return;
 	Cell* cell = GET_SINGLETON(MapManager)->getCell(_currentMousePos);
-	if (cell->type != MAP_TYPE::PLACE)
-		return;
-	setColor((int)COLOR::BLACK, (int)cell->bgColor);
-	gotoxy(GET_SINGLETON(MapManager)->cellPosToConsolePos(_currentMousePos));
-	cout << "★";
-	setColor((int)COLOR::WHITE, (int)COLOR::BLACK);
+	bool isValid = isInMap(_currentMousePos) && isCellEmpty() && cell->type == MAP_TYPE::PLACE;
+	if (isValid)
+	{
+		setColor((int)COLOR::BLACK, (int)cell->bgColor);
+		gotoxy(GET_SINGLETON(MapManager)->cellPosToConsolePos(_currentMousePos));
+		cout << "★";
+		setColor((int)COLOR::WHITE, (int)COLOR::BLACK);
+	}
 }
 bool PlaceState::isInMap(const Vector2& pos)
 {

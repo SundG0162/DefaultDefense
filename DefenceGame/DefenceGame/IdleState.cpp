@@ -20,6 +20,7 @@ void IdleState::update()
 	}
 	case KEY::TWO:
 	{
+		_inGameScene->changeState(INGAMESCENE_STATE::REMOVE);
 		break;
 	}
 	case KEY::THREE:
@@ -36,20 +37,5 @@ void IdleState::update()
 void IdleState::render()
 {
 	gotoxy(40, 27);
-	cout << "(1) 아군 구매\t\t(2) 전투 시작!";
-}
-
-KEY IdleState::keyController()
-{
-	if (_kbhit())
-	{
-		int key = _getch();
-		if (key == 0 || key == 224)
-		{
-			key = _getch();
-			return (KEY)key;
-		}
-		return (KEY)key;
-	}
-	return KEY::FAIL;
+	cout << "(1) 아군 구매\t\t(2)아군 삭제\t\t(3) 전투 시작!\t\t";
 }

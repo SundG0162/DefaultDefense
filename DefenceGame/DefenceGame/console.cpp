@@ -136,13 +136,17 @@ Vector2 getMousePos()
 
 	POINT p;
 
-	if (GetCursorPos(&p)) {
+	if (GetCursorPos(&p)) 
+	{
 		ScreenToClient(consoleWindow, &p);
 
 		int cellX = (p.x - clientRect.left) / fontSize.X;
 		int cellY = (p.y - clientRect.top) / fontSize.Y;
 
 		mousePos = Vector2(cellX, cellY);
+
+		gotoxy(0, 0);
+		cout << mousePos.x << ", " << mousePos.y;
 	}
 	return mousePos;
 }
@@ -155,17 +159,21 @@ bool getMouseInput()
 	DWORD consoleMode = consoleModePrev & ~ENABLE_QUICK_EDIT_MODE;
 	consoleMode |= ENABLE_MOUSE_INPUT;
 	SetConsoleMode(hConsoleInput, consoleMode);
+
 	INPUT_RECORD inputRecord;
 	DWORD events;
 
-	ReadConsoleInput(hConsoleInput, &inputRecord, 1, &events);
+	if (PeekConsoleInput(hConsoleInput, &inputRecord, 1, &events) && events > 0)
+	{
+		ReadConsoleInput(hConsoleInput, &inputRecord, 1, &events);
 
-	if (inputRecord.EventType == MOUSE_EVENT) {
-		MOUSE_EVENT_RECORD mouseEvent = inputRecord.Event.MouseEvent;
+		if (inputRecord.EventType == MOUSE_EVENT) {
+			MOUSE_EVENT_RECORD mouseEvent = inputRecord.Event.MouseEvent;
 
-		if (mouseEvent.dwEventFlags == 0)
-		{
-			return mouseEvent.dwButtonState == FROM_LEFT_1ST_BUTTON_PRESSED;
+			if (mouseEvent.dwEventFlags == 0)
+			{
+				return mouseEvent.dwButtonState == FROM_LEFT_1ST_BUTTON_PRESSED;
+			}
 		}
 	}
 	return false;
