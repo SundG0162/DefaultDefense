@@ -1,6 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include"Enemy.h"
+#include"Define.h"
 class Ally : public Entity
 {
 public:
@@ -15,7 +16,7 @@ protected:
 public:
 	int getAttackRange() { return _attackRange; }
 	void update() override;
-	virtual void attack() abstract;
-	virtual Enemy* defineTarget() abstract;
+	virtual void attack();
+	virtual vector<Enemy*> defineTarget() abstract;
 };
 

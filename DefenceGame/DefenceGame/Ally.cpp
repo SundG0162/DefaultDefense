@@ -17,3 +17,12 @@ void Ally::update()
 		_lastAttackTime = _timer;
 	}
 }
+
+void Ally::attack()
+{
+	vector<Enemy*> targetVec = defineTarget();
+	for (auto target : targetVec)
+	{
+		target->getDamage(_damage);
+	}
+}

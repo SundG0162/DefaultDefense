@@ -1,8 +1,8 @@
-#include "Archer.h"
+#include "Crossbowmen.h"
 #include"Cell.h"
 #include"MapManager.h"
 
-Archer::Archer(ENTITY_TYPE type, std::string renderString, COLOR color, int attackTime, int attackRange, int damage, int price)
+Crossbowman::Crossbowman(ENTITY_TYPE type, std::string renderString, COLOR color, int attackTime, int attackRange, int damage, int price)
 {
 	_type = type;
 	_renderString = renderString;
@@ -13,11 +13,11 @@ Archer::Archer(ENTITY_TYPE type, std::string renderString, COLOR color, int atta
 	_price = price;
 }
 
-Archer::~Archer()
+Crossbowman::~Crossbowman()
 {
 }
 
-vector<Enemy*> Archer::defineTarget()
+vector<Enemy*> Crossbowman::defineTarget()
 {
 	vector<Enemy*> targetVec;
 	int x = _currentPos.x - _attackRange / 2;
