@@ -96,7 +96,11 @@ void EntityManager::deleteEntity()
 	for (auto& entity : _lazyDeleteVec)
 	{
 		auto it = find(_lazyDeleteVec.begin(), _lazyDeleteVec.end(), entity);
-		_lazyDeleteVec.erase(it);
-		delete entity;
+		if (it != _lazyDeleteVec.end())
+		{
+			_lazyDeleteVec.erase(it);
+			entity = nullptr;
+			delete entity;
+		}
 	}
 }

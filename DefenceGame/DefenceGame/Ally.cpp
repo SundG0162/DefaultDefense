@@ -23,6 +23,7 @@ void Ally::attack()
 	vector<Enemy*> targetVec = defineTargets();
 	for (auto target : targetVec)
 	{
-		target->getDamage(_damage);
+		if (&target != nullptr)
+			target->getDamage(_damage);
 	}
 }
