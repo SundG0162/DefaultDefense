@@ -21,9 +21,16 @@
   <ItemGroup>
     <ClCompile Include="Ally.cpp" />
     <ClCompile Include="Archer.cpp" />
+    <ClCompile Include="Ballista.cpp" />
     <ClCompile Include="Cell.cpp" />
     <ClCompile Include="console.cpp" />
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="Crossbow.cpp" />
+    <ClCompile Include="Dragon.cpp" />
+    <ClCompile Include="GoldGoblin.cpp" />
+    <ClCompile Include="Golem.cpp" />
+    <ClCompile Include="Gunslinger.cpp" />
+    <ClCompile Include="Ogre.cpp" />
     <ClCompile Include="RemoveState.cpp" />
     <ClCompile Include="Direction.cpp" />
     <ClCompile Include="Enemy.cpp" />
@@ -49,10 +56,17 @@
   <ItemGroup>
     <ClInclude Include="Ally.h" />
     <ClInclude Include="Archer.h" />
+    <ClInclude Include="Ballista.h" />
     <ClInclude Include="Cell.h" />
     <ClInclude Include="console.h" />
     <ClInclude Include="Core.h" />
+    <ClInclude Include="Crossbow.h" />
     <ClInclude Include="Define.h" />
+    <ClInclude Include="Dragon.h" />
+    <ClInclude Include="GoldGoblin.h" />
+    <ClInclude Include="Golem.h" />
+    <ClInclude Include="Gunslinger.h" />
+    <ClInclude Include="Ogre.h" />
     <ClInclude Include="RemoveState.h" />
     <ClInclude Include="Direction.h" />
     <ClInclude Include="Enemy.h" />

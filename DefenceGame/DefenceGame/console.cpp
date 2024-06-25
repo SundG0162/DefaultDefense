@@ -144,9 +144,6 @@ Vector2 getMousePos()
 		int cellY = (p.y - clientRect.top) / fontSize.Y;
 
 		mousePos = Vector2(cellX, cellY);
-
-		gotoxy(0, 0);
-		cout << mousePos.x << ", " << mousePos.y;
 	}
 	return mousePos;
 }
