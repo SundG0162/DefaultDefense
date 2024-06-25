@@ -2,6 +2,7 @@
 #include"InGameScene.h"
 #include<conio.h>
 #include"console.h"
+#include"WaveManager.h"
 
 IdleState::IdleState(InGameScene* inGameScene)
 {
@@ -25,6 +26,7 @@ void IdleState::update()
 	}
 	case KEY::THREE:
 	{
+		GET_SINGLETON(WaveManager)->nextWave();
 		break;
 	}
 	case KEY::FOUR:

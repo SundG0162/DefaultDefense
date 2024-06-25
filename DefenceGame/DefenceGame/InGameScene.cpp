@@ -6,6 +6,7 @@
 #include"Type.h"
 #include"MapManager.h"
 #include"EntityManager.h"
+#include"WaveManager.h"
 #include"IdleState.h"
 #include"InGameState.h"
 #include"PlaceState.h"
@@ -23,6 +24,7 @@ InGameScene::~InGameScene()
 void InGameScene::init()
 {
 	GET_SINGLETON(EntityManager)->init();
+	GET_SINGLETON(WaveManager)->init();
 	std::fstream mapRead("Map\\Map1.txt");
 	if (mapRead.is_open())
 	{

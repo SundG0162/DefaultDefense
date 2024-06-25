@@ -41,7 +41,8 @@ enum class ENEMY_TYPE
 	GOLDGOBLIN,
 	OGRE,
 	GOLEM,
-	DRAGON
+	DRAGON,
+	END
 };
 
 enum class TRAP_TYPE
