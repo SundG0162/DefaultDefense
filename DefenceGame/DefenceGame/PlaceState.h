@@ -11,6 +11,7 @@ public:
 	void render() override;
 private :
 	bool isInMap(const Vector2& pos);
+	bool isCellEmpty();
 private:
 	InGameScene* _inGameScene;
 	Vector2 _currentMousePos;

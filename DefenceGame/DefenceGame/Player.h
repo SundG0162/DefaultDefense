@@ -6,7 +6,7 @@ class Player
 {
 	DECLARE_SINGLETON(Player)
 private:
-	Ally* _selectedAlly = GET_SINGLETON(EntityManager)->spawnEntity(ALLY_TYPE::ARCHER, Vector2());
+	Ally* _selectedAlly = nullptr;
 public:
 	void setAlly(Ally* ally) { _selectedAlly = ally; }
 	Ally* getAlly() { return _selectedAlly; }

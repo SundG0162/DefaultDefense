@@ -21,12 +21,12 @@ enum class ROAD_TYPE
 
 enum class ALLY_TYPE
 {
-	ARCHER
+	ARCHER = 1
 };
 
 enum class ENEMY_TYPE
 {
-	GOBLIN
+	GOBLIN = 1
 };
 
 enum class TRAP_TYPE

@@ -9,6 +9,7 @@
 #include"IdleState.h"
 #include"InGameState.h"
 #include"PlaceState.h"
+#include"SelectState.h"
 
 InGameScene::InGameScene()
 {
@@ -62,11 +63,11 @@ void InGameScene::init()
 	mapRead.close();
 
 	_stateMap.insert(std::make_pair(INGAMESCENE_STATE::IDLE, new IdleState()));
+	_stateMap.insert(std::make_pair(INGAMESCENE_STATE::SELECT, new SelectState(this)));
 	_stateMap.insert(std::make_pair(INGAMESCENE_STATE::PLACE, new PlaceState(this)));
 	
-	changeState(INGAMESCENE_STATE::PLACE);
+	changeState(INGAMESCENE_STATE::SELECT);
 
-	GET_SINGLETON(EntityManager)->spawnEntity(ALLY_TYPE::ARCHER, Vector2(3, 7));
 	GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, ENEMY_SPAWNPOS, ROAD_TYPE::FIRST);
 }
 
@@ -87,13 +88,11 @@ void InGameScene::render()
 {
 	mapRender();
 	_currentState->render();
-
-	uiRender();
-	selectUIRender();
 }
 
 void InGameScene::changeState(INGAMESCENE_STATE state)
 {
+	system("cls");
 	_currentState = _stateMap[state];
 }
 
@@ -133,29 +132,7 @@ void InGameScene::uiRender()
 	cout << "남은 적 수 : " << GET_SINGLETON(EntityManager)->getEnemies().size() << endl;
 }
 
-
-
 void InGameScene::entityRender(const Vector2& pos)
 {
 	cout << GET_SINGLETON(MapManager)->getCell(pos)->renderString;
-}
-
-KEY InGameScene::KeyController()
-{
-	if (GetAsyncKeyState(VK_UP) & 0x8000) {
-		return KEY::UP;
-	}
-	if (GetAsyncKeyState(VK_DOWN) & 0x8000) {
-		return KEY::DOWN;
-	}
-	if (GetAsyncKeyState(VK_LEFT) & 0x8000) {
-		return KEY::LEFT;
-	}
-	if (GetAsyncKeyState(VK_RIGHT) & 0x8000) {
-		return KEY::RIGHT;
-	}
-	if (GetAsyncKeyState(VK_SPACE) & 0x8000) {
-		return KEY::SPACE;
-	}
-	return KEY::FAIL;
 }
