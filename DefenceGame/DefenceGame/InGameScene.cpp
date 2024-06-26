@@ -73,8 +73,6 @@ void InGameScene::init()
 	_stateMap.insert(std::make_pair(INGAMESCENE_STATE::BATTLE, new BattleState(this)));
 	
 	changeState(INGAMESCENE_STATE::IDLE);
-
-	GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, ENEMY_SPAWNPOS, ROAD_TYPE::FIRST);
 }
 
 void InGameScene::update()
@@ -93,6 +91,7 @@ void InGameScene::update()
 void InGameScene::render()
 {
 	mapRender();
+	uiRender();
 	_currentState->render();
 }
 
@@ -132,10 +131,7 @@ void InGameScene::mapRender()
 
 void InGameScene::uiRender()
 {
-	gotoxy(50, 0);
-	cout << " 현재 웨이브 :  " << endl;
-	gotoxy(50, 1);
-	cout << "남은 적 수 : " << GET_SINGLETON(EntityManager)->getEnemies().size() << endl;
+	
 }
 
 void InGameScene::entityRender(const Vector2& pos)
