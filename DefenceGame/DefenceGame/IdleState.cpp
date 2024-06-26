@@ -41,6 +41,6 @@ void IdleState::render()
 {
 	gotoxy(49, 0);
 	cout << " 다음 웨이브 :  " << GET_SINGLETON(WaveManager)->getCurrentWave() + 1;
-	gotoxy(27, 27);
-	cout << "(1) 아군 고용\t\t(2) 아군 방출\t\t(3) 전투 시작!\t\t";
+	gotoxy(22, 27);
+	cout << "(1) 아군 고용\t\t(2) 아군 방출\t\t(3) 전투 시작!\t\t(4) 게임 종료";
 }
