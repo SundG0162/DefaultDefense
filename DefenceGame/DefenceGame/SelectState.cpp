@@ -59,7 +59,7 @@ void SelectState::update()
 	{
 		GET_SINGLETON(Player)->
 			setAlly(GET_SINGLETON(EntityManager)->
-			spawnEntity((ALLY_TYPE)(_currentPage * _currentSelectIndex), Vector2(28,19)));
+			spawnEntity((ALLY_TYPE)(((_currentPage - 1) * 4) + _currentSelectIndex), Vector2(28,19)));
 		_inGameScene->changeState(INGAMESCENE_STATE::PLACE);
 		break;
 	}
@@ -67,7 +67,7 @@ void SelectState::update()
 	{
 		GET_SINGLETON(Player)->
 			setAlly(GET_SINGLETON(EntityManager)->
-			spawnEntity((ALLY_TYPE)(_currentPage * _currentSelectIndex), Vector2(28, 19)));
+			spawnEntity((ALLY_TYPE)(((_currentPage - 1) * 4) + _currentSelectIndex), Vector2(28, 19)));
 		_inGameScene->changeState(INGAMESCENE_STATE::PLACE);
 		break;
 	}

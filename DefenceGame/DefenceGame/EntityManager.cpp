@@ -15,10 +15,11 @@
 #include"Crossbow.h"
 #include"Ballista.h"
 #include"Gunslinger.h"
-#include"Define.h"
+#include"FireWizard.h"
 #pragma endregion
 
 #include "MapManager.h"
+#include"Define.h"
 EntityManager* EntityManager::m_pInst = nullptr;
 void EntityManager::init()
 {
@@ -26,6 +27,7 @@ void EntityManager::init()
 	_allyMap.insert(std::make_pair(ALLY_TYPE::CROSSBOW, []() -> Ally* { return new Crossbow(ENTITY_TYPE::ALLY, "в╖", COLOR::LIGHT_BLUE, 100, 7, 1, 50); }));
 	_allyMap.insert(std::make_pair(ALLY_TYPE::BALLISTA, []() -> Ally* { return new Ballista(ENTITY_TYPE::ALLY, "в╝", COLOR::MINT, 10000, 17, 200, 1000); }));
 	_allyMap.insert(std::make_pair(ALLY_TYPE::GUNSLINGER, []() -> Ally* { return new Gunslinger(ENTITY_TYPE::ALLY, "в╝", COLOR::VOILET, 1000, 10, 7, 100); }));
+	_allyMap.insert(std::make_pair(ALLY_TYPE::FIRE_WIZARD, []() -> Ally* { return new FireWizard(ENTITY_TYPE::ALLY, "б┌", COLOR::RED, 3000, 5, 7, 100); }));
 	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOBLIN, []() -> Enemy* { return new Goblin(ENTITY_TYPE::ENEMY, "бс", COLOR::GREEN, 10, 1000, 10); }));
 	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOLDGOBLIN, []() -> Enemy* { return new GoldGoblin(ENTITY_TYPE::ENEMY, "бс", COLOR::GREEN, 10, 5000, 100); }));
 	_enemyMap.insert(std::make_pair(ENEMY_TYPE::OGRE, []() -> Enemy* { return new Ogre(ENTITY_TYPE::ENEMY, "бс", COLOR::GREEN, 50, 500, 100); }));

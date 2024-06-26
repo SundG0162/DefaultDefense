@@ -26,7 +26,7 @@ void Core::init()
 	GET_SINGLETON(SceneManager)->registerScene("InfoScene", new InfoScene);
 	GET_SINGLETON(SceneManager)->registerScene("EndScene", new EndScene);
 
-	GET_SINGLETON(SceneManager)->loadScene("EndScene");
+	GET_SINGLETON(SceneManager)->loadScene("TitleScene");
 }
 void Core::update()
 {
