@@ -9,6 +9,7 @@ Ogre::Ogre(ENTITY_TYPE type, std::string renderString, COLOR color, int hp, int 
 	_color = color;
 	_hp = std::round((float)hp * (float)(1 + GET_SINGLETON(WaveManager)->getCurrentWave() / 40.0f));
 	_moveTime = moveTime;
+	_defaultMoveTime = moveTime;
 	_rewardGold = rewardGold;
 	_originColor = _color;
 }

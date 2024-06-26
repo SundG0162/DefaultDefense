@@ -10,6 +10,7 @@ GoldGoblin::GoldGoblin(ENTITY_TYPE type, std::string renderString, COLOR color, 
 	_color = color;
 	_hp = std::round((float)hp * (float)(1 + GET_SINGLETON(WaveManager)->getCurrentWave() / 40.0f));
 	_moveTime = moveTime;
+	_defaultMoveTime = moveTime;
 	_rewardGold = rewardGold;
 	_originColor = _color;
 }

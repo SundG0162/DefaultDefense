@@ -32,6 +32,16 @@ void Enemy::update()
 			_isHit = false;
 		}
 	}
+
+	if (_isSlowed)
+	{
+		if (_timer - _lastSlowTime > _slowTime)
+		{
+			gotoxy(0, 0);
+			setMoveTime(_defaultMoveTime);
+			_isSlowed = false;
+		}
+	}
 }
 
 void Enemy::tryMove()
@@ -117,5 +127,13 @@ void Enemy::dead()
 bool Enemy::isOnHouse()
 {
 	return GET_SINGLETON(MapManager)->getCell(_currentPos)->type == MAP_TYPE::HOUSE;
+}
+
+void Enemy::getSlow(int value, int slowTime)
+{
+	_lastSlowTime = _timer;
+	_slowTime = slowTime;
+	_isSlowed = true;
+	setMoveTime(value);
 }
 
