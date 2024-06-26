@@ -33,6 +33,7 @@
     <ClCompile Include="GoldGoblin.cpp" />
     <ClCompile Include="Golem.cpp" />
     <ClCompile Include="Gunslinger.cpp" />
+    <ClCompile Include="IceWizard.cpp" />
     <ClCompile Include="Ogre.cpp" />
     <ClCompile Include="RemoveState.cpp" />
     <ClCompile Include="Direction.cpp" />
@@ -73,6 +74,7 @@
     <ClInclude Include="GoldGoblin.h" />
     <ClInclude Include="Golem.h" />
     <ClInclude Include="Gunslinger.h" />
+    <ClInclude Include="IceWizard.h" />
     <ClInclude Include="Ogre.h" />
     <ClInclude Include="RemoveState.h" />
     <ClInclude Include="Direction.h" />

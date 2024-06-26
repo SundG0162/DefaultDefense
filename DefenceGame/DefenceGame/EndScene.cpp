@@ -2,7 +2,7 @@
 #include <iostream>
 #include "WaveManager.h"
 #include "Player.h"
-
+#include<conio.h>
 #include "Define.h"
 #include <fcntl.h>
 #include <io.h>
@@ -22,30 +22,47 @@ void EndScene::init()
 
 void EndScene::update()
 {
+    if (keyController() == KEY::ESC)
+    {
+        GET_SINGLETON(SceneManager)->loadScene("TitleScene");
+    }
 }
 
 void EndScene::render()
 {
     gotoxy(30, 0);
-    cout << endl;
     int prevmode = _setmode(_fileno(stdout), _O_U16TEXT);
-    if (GET_SINGLETON(Player)->getHP() == 0)
+    int x = 33;
+    int y = 1;
+    if (GET_SINGLETON(Player)->getHP() != 0)
     {
-        wcout << L"██╗   ██╗██╗ ██████╗████████╗ ██████╗ ██████╗ ██╗   ██╗" << endl;
-        wcout << L"██║   ██║██║██╔════╝╚══██╔══╝██╔═══██╗██╔══██╗╚██╗ ██╔╝" << endl;
-        wcout << L"██║   ██║██║██║        ██║   ██║   ██║██████╔╝ ╚████╔╝ " << endl;
-        wcout << L"╚██╗ ██╔╝██║██║        ██║   ██║   ██║██╔══██╗  ╚██╔╝  " << endl;
-        wcout << L" ╚████╔╝ ██║╚██████╗   ██║   ╚██████╔╝██║  ██║   ██║   " << endl;
-        wcout << L"  ╚═══╝  ╚═╝ ╚═════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝   ╚═╝   " << endl;
+        gotoxy(x, y++);
+        wcout << L"██╗   ██╗██╗ ██████╗████████╗ ██████╗ ██████╗ ██╗   ██╗";
+        gotoxy(x, y++);
+        wcout << L"██║   ██║██║██╔════╝╚══██╔══╝██╔═══██╗██╔══██╗╚██╗ ██╔╝";
+        gotoxy(x, y++);
+        wcout << L"██║   ██║██║██║        ██║   ██║   ██║██████╔╝ ╚████╔╝ ";
+        gotoxy(x, y++);
+        wcout << L"╚██╗ ██╔╝██║██║        ██║   ██║   ██║██╔══██╗  ╚██╔╝  ";
+        gotoxy(x, y++);
+        wcout << L" ╚████╔╝ ██║╚██████╗   ██║   ╚██████╔╝██║  ██║   ██║   ";
+        gotoxy(x, y);
+        wcout << L"  ╚═══╝  ╚═╝ ╚═════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝   ╚═╝   ";
     }
     else
     {
-        wcout << L"██████╗ ███████╗███████╗███████╗ █████╗ ████████╗" << endl;
-        wcout << L"██╔══██╗██╔════╝██╔════╝██╔════╝██╔══██╗╚══██╔══╝" << endl;
-        wcout << L"██║  ██║█████╗  █████╗  █████╗  ███████║   ██║   " << endl;
-        wcout << L"██║  ██║██╔══╝  ██╔══╝  ██╔══╝  ██╔══██║   ██║   " << endl;
-        wcout << L"██████╔╝███████╗██║     ███████╗██║  ██║   ██║   " << endl;
-        wcout << L"╚═════╝ ╚══════╝╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   " << endl;
+        gotoxy(x, y++);
+        wcout << L"██████╗ ███████╗███████╗███████╗ █████╗ ████████╗";
+        gotoxy(x, y++);
+        wcout << L"██╔══██╗██╔════╝██╔════╝██╔════╝██╔══██╗╚══██╔══╝";
+        gotoxy(x, y++);
+        wcout << L"██║  ██║█████╗  █████╗  █████╗  ███████║   ██║   ";
+        gotoxy(x, y++);
+        wcout << L"██║  ██║██╔══╝  ██╔══╝  ██╔══╝  ██╔══██║   ██║   ";
+        gotoxy(x, y++);
+        wcout << L"██████╔╝███████╗██║     ███████╗██║  ██║   ██║   ";
+        gotoxy(x, y);
+        wcout << L"╚═════╝ ╚══════╝╚═╝     ╚══════╝╚═╝  ╚═╝   ╚═╝   ";
     }
     int curmode = _setmode(_fileno(stdout), prevmode);
 
@@ -55,4 +72,19 @@ void EndScene::render()
     cout << "남은 골드 : " << GET_SINGLETON(Player)->getGold() << endl;
     gotoxy(99, 27);
     cout << "ESC를 눌러 타이틀로.." << endl;
+}
+
+KEY EndScene::keyController()
+{
+    if (_kbhit())
+    {
+        int key = _getch();
+        if (key == 0 || key == 224)
+        {
+            key = _getch();
+            return (KEY)key;
+        }
+        return (KEY)key;
+    }
+    return KEY::FAIL;
 }
