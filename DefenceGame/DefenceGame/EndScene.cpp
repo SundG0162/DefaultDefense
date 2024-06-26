@@ -9,6 +9,14 @@ EndScene::EndScene() {}
 
 EndScene::~EndScene() {}
 
+void EndScene::init()
+{
+}
+
+void EndScene::update()
+{
+}
+
 void EndScene::render()
 {
     cout << "버틴 웨이브 : " << WaveManager::getInstance()->getCurrentWave() << endl;

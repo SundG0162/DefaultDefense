@@ -29,6 +29,7 @@
     <ClCompile Include="Crossbow.cpp" />
     <ClCompile Include="Dragon.cpp" />
     <ClCompile Include="EndScene.cpp" />
+    <ClCompile Include="FireWizard.cpp" />
     <ClCompile Include="GoldGoblin.cpp" />
     <ClCompile Include="Golem.cpp" />
     <ClCompile Include="Gunslinger.cpp" />
@@ -68,6 +69,7 @@
     <ClInclude Include="Define.h" />
     <ClInclude Include="Dragon.h" />
     <ClInclude Include="EndScene.h" />
+    <ClInclude Include="FireWizard.h" />
     <ClInclude Include="GoldGoblin.h" />
     <ClInclude Include="Golem.h" />
     <ClInclude Include="Gunslinger.h" />
