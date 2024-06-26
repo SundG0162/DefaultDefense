@@ -7,5 +7,5 @@ EndScene::EndScene() {}
 EndScene::~EndScene() {}
 
 void EndScene::render() {
-    std::cout << "현재 웨이브: " << WaveManager::getInstance()->getCurrentWave() << std::endl;
+    std::cout << "버틴 웨이브: " << WaveManager::getInstance()->getCurrentWave() << std::endl;
 }
