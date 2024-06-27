@@ -13,6 +13,7 @@
 #include"SelectState.h"
 #include"RemoveState.h"
 #include"BattleState.h"
+#include"Player.h"
 
 InGameScene::InGameScene()
 {
@@ -79,8 +80,7 @@ void InGameScene::update()
 {
 	if (GetAsyncKeyState('A'))
 	{
-		GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, ENEMY_SPAWNPOS, ROAD_TYPE::FIRST);
-		GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::GOBLIN, ENEMY_SPAWNPOS, ROAD_TYPE::SECOND);
+		GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::OGRE, ENEMY_SPAWNPOS, ROAD_TYPE::FIRST);
 	}
 
 	_currentState->update();
@@ -131,7 +131,15 @@ void InGameScene::mapRender()
 
 void InGameScene::uiRender()
 {
-	
+	gotoxy(0, 0);
+	cout << GET_SINGLETON(Player)->getHP();
+	gotoxy(100, 1);
+	cout << "현재 체력 : ";
+	for (int i = 0; i < GET_SINGLETON(Player)->getHP(); i++)
+	{
+		cout << "♥";
+	}
+	cout << "   ";
 }
 
 void InGameScene::entityRender(const Vector2& pos)
