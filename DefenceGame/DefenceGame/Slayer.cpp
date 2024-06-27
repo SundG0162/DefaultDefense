@@ -40,7 +40,7 @@ vector<Enemy*> Slayer::defineTargets()
 						target = i;
 						continue;
 					}
-					if (target->getMoveCount() < i->getMoveCount())
+					if (target->getHP() < i->getHP())
 					{
 						target = i;
 					}
