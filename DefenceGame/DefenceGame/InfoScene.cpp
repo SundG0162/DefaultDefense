@@ -160,7 +160,7 @@ void InfoScene::render()
 
 		cout << "조작" << endl;
 		cout << "화살표 - 이동" << endl;
-		cout << "스페이스바 - 선택" << endl;
+		cout << "스페이스바, 엔터 - 선택" << endl;
 		cout << "esc - 뒤로가기" << endl;
 	}
 	else if (_currentPage == 2)

@@ -73,6 +73,7 @@ void TitleScene::render()
                 Sleep(100);
             }
             break;
+        case KEY::ENTER:
         case KEY::SPACE:
             if (originy == y)
             {
