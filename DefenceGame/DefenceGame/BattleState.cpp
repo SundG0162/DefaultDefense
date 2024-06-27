@@ -1,6 +1,7 @@
 #include "BattleState.h"
 #include"WaveManager.h"
 #include"EntityManager.h"
+#include"MapManager.h"
 
 
 BattleState::BattleState(InGameScene* inGameScene)
@@ -16,6 +17,17 @@ void BattleState::update()
 	{
 		if (GET_SINGLETON(EntityManager)->getEnemies().size() <= 0)
 		{
+			for (int y = 0; y < MAP_HEIGHT; y++)
+			{
+				for (int x = 0; x < MAP_WIDTH - 1; x++)
+				{
+					Cell* cell = GET_SINGLETON(MapManager)->getCell(Vector2(x, y));
+					if (cell->type == MAP_TYPE::ROAD)
+					{
+						cell->setRenderString("  ");
+					}
+				}
+			}
 			_inGameScene->changeState(INGAMESCENE_STATE::IDLE);
 		}
 	}
