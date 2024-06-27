@@ -1,6 +1,6 @@
 #include "Enemy.h"
 #include "Golem.h"
-#include"WaveManager.h"
+#include "WaveManager.h"
 Golem::Golem(ENTITY_TYPE type, std::string renderString, COLOR color, int hp, int moveTime, int rewardGold)
 {
 	_type = type;

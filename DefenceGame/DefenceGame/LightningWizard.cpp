@@ -1,9 +1,9 @@
 #include "LightningWizard.h"
-#include"Cell.h"
-#include"MapManager.h"
-#include"EntityManager.h"
-#include"Entity.h"
-#include"Enemy.h"
+#include "Cell.h"
+#include "MapManager.h"
+#include "EntityManager.h"
+#include "Entity.h"
+#include "Enemy.h"
 
 LightningWizard::LightningWizard(ENTITY_TYPE type, std::string renderString, COLOR color, int attackTime, int attackRange, int damage, int price)
 {

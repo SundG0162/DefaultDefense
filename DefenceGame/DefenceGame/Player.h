@@ -1,7 +1,7 @@
 #pragma once
-#include"Define.h"
-#include"Ally.h"
-#include"EntityManager.h"
+#include "Define.h"
+#include "Ally.h"
+#include "EntityManager.h"
 class Player
 {
 	DECLARE_SINGLETON(Player)

@@ -1,6 +1,6 @@
 #include "Crossbow.h"
-#include"Cell.h"
-#include"MapManager.h"
+#include "Cell.h"
+#include "MapManager.h"
 
 Crossbow::Crossbow(ENTITY_TYPE type, std::string renderString, COLOR color, int attackTime, int attackRange, int damage, int price)
 {

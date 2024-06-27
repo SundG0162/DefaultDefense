@@ -1,7 +1,7 @@
 #include "RemoveState.h"
-#include"EntityManager.h"
-#include"MapManager.h"
-#include"Player.h"
+#include "EntityManager.h"
+#include "MapManager.h"
+#include "Player.h"
 RemoveState::RemoveState(InGameScene* inGameScene)
 {
 	_inGameScene = inGameScene;

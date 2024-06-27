@@ -3,7 +3,7 @@
 #include<string>
 #include<map>
 #include<vector>
-#include"Vector2.h"
+#include "Vector2.h"
 #define DECLARE_SINGLETON(type) \
 private:\
 	type() {}\

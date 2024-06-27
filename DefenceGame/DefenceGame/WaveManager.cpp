@@ -1,9 +1,9 @@
 #include "WaveManager.h"
-#include"Define.h"
-#include"WaveInfo.h"
+#include "Define.h"
+#include "WaveInfo.h"
 #include<fstream>
-#include"EntityManager.h"
-#include"Define.h"
+#include "EntityManager.h"
+#include "Define.h"
 #include<sstream>
 
 WaveManager* WaveManager::m_pInst = nullptr;

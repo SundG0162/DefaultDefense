@@ -1,8 +1,8 @@
-#include "Sword.h"
+#include "Slayer.h"
 #include "MapManager.h"
 #include "Cell.h"
 
-Sword::Sword(ENTITY_TYPE type, std::string renderString, COLOR color, int attackTime, int attackRange, int damage, int price)
+Slayer::Slayer(ENTITY_TYPE type, std::string renderString, COLOR color, int attackTime, int attackRange, int damage, int price)
 {
 	_type = type;
 	_renderString = renderString;
@@ -13,16 +13,16 @@ Sword::Sword(ENTITY_TYPE type, std::string renderString, COLOR color, int attack
 	_price = price;
 }
 
-Sword::~Sword()
+Slayer::~Slayer()
 {
 }
 
-vector<Enemy*> Sword::defineTargets()
+vector<Enemy*> Slayer::defineTargets()
 {
 	vector<Enemy*> targetVec;
 	Enemy* target = nullptr;
-	int x = _currentPos.x - _attackRange / 2;
-	int y = _currentPos.y - _attackRange / 2;
+	int x = _currentPos.x - (_attackRange / 2);
+	int y = _currentPos.y - (_attackRange / 2);
 	for (int i = y; i < y + _attackRange; i++)
 	{
 		for (int j = x; j < x + _attackRange; j++)
@@ -33,26 +33,22 @@ vector<Enemy*> Sword::defineTargets()
 			if (cell->type == MAP_TYPE::ROAD)
 			{
 				vector<Enemy*> vec = cell->getEntities<Enemy>(ENTITY_TYPE::ENEMY);
-				if (vec.size() > 0)
+				for (auto i : vec)
 				{
 					if (target == nullptr)
 					{
-						target = vec.front();
+						target = i;
 						continue;
 					}
-					else
+					if (target->getMoveCount() < i->getMoveCount())
 					{
-						if (target->getMoveCount() < vec.front()->getMoveCount())
-						{
-							target = vec.front();
-						}
+						target = i;
 					}
 				}
 			}
 		}
 	}
 	if (target != nullptr)
-		targetVec = GET_SINGLETON(MapManager)->getCell(target->getPos())->getEntities<Enemy>(ENTITY_TYPE::ENEMY);
+		targetVec.push_back(target);
 	return targetVec;
-
 }

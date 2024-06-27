@@ -1,8 +1,8 @@
 #pragma once
 #include "Vector2.h"
-#include"Define.h"
+#include "Define.h"
 #include "Type.h"
-#include"console.h"
+#include "console.h"
 #include <string>
 
 class Entity

@@ -1,6 +1,6 @@
 #include "Enemy.h"
 #include "Dragon.h"
-#include"WaveManager.h"
+#include "WaveManager.h"
 
 Dragon::Dragon(ENTITY_TYPE type, std::string renderString, COLOR color, int hp, int moveTime, int rewardGold)
 {

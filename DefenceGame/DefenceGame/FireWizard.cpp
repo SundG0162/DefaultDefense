@@ -1,7 +1,7 @@
 #include "FireWizard.h"
-#include"Cell.h"
-#include"MapManager.h"
-#include"Direction.h"
+#include "Cell.h"
+#include "MapManager.h"
+#include "Direction.h"
 FireWizard::FireWizard(ENTITY_TYPE type, std::string renderString, COLOR color, int attackTime, int attackRange, int damage, int price)
 {
 	_type = type;

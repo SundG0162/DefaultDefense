@@ -1,6 +1,6 @@
 #pragma once
-#include"Scene.h"
-#include"Define.h"
+#include "Scene.h"
+#include "Define.h"
 class SceneManager
 {
 	DECLARE_SINGLETON(SceneManager)

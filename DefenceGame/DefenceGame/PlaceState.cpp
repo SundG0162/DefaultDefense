@@ -1,10 +1,10 @@
 #include "PlaceState.h"
-#include"Vector2.h"
+#include "Vector2.h"
 #include<Windows.h>
-#include"MapManager.h"
-#include"Define.h"
-#include"Player.h"
-#include"EntityManager.h"
+#include "MapManager.h"
+#include "Define.h"
+#include "Player.h"
+#include "EntityManager.h"
 
 
 PlaceState::PlaceState(InGameScene* inGameScene)

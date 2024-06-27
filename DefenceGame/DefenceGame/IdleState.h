@@ -1,6 +1,6 @@
 #pragma once
 #include "InGameState.h"
-#include"InGameScene.h"
+#include "InGameScene.h"
 class IdleState : public InGameState
 {
 public:

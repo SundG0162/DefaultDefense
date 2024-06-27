@@ -1,7 +1,7 @@
 #include "GoldGoblin.h"
-#include"WaveManager.h"
+#include "WaveManager.h"
 #include "Enemy.h"
-#include"Define.h"
+#include "Define.h"
 
 GoldGoblin::GoldGoblin(ENTITY_TYPE type, std::string renderString, COLOR color, int hp, int moveTime, int rewardGold)
 {

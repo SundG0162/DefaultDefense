@@ -1,5 +1,5 @@
 #include "Player.h"
-#include"SceneManager.h"
+#include "SceneManager.h"
 Player* Player::m_pInst = nullptr;
 
 void Player::modifyHP(int value)

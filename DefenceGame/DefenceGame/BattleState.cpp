@@ -1,8 +1,8 @@
 #include "BattleState.h"
-#include"WaveManager.h"
-#include"EntityManager.h"
-#include"MapManager.h"
-#include"Player.h"
+#include "WaveManager.h"
+#include "EntityManager.h"
+#include "MapManager.h"
+#include "Player.h"
 
 BattleState::BattleState(InGameScene* inGameScene)
 {

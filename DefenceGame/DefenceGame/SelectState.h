@@ -1,11 +1,11 @@
 #pragma once  
 #include <fstream>
 #include <Windows.h>
-#include"console.h"
-#include"Type.h"
-#include"InGameState.h"
-#include"InGameScene.h"
-#include"Key.h"
+#include "console.h"
+#include "Type.h"
+#include "InGameState.h"
+#include "InGameScene.h"
+#include "Key.h"
 
 class SelectState : public InGameState
 {

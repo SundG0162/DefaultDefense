@@ -1,5 +1,5 @@
 #pragma once
-#include"Ally.h"
+#include "Ally.h"
 class Gunslinger : public Ally
 {
 public:

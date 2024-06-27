@@ -1,11 +1,11 @@
 #include "Enemy.h"
-#include"MapManager.h"
-#include"Define.h"
+#include "MapManager.h"
+#include "Define.h"
 #include<time.h>
-#include"EntityManager.h"
-#include"Direction.h"
-#include"Player.h"
-#include"WaveManager.h"
+#include "EntityManager.h"
+#include "Direction.h"
+#include "Player.h"
+#include "WaveManager.h"
 
 Enemy::Enemy()
 {

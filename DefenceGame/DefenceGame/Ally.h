@@ -1,7 +1,7 @@
 #pragma once
 #include "Entity.h"
-#include"Enemy.h"
-#include"Define.h"
+#include "Enemy.h"
+#include "Define.h"
 class Ally : public Entity
 {
 public:

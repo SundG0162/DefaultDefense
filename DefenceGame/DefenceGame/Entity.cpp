@@ -1,5 +1,5 @@
 #include "Entity.h"
-#include"MapManager.h"
+#include "MapManager.h"
 
 Entity::Entity()
 {

@@ -1,6 +1,6 @@
 #pragma once
-#include"Cell.h"
-#include"Define.h"
+#include "Cell.h"
+#include "Define.h"
 
 class MapManager
 {

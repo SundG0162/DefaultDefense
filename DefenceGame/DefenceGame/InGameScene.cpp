@@ -1,19 +1,19 @@
 #include "InGameScene.h"
 #include <fstream>
 #include <Windows.h>
-#include"console.h"
-#include"Cell.h"
-#include"Type.h"
-#include"MapManager.h"
-#include"EntityManager.h"
-#include"WaveManager.h"
-#include"IdleState.h"
-#include"InGameState.h"
-#include"PlaceState.h"
-#include"SelectState.h"
-#include"RemoveState.h"
-#include"BattleState.h"
-#include"Player.h"
+#include "console.h"
+#include "Cell.h"
+#include "Type.h"
+#include "MapManager.h"
+#include "EntityManager.h"
+#include "WaveManager.h"
+#include "IdleState.h"
+#include "InGameState.h"
+#include "PlaceState.h"
+#include "SelectState.h"
+#include "RemoveState.h"
+#include "BattleState.h"
+#include "Player.h"
 
 InGameScene::InGameScene()
 {

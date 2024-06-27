@@ -1,7 +1,7 @@
 #include "IceWizard.h"
-#include"Cell.h"
-#include"MapManager.h"
-#include"Direction.h"
+#include "Cell.h"
+#include "MapManager.h"
+#include "Direction.h"
 
 IceWizard::IceWizard(ENTITY_TYPE type, std::string renderString, COLOR color, int attackTime, int attackRange, int damage, int price)
 {

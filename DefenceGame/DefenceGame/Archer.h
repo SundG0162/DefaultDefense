@@ -1,6 +1,6 @@
 #pragma once
 #include "Ally.h"
-#include"Enemy.h"
+#include "Enemy.h"
 class Archer : public Ally
 {
 public:

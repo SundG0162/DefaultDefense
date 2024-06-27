@@ -1,6 +1,6 @@
 #pragma once
-#include"Define.h"
-#include"Type.h"
+#include "Define.h"
+#include "Type.h"
 struct WaveInfo
 {
 	WaveInfo() {};

@@ -1,6 +1,6 @@
 #pragma once
-#include"Define.h"
-#include"WaveInfo.h"
+#include "Define.h"
+#include "WaveInfo.h"
 class WaveManager
 {
 	DECLARE_SINGLETON(WaveManager)

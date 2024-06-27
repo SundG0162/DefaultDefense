@@ -1,5 +1,5 @@
 #include "SelectState.h"
-#include"Player.h"
+#include "Player.h"
 #include<conio.h>
 
 SelectState::SelectState(InGameScene* inGameScene)

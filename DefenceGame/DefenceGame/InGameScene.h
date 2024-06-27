@@ -1,8 +1,8 @@
 #pragma once
-#include"Scene.h"
-#include"Vector2.h"
-#include"Key.h"
-#include"Type.h"
+#include "Scene.h"
+#include "Vector2.h"
+#include "Key.h"
+#include "Type.h"
 #include<map>
 class InGameState;
 class InGameScene : public Scene

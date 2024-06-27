@@ -1,29 +1,29 @@
 #include "EntityManager.h"
 
 #pragma region Enemy Includes
-#include"Enemy.h"
-#include"Goblin.h"
-#include"GoldGoblin.h"
-#include"Ogre.h"
-#include"Golem.h"
-#include"Dragon.h"
+#include "Enemy.h"
+#include "Goblin.h"
+#include "GoldGoblin.h"
+#include "Ogre.h"
+#include "Golem.h"
+#include "Dragon.h"
 #pragma endregion
 
 #pragma region Ally Includes
-#include"Ally.h"
-#include"Archer.h"
-#include"Crossbow.h"
-#include"Ballista.h"
-#include"Gunslinger.h"
-#include"FireWizard.h"
-#include"IceWizard.h"
-#include"LightningWizard.h"
-#include"Sword.h"
-#include"Spear.h"
+#include "Ally.h"
+#include "Archer.h"
+#include "Crossbow.h"
+#include "Ballista.h"
+#include "Gunslinger.h"
+#include "FireWizard.h"
+#include "IceWizard.h"
+#include "LightningWizard.h"
+#include "Sword.h"
+#include "Spear.h"
 #pragma endregion
 
 #include "MapManager.h"
-#include"Define.h"
+#include "Define.h"
 EntityManager* EntityManager::m_pInst = nullptr;
 void EntityManager::init()
 {

@@ -1,12 +1,12 @@
 #include "Core.h"
 #include "Define.h"
-#include"SceneManager.h"
+#include "SceneManager.h"
 #include "TitleScene.h"
 #include "InGameScene.h"
-#include"TransitionScene.h"
-#include"InfoScene.h"
-#include"EntityManager.h"
-#include"EndScene.h"
+#include "TransitionScene.h"
+#include "InfoScene.h"
+#include "EntityManager.h"
+#include "EndScene.h"
 
 Core::Core()
 {

@@ -1,8 +1,8 @@
 #include "IdleState.h"
-#include"InGameScene.h"
+#include "InGameScene.h"
 #include<conio.h>
-#include"console.h"
-#include"WaveManager.h"
+#include "console.h"
+#include "WaveManager.h"
 
 IdleState::IdleState(InGameScene* inGameScene)
 {

@@ -1,6 +1,6 @@
 #include "Enemy.h"
 #include "Goblin.h"
-#include"WaveManager.h"
+#include "WaveManager.h"
 
 
 Goblin::Goblin(ENTITY_TYPE type, std::string renderString, COLOR color, int hp, int moveTime, int rewardGold)

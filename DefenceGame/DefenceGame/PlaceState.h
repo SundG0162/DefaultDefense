@@ -1,7 +1,7 @@
 #pragma once
-#include"InGameState.h"
-#include"Vector2.h"
-#include"InGameScene.h"
+#include "InGameState.h"
+#include "Vector2.h"
+#include "InGameScene.h"
 class PlaceState : public InGameState
 {
 public:
