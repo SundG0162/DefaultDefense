@@ -40,6 +40,8 @@ void PlaceState::render()
 	cout << "원하는 곳에 마우스를 클릭하여 아군을 배치하세요.";
 	gotoxy(43, 1);
 	cout << "설치 가능한 위치에서 ★로 표시됩니다.";
+	gotoxy(50, 2);
+	cout << "ESC키를 눌러 취소";
 	Cell* cell = GET_SINGLETON(MapManager)->getCell(_currentMousePos);
 	bool isValid = isInMap(_currentMousePos) && isCellEmpty() && cell->type == MAP_TYPE::PLACE;
 	if (isValid)

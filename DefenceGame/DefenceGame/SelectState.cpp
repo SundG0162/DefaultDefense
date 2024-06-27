@@ -203,6 +203,8 @@ void SelectState::render()
 	gotoxy(93, selectMarkY);
 	cout << "◆";
 
+	gotoxy(51, 26);
+	cout << "ESC키를 눌러 취소";
 	gotoxy(48, 27);
 	cout << "Enter 또는 Space키로 고용";
 }
