@@ -53,6 +53,7 @@
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="SelectState.cpp" />
+    <ClCompile Include="Sword.cpp" />
     <ClCompile Include="TitleScene.cpp" />
     <ClCompile Include="TransitionScene.cpp" />
     <ClCompile Include="Entity.cpp" />
@@ -95,6 +96,7 @@
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="SelectState.h" />
+    <ClInclude Include="Sword.h" />
     <ClInclude Include="TitleScene.h" />
     <ClInclude Include="TransitionScene.h" />
     <ClInclude Include="Entity.h" />
