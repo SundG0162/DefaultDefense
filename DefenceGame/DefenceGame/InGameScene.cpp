@@ -78,14 +78,7 @@ void InGameScene::init()
 
 void InGameScene::update()
 {
-	if (GetAsyncKeyState('A'))
-	{
-		GET_SINGLETON(EntityManager)->spawnEntity(ENEMY_TYPE::OGRE, ENEMY_SPAWNPOS, ROAD_TYPE::FIRST);
-	}
-
 	_currentState->update();
-
-	entityUpdate();
 }
 
 void InGameScene::render()
@@ -100,18 +93,6 @@ void InGameScene::changeState(INGAMESCENE_STATE state)
 	system("cls");
 	_currentState = _stateMap[state];
 }
-
-void InGameScene::entityUpdate()
-{
-	for (auto& entity : GET_SINGLETON(EntityManager)->getEntities())
-	{
-		if (entity == nullptr)
-			continue;
-		entity->update();
-	}
-	GET_SINGLETON(EntityManager)->deleteEntity();
-}
-
 void InGameScene::mapRender()
 {
 	gotoxy(30, 6);
@@ -131,15 +112,16 @@ void InGameScene::mapRender()
 
 void InGameScene::uiRender()
 {
-	gotoxy(0, 0);
-	cout << GET_SINGLETON(Player)->getHP();
-	gotoxy(100, 1);
+	gotoxy(1, 1);
 	cout << "현재 체력 : ";
 	for (int i = 0; i < GET_SINGLETON(Player)->getHP(); i++)
 	{
 		cout << "♥";
 	}
 	cout << "   ";
+
+	gotoxy(1, 2);
+	cout << "골드 : " << GET_SINGLETON(Player)->getGold();
 }
 
 void InGameScene::entityRender(const Vector2& pos)

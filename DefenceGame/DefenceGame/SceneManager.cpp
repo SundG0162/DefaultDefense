@@ -9,6 +9,7 @@ void SceneManager::registerScene(const string& sceneName, Scene* scene)
 }
 void SceneManager::loadScene(const string& sceneName)
 {
+	system("cls");
 	auto iter = _sceneMap.find(sceneName);
 	if (iter != _sceneMap.end())
 	{

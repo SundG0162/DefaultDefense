@@ -7,5 +7,9 @@ public:
 public:
 	void update() override;
 	void render() override;
+private:
+	void entityUpdate();
+	void deleteEnemyBody();
+	bool isWaveEnd();
 };
 
