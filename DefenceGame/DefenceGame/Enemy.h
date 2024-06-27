@@ -14,6 +14,7 @@ protected:
 	int _hitEffectTime = 200;
 	int _slowTime;
 	int _moveCount = 0;
+	bool _isDead = false;
 	bool _isHit = false;
 	bool _isSlowed = false;
 	Vector2 _facingDir = Vector2(1,0);

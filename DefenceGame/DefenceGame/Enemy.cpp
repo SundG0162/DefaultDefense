@@ -5,6 +5,7 @@
 #include"EntityManager.h"
 #include"Direction.h"
 #include"Player.h"
+#include"WaveManager.h"
 
 Enemy::Enemy()
 {
@@ -62,6 +63,13 @@ void Enemy::move()
 	GET_SINGLETON(MapManager)->registerEntityInCell(this, _currentPos);
 	if (isOnHouse())
 	{
+		if (GET_SINGLETON(WaveManager)->isSpawnEnd())
+		{
+			if (GET_SINGLETON(EntityManager)->getEnemies().size() == 1)
+			{
+				GET_SINGLETON(WaveManager)->reductWave();
+			}
+		}
 		GET_SINGLETON(Player)->modifyHP(-1);
 		GET_SINGLETON(EntityManager)->despawnEntity(this);
 	}
@@ -120,6 +128,8 @@ bool Enemy::checkDead()
 
 void Enemy::dead()
 {
+	if (_isDead) return;
+	_isDead = true;
 	GET_SINGLETON(EntityManager)->despawnEntity(this);
 	GET_SINGLETON(Player)->modifyGold(_rewardGold);
 }
