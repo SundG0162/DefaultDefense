@@ -32,6 +32,7 @@
     <ClCompile Include="FireWizard.cpp" />
     <ClCompile Include="GoldGoblin.cpp" />
     <ClCompile Include="Golem.cpp" />
+    <ClCompile Include="Greatsword.cpp" />
     <ClCompile Include="Gunslinger.cpp" />
     <ClCompile Include="IceWizard.cpp" />
     <ClCompile Include="LightningWizard.cpp" />
@@ -77,6 +78,7 @@
     <ClInclude Include="FireWizard.h" />
     <ClInclude Include="GoldGoblin.h" />
     <ClInclude Include="Golem.h" />
+    <ClInclude Include="Greatsword.h" />
     <ClInclude Include="Gunslinger.h" />
     <ClInclude Include="IceWizard.h" />
     <ClInclude Include="LightningWizard.h" />
