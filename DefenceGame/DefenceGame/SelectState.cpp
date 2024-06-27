@@ -206,7 +206,7 @@ void SelectState::render()
 void SelectState::spawnAlly()
 {
 	ALLY_TYPE type = (ALLY_TYPE)(((_currentPage - 1) * 4) + _currentSelectIndex);
-	if (type == ALLY_TYPE::GREATSWORD || type == ALLY_TYPE::NECROMANCER)
+	if (type == ALLY_TYPE::NECROMANCER)
 	{
 		setColor((int)COLOR::RED);
 		gotoxy(44, 28);
