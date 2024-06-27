@@ -17,6 +17,7 @@
 #include"Gunslinger.h"
 #include"FireWizard.h"
 #include"IceWizard.h"
+#include"LightningWizard.h"
 #pragma endregion
 
 #include "MapManager.h"
@@ -30,6 +31,7 @@ void EntityManager::init()
 	_allyMap.insert(std::make_pair(ALLY_TYPE::GUNSLINGER, []() -> Ally* { return new Gunslinger(ENTITY_TYPE::ALLY, "в╝", COLOR::VOILET, 1000, 7, 10, 100); }));
 	_allyMap.insert(std::make_pair(ALLY_TYPE::FIRE_WIZARD, []() -> Ally* { return new FireWizard(ENTITY_TYPE::ALLY, "б┌", COLOR::RED, 3000, 7, 10, 100); }));
 	_allyMap.insert(std::make_pair(ALLY_TYPE::ICE_WIZARD, []() -> Ally* { return new IceWizard(ENTITY_TYPE::ALLY, "б┌", COLOR::BLUE, 5000, 7, 5, 500); }));
+	_allyMap.insert(std::make_pair(ALLY_TYPE::LIGHTNING_WIZARD, []() -> Ally* { return new LightningWizard(ENTITY_TYPE::ALLY, "б┌", COLOR::YELLOW, 1000, 0, 20, 500); }));
 	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOBLIN, []() -> Enemy* { return new Goblin(ENTITY_TYPE::ENEMY, "бс", COLOR::GREEN, 10, 1000, 10); }));
 	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOLDGOBLIN, []() -> Enemy* { return new GoldGoblin(ENTITY_TYPE::ENEMY, "бс", COLOR::GREEN, 10, 5000, 100); }));
 	_enemyMap.insert(std::make_pair(ENEMY_TYPE::OGRE, []() -> Enemy* { return new Ogre(ENTITY_TYPE::ENEMY, "бс", COLOR::GREEN, 50, 500, 100); }));
