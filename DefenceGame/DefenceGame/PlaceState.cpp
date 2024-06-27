@@ -30,7 +30,7 @@ void PlaceState::update()
 	if (keyController() == KEY::ESC)
 	{
 		Ally* ally = GET_SINGLETON(Player)->getAlly();
-		GET_SINGLETON(Player)->modifyGold(ally->getPrice());
+		GET_SINGLETON(Player)->modifyGold(ally->getPrice(), false);
 		GET_SINGLETON(EntityManager)->despawnEntity(ally);
 		_inGameScene->changeState(INGAMESCENE_STATE::SELECT);
 	}

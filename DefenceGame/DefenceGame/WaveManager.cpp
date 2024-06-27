@@ -29,7 +29,8 @@ void WaveManager::init()
 				if (type == ENEMY_TYPE::END)
 				{
 					info.spawnDelay = std::stoi(buffer);
-					break;
+					
+					continue;
 				}
 				info.spawnEnemyMap.insert(std::make_pair(type, std::stoi(buffer)));
 				type = (ENEMY_TYPE)((int)type + 1);
@@ -45,14 +46,17 @@ void WaveManager::nextWave()
 	_currentWave++;
 	_currentSpawnEnemy = ENEMY_TYPE::GOBLIN;
 	_leftSpawnEnemy = _waveInfoVec[_currentWave].spawnEnemyMap[_currentSpawnEnemy];
+	
 }
 
 void WaveManager::spawnEnemy()
 {
 	if (_currentSpawnEnemy == ENEMY_TYPE::END) return;
 	_spawnTimer = clock();
-	if (_lastSpawnTime + _spawnDelay < _waveInfoVec[_currentWave].spawnDelay)
+	if (_lastSpawnTime + _waveInfoVec[_currentWave].spawnDelay < _spawnTimer)
 	{
+		gotoxy(0, 0);
+		cout << _waveInfoVec[_currentWave].spawnDelay;
 		_spawnRoad = _spawnRoad == ROAD_TYPE::FIRST ? ROAD_TYPE::SECOND : ROAD_TYPE::FIRST;
 		_lastSpawnTime = _spawnTimer;
 		_leftSpawnEnemy--;

@@ -11,9 +11,9 @@ void Player::modifyHP(int value)
 	}
 }
 
-void Player::modifyGold(int value)
+void Player::modifyGold(int value, bool withTotal)
 {
-	if (value > 0)
+	if (value > 0 && withTotal)
 		_totalGold += value;
 	_gold += value;
 }

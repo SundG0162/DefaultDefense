@@ -3,7 +3,7 @@
 #include "Type.h"
 struct WaveInfo
 {
-	WaveInfo() {};
+	WaveInfo() : spawnDelay{ 0 } {};
 	map<ENEMY_TYPE, int> spawnEnemyMap;
 	int spawnDelay;
 };
