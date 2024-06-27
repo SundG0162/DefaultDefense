@@ -3,6 +3,8 @@
 #include"WaveInfo.h"
 #include<fstream>
 #include"EntityManager.h"
+#include"Define.h"
+#include<sstream>
 
 WaveManager* WaveManager::m_pInst = nullptr;
 
@@ -11,13 +13,21 @@ void WaveManager::init()
 	std::fstream waveRead("WaveInfo\\WaveInfo.txt");
 	if (waveRead.is_open())
 	{
-		for (int i = 0; i < 4; i++)
+		for (int i = 0; i < 50; i++)
 		{
 			WaveInfo info = WaveInfo();
-			for (int j = 0; j < 6; j++)
+			string waveStr;
+			std::getline(waveRead, waveStr);
+
+			std::istringstream iss(waveStr);
+
+			string buffer;
+			vector<string> result;
+			ENEMY_TYPE type = ENEMY_TYPE::GOBLIN;
+			while (iss >> buffer)
 			{
-				int read = waveRead.get() - '0';
-				info.spawnEnemyMap.insert(std::make_pair((ENEMY_TYPE)(j + 1), read));
+				info.spawnEnemyMap.insert(std::make_pair(type, std::stoi(buffer)));
+				type = (ENEMY_TYPE)((int)type + 1);
 			}
 			_waveInfoVec.push_back(info);
 		}
