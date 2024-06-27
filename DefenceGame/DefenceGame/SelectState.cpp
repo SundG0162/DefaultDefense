@@ -205,15 +205,22 @@ void SelectState::render()
 
 void SelectState::spawnAlly()
 {
-	Ally* ally =
-		GET_SINGLETON(EntityManager)->
-		spawnEntity((ALLY_TYPE)(((_currentPage - 1) * 4) + _currentSelectIndex), Vector2(28, 19));
+	ALLY_TYPE type = (ALLY_TYPE)(((_currentPage - 1) * 4) + _currentSelectIndex);
+	if (type == ALLY_TYPE::GREATSWORD || type == ALLY_TYPE::NECROMANCER)
+	{
+		setColor((int)COLOR::RED);
+		gotoxy(44, 28);
+		cout << "해당 아군은 고용이 불가능합니다.";
+		setColor();
+		return;
+	}
+	Ally* ally = GET_SINGLETON(EntityManager)->spawnEntity(type, Vector2(28, 19));
 
 	if (GET_SINGLETON(Player)->getGold() < ally->getPrice())
 	{
 		setColor((int)COLOR::RED);
-		gotoxy(51, 28);
-		cout << "돈이 부족합니다!";
+		gotoxy(44, 28);
+		cout << "        돈이 부족합니다.       ";
 		setColor();
 		GET_SINGLETON(EntityManager)->despawnEntity(ally);
 	}

@@ -5,5 +5,6 @@ struct WaveInfo
 {
 	WaveInfo() {};
 	map<ENEMY_TYPE, int> spawnEnemyMap;
+	int spawnDelay;
 };
 
