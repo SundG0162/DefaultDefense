@@ -2,7 +2,7 @@
 #include"WaveManager.h"
 #include"EntityManager.h"
 #include"MapManager.h"
-
+#include"Player.h"
 
 BattleState::BattleState(InGameScene* inGameScene)
 {
@@ -12,13 +12,25 @@ BattleState::BattleState(InGameScene* inGameScene)
 void BattleState::update()
 {
 	GET_SINGLETON(WaveManager)->spawnEnemy();
-	
+
 	entityUpdate();
 
 	if (isWaveEnd())
 	{
 		deleteEnemyBody();
 		_inGameScene->changeState(INGAMESCENE_STATE::IDLE);
+	}
+	if (keyController() == KEY::ESC)
+	{
+		if (GET_SINGLETON(WaveManager)->isSpawnEnd())
+		{
+			for (auto& enemy : GET_SINGLETON(EntityManager)->getEnemies())
+			{
+				GET_SINGLETON(EntityManager)->despawnEntity(enemy);
+				GET_SINGLETON(Player)->modifyHP(-1);
+			}
+			GET_SINGLETON(WaveManager)->reductWave();
+		}
 	}
 }
 
@@ -28,6 +40,12 @@ void BattleState::render()
 	cout << " 현재 웨이브 :  " << GET_SINGLETON(WaveManager)->getCurrentWave();
 	gotoxy(50, 1);
 	cout << "남은 적 수 : " << GET_SINGLETON(EntityManager)->getEnemies().size() << endl;
+
+	if (GET_SINGLETON(WaveManager)->isSpawnEnd())
+	{
+		gotoxy(48, 2);
+		cout << "ESC키를 눌러 항복";
+	}
 }
 
 void BattleState::entityUpdate()
