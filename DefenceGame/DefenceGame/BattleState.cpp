@@ -12,6 +12,8 @@ BattleState::BattleState(InGameScene* inGameScene)
 void BattleState::update()
 {
 	GET_SINGLETON(WaveManager)->spawnEnemy();
+	
+	entityUpdate();
 
 	if (isWaveEnd())
 	{
@@ -56,5 +58,5 @@ void BattleState::deleteEnemyBody()
 
 bool BattleState::isWaveEnd()
 {
-	return GET_SINGLETON(EntityManager)->getEnemies().size() <= 0 && GET_SINGLETON(WaveManager)->isSpawnEnd()
+	return GET_SINGLETON(EntityManager)->getEnemies().size() <= 0 && GET_SINGLETON(WaveManager)->isSpawnEnd();
 }

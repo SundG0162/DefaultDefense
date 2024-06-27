@@ -14,6 +14,7 @@ protected:
 	int _price = 20;
 	clock_t _lastAttackTime = 0;
 public:
+	int getPrice() { return _price; }
 	int getAttackRange() { return _attackRange; }
 	void update() override;
 	virtual void attack();

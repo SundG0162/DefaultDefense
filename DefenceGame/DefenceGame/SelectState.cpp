@@ -57,18 +57,12 @@ void SelectState::update()
 	}
 	case KEY::ENTER:
 	{
-		GET_SINGLETON(Player)->
-			setAlly(GET_SINGLETON(EntityManager)->
-			spawnEntity((ALLY_TYPE)(((_currentPage - 1) * 4) + _currentSelectIndex), Vector2(28,19)));
-		_inGameScene->changeState(INGAMESCENE_STATE::PLACE);
+		spawnAlly();
 		break;
 	}
 	case KEY::SPACE:
 	{
-		GET_SINGLETON(Player)->
-			setAlly(GET_SINGLETON(EntityManager)->
-			spawnEntity((ALLY_TYPE)(((_currentPage - 1) * 4) + _currentSelectIndex), Vector2(28, 19)));
-		_inGameScene->changeState(INGAMESCENE_STATE::PLACE);
+		spawnAlly();
 		break;
 	}
 	case KEY::ESC:
@@ -207,4 +201,26 @@ void SelectState::render()
 	cout << "ESC키를 눌러 취소";
 	gotoxy(48, 27);
 	cout << "Enter 또는 Space키로 고용";
+}
+
+void SelectState::spawnAlly()
+{
+	Ally* ally =
+		GET_SINGLETON(EntityManager)->
+		spawnEntity((ALLY_TYPE)(((_currentPage - 1) * 4) + _currentSelectIndex), Vector2(28, 19));
+
+	if (GET_SINGLETON(Player)->getGold() < ally->getPrice())
+	{
+		setColor((int)COLOR::RED);
+		gotoxy(51, 28);
+		cout << "돈이 부족합니다!";
+		setColor();
+		GET_SINGLETON(EntityManager)->despawnEntity(ally);
+	}
+	else
+	{
+		GET_SINGLETON(Player)->modifyGold(-ally->getPrice());
+		GET_SINGLETON(Player)->setAlly(ally);
+		_inGameScene->changeState(INGAMESCENE_STATE::PLACE);
+	}
 }

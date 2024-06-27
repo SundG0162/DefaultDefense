@@ -15,6 +15,8 @@ public:
 	void update() override;
 	void render() override;
 private:
+	void spawnAlly();
+private:
 	int _currentPage = 1;
 	int _currentSelectIndex = 1;
 };

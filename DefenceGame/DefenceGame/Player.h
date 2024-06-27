@@ -17,6 +17,6 @@ public:
 	int getHP() { return _hp; }
 private:
 	int _hp = 3;
-	int _totalGold = 0;
-	int _gold = 0;
+	int _totalGold = 40;
+	int _gold = 40;
 };
