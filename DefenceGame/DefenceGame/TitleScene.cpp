@@ -7,6 +7,7 @@
 #include <io.h>
 #include "SceneManager.h"
 #include"Key.h"
+#include<conio.h>
 
 using namespace std;
 
@@ -95,14 +96,15 @@ void TitleScene::render()
 
 KEY TitleScene::KeyController()
 {
-    if (GetAsyncKeyState(VK_UP) & 0x8000) {
-        return KEY::UP;
-    }
-    if (GetAsyncKeyState(VK_DOWN) & 0x8000) {
-        return KEY::DOWN;
-    }
-    if (GetAsyncKeyState(VK_SPACE) & 0x8000) {
-        return KEY::SPACE;
+    if (_kbhit())
+    {
+        int key = _getch();
+        if (key == 0 || key == 224)
+        {
+            key = _getch();
+            return (KEY)key;
+        }
+        return (KEY)key;
     }
     return KEY::FAIL;
 }

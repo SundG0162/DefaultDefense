@@ -12,5 +12,9 @@ public:
     void update() override;
     void render() override;
     KEY KeyController();
+private:
+    int _tempPage = 0;
+    int _currentPage = 0;
+    int _currentGuidePage = 0;
 };
 
