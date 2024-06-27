@@ -26,6 +26,8 @@ static type* getInstance()\
 
 #define ENEMY_SPAWNPOS Vector2(0,9)
 
+#define LAST_WAVE 50
+
 using std::cin;
 using std::cout;
 using std::wcin;

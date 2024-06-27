@@ -5,6 +5,7 @@
 #include "EntityManager.h"
 #include "Define.h"
 #include<sstream>
+#include"SceneManager.h"
 
 WaveManager* WaveManager::m_pInst = nullptr;
 
@@ -44,9 +45,13 @@ void WaveManager::init()
 void WaveManager::nextWave()
 {
 	_currentWave++;
+	if (_currentWave > LAST_WAVE)
+	{
+		GET_SINGLETON(SceneManager)->loadScene("EndScene");
+		return;
+	}
 	_currentSpawnEnemy = ENEMY_TYPE::GOBLIN;
 	_leftSpawnEnemy = _waveInfoVec[_currentWave].spawnEnemyMap[_currentSpawnEnemy];
-	
 }
 
 void WaveManager::spawnEnemy()
