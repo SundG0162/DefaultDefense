@@ -19,6 +19,7 @@
 #include"IceWizard.h"
 #include"LightningWizard.h"
 #include"Sword.h"
+#include"Spear.h"
 #pragma endregion
 
 #include "MapManager.h"
@@ -26,14 +27,15 @@
 EntityManager* EntityManager::m_pInst = nullptr;
 void EntityManager::init()
 {
-	_allyMap.insert(std::make_pair(ALLY_TYPE::ARCHER, []() -> Ally* { return new Archer(ENTITY_TYPE::ALLY, "¢º", COLOR::BLUE, 1000, 5, 5, 20); }));
-	_allyMap.insert(std::make_pair(ALLY_TYPE::CROSSBOW, []() -> Ally* { return new Crossbow(ENTITY_TYPE::ALLY, "¢·", COLOR::LIGHT_BLUE, 100, 7, 1, 50); }));
+	_allyMap.insert(std::make_pair(ALLY_TYPE::ARCHER, []() -> Ally* { return new Archer(ENTITY_TYPE::ALLY, "¢º", COLOR::BLUE, 1000, 9, 5, 20); }));
+	_allyMap.insert(std::make_pair(ALLY_TYPE::CROSSBOW, []() -> Ally* { return new Crossbow(ENTITY_TYPE::ALLY, "¢·", COLOR::LIGHT_BLUE, 100, 9, 1, 50); }));
 	_allyMap.insert(std::make_pair(ALLY_TYPE::BALLISTA, []() -> Ally* { return new Ballista(ENTITY_TYPE::ALLY, "¢¼", COLOR::MINT, 10000, 17, 200, 1000); }));
-	_allyMap.insert(std::make_pair(ALLY_TYPE::GUNSLINGER, []() -> Ally* { return new Gunslinger(ENTITY_TYPE::ALLY, "¢¼", COLOR::VOILET, 1000, 7, 10, 100); }));
-	_allyMap.insert(std::make_pair(ALLY_TYPE::FIRE_WIZARD, []() -> Ally* { return new FireWizard(ENTITY_TYPE::ALLY, "¡Ú", COLOR::RED, 3000, 7, 10, 100); }));
-	_allyMap.insert(std::make_pair(ALLY_TYPE::ICE_WIZARD, []() -> Ally* { return new IceWizard(ENTITY_TYPE::ALLY, "¡Ú", COLOR::BLUE, 5000, 7, 5, 500); }));
+	_allyMap.insert(std::make_pair(ALLY_TYPE::GUNSLINGER, []() -> Ally* { return new Gunslinger(ENTITY_TYPE::ALLY, "¢¼", COLOR::VOILET, 1000, 11, 10, 100); }));
+	_allyMap.insert(std::make_pair(ALLY_TYPE::FIRE_WIZARD, []() -> Ally* { return new FireWizard(ENTITY_TYPE::ALLY, "¡Ú", COLOR::RED, 3000, 11, 10, 100); }));
+	_allyMap.insert(std::make_pair(ALLY_TYPE::ICE_WIZARD, []() -> Ally* { return new IceWizard(ENTITY_TYPE::ALLY, "¡Ú", COLOR::BLUE, 5000, 11, 5, 500); }));
 	_allyMap.insert(std::make_pair(ALLY_TYPE::LIGHTNING_WIZARD, []() -> Ally* { return new LightningWizard(ENTITY_TYPE::ALLY, "¡Ú", COLOR::YELLOW, 1000, 0, 20, 500); }));
 	_allyMap.insert(std::make_pair(ALLY_TYPE::SWORD, []() -> Ally* { return new Sword(ENTITY_TYPE::ALLY, "¡á", COLOR::GRAY, 500, 3, 5, 50); }));
+	_allyMap.insert(std::make_pair(ALLY_TYPE::SPEAR, []() -> Ally* { return new Spear(ENTITY_TYPE::ALLY, "¢¼", COLOR::GRAY, 1500, 5, 7, 80); }));
 	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOBLIN, []() -> Enemy* { return new Goblin(ENTITY_TYPE::ENEMY, "¡ã", COLOR::GREEN, 10, 1000, 10); }));
 	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOLDGOBLIN, []() -> Enemy* { return new GoldGoblin(ENTITY_TYPE::ENEMY, "¡ã", COLOR::YELLOW, 10, 5000, 100); }));
 	_enemyMap.insert(std::make_pair(ENEMY_TYPE::OGRE, []() -> Enemy* { return new Ogre(ENTITY_TYPE::ENEMY, "¡á", COLOR::GREEN, 50, 500, 100); }));

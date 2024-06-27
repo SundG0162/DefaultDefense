@@ -158,7 +158,7 @@ void SelectState::render()
 		gotoxy(92, 7);
 		cout << "■  검병    | 사거리: 1칸 ■" << endl;
 		gotoxy(92, 8);
-		cout << "■가격: 20  | 공격력: 5   ■" << endl;
+		cout << "■가격: 50  | 공격력: 5   ■" << endl;
 		gotoxy(92, 9);
 		cout << "■■■■■■■■■■■■■■" << endl << endl;
 
@@ -167,7 +167,7 @@ void SelectState::render()
 		gotoxy(92, 12);
 		cout << "■  창병    | 사거리: 2칸 ■" << endl;
 		gotoxy(92, 13);
-		cout << "■가격: 50  | 공격력: 2   ■" << endl;
+		cout << "■가격: 80  | 공격력: 7   ■" << endl;
 		gotoxy(92, 14);
 		cout << "■■■■■■■■■■■■■■" << endl << endl;
 
