@@ -21,13 +21,14 @@ vector<Enemy*> Archer::defineTargets()
 {
 	vector<Enemy*> targetVec;
 	Enemy* target = nullptr;
-	int x = _currentPos.x - _attackRange / 2;
-	int y = _currentPos.y - _attackRange / 2;
+	int x = _currentPos.x - (_attackRange / 2);
+	int y = _currentPos.y - (_attackRange / 2);
 	for (int i = y; i < y + _attackRange; i++)
 	{
 		for (int j = x; j < x + _attackRange; j++)
 		{
 			Vector2 pos = Vector2(j, i);
+			if (pos.x < 0 || pos.y < 0) continue;
 			Cell* cell = GET_SINGLETON(MapManager)->getCell(pos);
 			if (cell->type == MAP_TYPE::ROAD)
 			{

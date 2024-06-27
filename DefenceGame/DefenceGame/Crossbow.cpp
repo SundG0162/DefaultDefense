@@ -28,6 +28,7 @@ vector<Enemy*> Crossbow::defineTargets()
 		for (int j = x; j < x + _attackRange; j++)
 		{
 			Vector2 pos = Vector2(j, i);
+			if (pos.x < 0 || pos.y < 0) continue;
 			Cell* cell = GET_SINGLETON(MapManager)->getCell(pos);
 			if (cell->type == MAP_TYPE::ROAD)
 			{
