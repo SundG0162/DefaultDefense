@@ -3,6 +3,7 @@
 #include<conio.h>
 #include "console.h"
 #include "WaveManager.h"
+#include "SceneManager.h"
 
 IdleState::IdleState(InGameScene* inGameScene)
 {
@@ -32,6 +33,8 @@ void IdleState::update()
 	}
 	case KEY::FOUR:
 	{
+		GET_SINGLETON(SceneManager)->setTransition("TitleScene");
+		GET_SINGLETON(SceneManager)->loadScene("TransitionScene");
 		break;
 	}
 	}
