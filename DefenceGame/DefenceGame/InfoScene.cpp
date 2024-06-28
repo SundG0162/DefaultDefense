@@ -46,7 +46,7 @@ void InfoScene::update()
 	}
 	case KEY::LEFT:
 	{
-		if (_currentGuidePage > 0)
+		if (_currentGuidePage > 1)
 		{
 			system("cls");
 			_currentGuidePage--;
@@ -55,7 +55,7 @@ void InfoScene::update()
 	}
 	case KEY::RIGHT:
 	{
-		if (_currentGuidePage < 2)
+		if (_currentGuidePage < 3)
 		{
 			system("cls");
 			_currentGuidePage++;
@@ -180,7 +180,7 @@ void InfoScene::render()
 
 		cout << _currentGuidePage << " / 3";
 
-		if (_currentGuidePage == 0)
+		if (_currentGuidePage == 1)
 		{
 			gotoxy(x, y + 1);
 			cout << endl;
@@ -192,22 +192,22 @@ void InfoScene::render()
 			cout << "석궁 조립에 온 신경을 쏟는지 연사 속도는 엄청나지만 각각의 위력은 약하다.";
 			gotoxy(x, y + 9);
 			cout << endl;
-			cout << "발리스타" << endl << "타겟 : 단일/체력이 가장 높은 적 | 공속 : 10/s  | 공격력 : 200 | 가격 : 1000골드 | 사거리 : 10칸" << endl;
+			cout << "발리스타" << endl << "타겟 : 단일/체력이 가장 높은 적 | 공속 : 10/s | 공격력 : 200 | 가격 : 1000골드 | 사거리 : 10칸" << endl;
 			cout << "한방 크게 터뜨리는 맛으로 사는 쾌락 주의자. 위력 만큼은 보장하지만...";
 			gotoxy(x, y + 13);
 			cout << endl;
-			cout << "총잡이" << endl << "타겟 : 단일/체력이 가장 높은 적 | 공속 : 1/s   | 공격력 : 10  | 가격 : 100골드  | 사거리 : 5칸" << endl;
+			cout << "총잡이" << endl << "타겟 : 단일/체력이 가장 높은 적 | 공속 : 1/s  | 공격력 : 10  | 가격 : 100골드  | 사거리 : 5칸" << endl;
 			cout << "서부 영화를 감명 깊게 봤는지 판초를 입고있다. 자세를 잡느라 장전이 조금 걸리는 편이다.";
 		}
-		else if (_currentGuidePage == 1)
+		else if (_currentGuidePage == 2)
 		{
 			gotoxy(x, y + 1);
 			cout << endl;
-			cout << "화염마법사" << endl << "타겟 : 범위/선두 | 공속 : 3/s   | 공격력 : 10  | 가격 : 100골드  | 사거리 : 5칸  | 특징 : 지속데미지 " << endl;
+			cout << "화염마법사" << endl << "타겟 : 범위/선두 | 공속 : 3/s   | 공격력 : 10  | 가격 : 400골드  | 사거리 : 5칸" << endl;
 			cout << "다혈질이라 그런지 불을 다룬다. 넓은 범위의 공격 때문에 아군도 가끔 피해를 입는다.";
 			gotoxy(x, y + 5);
 			cout << endl;
-			cout << "얼음마법사" << endl << "타겟 : 범위/선두 | 공속 : 5/s   | 공격력 : 5   | 가격 : 500골드  | 사거리 : 5칸  | 특징 : 둔화" << endl;
+			cout << "얼음마법사" << endl << "타겟 : 단일/선두 | 공속 : 5/s   | 공격력 : 5   | 가격 : 500골드  | 사거리 : 5칸  | 특징 : 둔화" << endl;
 			cout << "견습 얼음 마법사, 아직 위력이 약해 적을 얼리지는 못하고 느리게 만들 수는 있다.";
 			gotoxy(x, y + 9);
 			cout << endl;
@@ -219,15 +219,15 @@ void InfoScene::render()
 			cout << "???" << endl;
 			cout << "돌아오지 않는다. 그의 자리는 항상 공석이다.";
 		}
-		else if (_currentGuidePage == 2)
+		else if (_currentGuidePage == 3)
 		{
 			gotoxy(x, y + 1);
 			cout << endl;
-			cout << "검병" << endl << "타겟 : 범위/선두 | 공속 : 0.5/s | 공격력 : 5  | 가격 : 20골드    | 사거리 : 1칸" << endl;
+			cout << "검병" << endl << "타겟 : 범위/선두 | 공속 : 0.5/s | 공격력 : 5   | 가격 : 20골드    | 사거리 : 1칸" << endl;
 			cout << "기본에 충실한 기사. 끊임없는 연격이 특징이다.";
 			gotoxy(x, y + 5);
 			cout << endl;
-			cout << "창병" << endl << "타겟 : 범위/선두 | 공속 : 0.1/s | 공격력 : 2  | 가격 : 50골드    | 사거리 : 1칸" << endl;
+			cout << "창병" << endl << "타겟 : 범위/선두 | 공속 : 0.1/s | 공격력 : 2   | 가격 : 50골드    | 사거리 : 1칸" << endl;
 			cout << "무기로 긴 창을 선택한 이유는 낯을 가리기 때문이라고 한다.";
 			gotoxy(x, y + 9);
 			cout << endl;
@@ -235,12 +235,12 @@ void InfoScene::render()
 			cout << "세검을 다루지만 괴이하게도 공격이 굉장히 느리다.";
 			gotoxy(x, y + 13);
 			cout << endl;
-			cout << "대검병" << endl << "타겟 : 주위 한칸 | 공속 : 4/s   | 공격력 : 300  | 가격 : 800골드" << endl;
+			cout << "대검병" << endl << "타겟 : 주위 한칸 | 공속 : 4/s   | 공격력 : 300 | 가격 : 1500골드" << endl;
 			cout << "자신의 몸보다 훨배는 커보이는 대검을 휘두르는 꼬마아이. 몸이 반동을 버티지 못해 휘두르면 한바퀴를 돌아버린다.";
 		}
 
 	}
-	else if (_currentPage == 3)
+	else if (_currentPage == 4)
 	{
 		system("cls");
 		GET_SINGLETON(SceneManager)->setTransition("TitleScene");

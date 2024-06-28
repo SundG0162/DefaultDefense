@@ -120,7 +120,7 @@ void SelectState::render()
 		gotoxy(92, 7);
 		cout << "■  화염마법사|사거리: 5칸■" << endl;
 		gotoxy(92, 8);
-		cout << "■가격: 100   |공격력: 10 ■" << endl;
+		cout << "■가격: 400   |공격력: 10 ■" << endl;
 		gotoxy(92, 9);
 		cout << "■■■■■■■■■■■■■■" << endl << endl;
 
@@ -185,7 +185,7 @@ void SelectState::render()
 		gotoxy(92, 22);
 		cout << "■  대검병  | 사거리: 2칸 ■" << endl;
 		gotoxy(92, 23);
-		cout << "■가격 : 800| 공격력: 300 ■" << endl;
+		cout << "■가격: 1500| 공격력: 300 ■" << endl;
 		gotoxy(92, 24);
 		cout << "■■■■■■■■■■■■■■" << endl << endl;
 	}
