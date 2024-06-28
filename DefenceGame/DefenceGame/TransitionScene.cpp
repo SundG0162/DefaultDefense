@@ -11,12 +11,9 @@ TransitionScene::~TransitionScene() {}
 
 TransitionScene::TransitionScene() {}
 
-void TransitionScene::init()
-{
-}
-void TransitionScene::update()
-{
-}
+void TransitionScene::init() {}
+
+void TransitionScene::update() {}
 
 void TransitionScene:: render()
 {
@@ -25,42 +22,21 @@ void TransitionScene:: render()
     int height = Resolution.Y;
     int animtime = 50;
 
-    gotoxy(0, 0);
-    setColor((int)COLOR::BLACK, (int)COLOR::RED);
-    system("cls");
-    Sleep(animtime);
-    gotoxy(0, 0);
-    setColor((int)COLOR::BLACK, (int)COLOR::LIGHT_RED);
-    system("cls");
-    Sleep(animtime);
-    gotoxy(0, 0);
-    setColor((int)COLOR::BLACK, (int)COLOR::YELLOW);
-    system("cls");
-    Sleep(animtime);
-    gotoxy(0, 0);
-    setColor((int)COLOR::BLACK, (int)COLOR::GREEN);
-    system("cls");
-    Sleep(animtime);
-    gotoxy(0, 0);
-    setColor((int)COLOR::BLACK, (int)COLOR::LIGHT_BLUE);
-    system("cls");
-    Sleep(animtime);
-    gotoxy(0, 0);
-    setColor((int)COLOR::BLACK, (int)COLOR::BLUE);
-    system("cls");
-    Sleep(animtime);
-    gotoxy(0, 0);
-    setColor((int)COLOR::BLACK, (int)COLOR::LIGHT_VIOLET);
-    system("cls");
-    Sleep(animtime);
-    gotoxy(0, 0);
-    setColor((int)COLOR::WHITE);
-    system("cls");
-    Sleep(animtime);
+    COLOR colors[] = {
+    COLOR::RED, COLOR::LIGHT_RED, COLOR::YELLOW, COLOR::GREEN,
+    COLOR::LIGHT_BLUE, COLOR::BLUE, COLOR::LIGHT_VIOLET, COLOR::WHITE
+    };
+
+    for (int i = 0; i < 8; ++i) {
+        gotoxy(0, 0);
+        setColor((int)COLOR::BLACK, (int)colors[i]);
+        system("cls");
+        Sleep(animtime);
+    }
 
     animtime -= 30;
 
-    setColor((int)COLOR::BLACK, (int)COLOR::WHITE);
+    setColor((int)COLOR::BLACK);
     for (int i = 0; i < width / 2; ++i)
     {
         for (int j = 0; j < height; j += 2)
