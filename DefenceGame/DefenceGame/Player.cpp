@@ -2,6 +2,13 @@
 #include "SceneManager.h"
 Player* Player::m_pInst = nullptr;
 
+void Player::init()
+{
+	_hp = 3;
+	_totalGold = 30;
+	_gold = 30;
+}
+
 void Player::modifyHP(int value)
 {
 	_hp += value;

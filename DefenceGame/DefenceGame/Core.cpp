@@ -19,6 +19,8 @@ void Core::init()
 	lockDragAndClick();
 	lockConsoleScroll();
 
+	GET_SINGLETON(EntityManager)->init();
+	GET_SINGLETON(WaveManager)->init();
 	GET_SINGLETON(SceneManager)->init();
 	GET_SINGLETON(SceneManager)->registerScene("TitleScene", new TitleScene);
 	GET_SINGLETON(SceneManager)->registerScene("InGameScene", new InGameScene);

@@ -8,6 +8,8 @@ class Player
 private:
 	Ally* _selectedAlly = nullptr;
 public:
+	void init();
+public:
 	void setAlly(Ally* ally) { _selectedAlly = ally; }
 	Ally* getAlly() { return _selectedAlly; }
 	void modifyHP(int value);

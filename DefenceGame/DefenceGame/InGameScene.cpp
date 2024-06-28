@@ -25,8 +25,7 @@ InGameScene::~InGameScene()
 
 void InGameScene::init()
 {
-	GET_SINGLETON(EntityManager)->init();
-	GET_SINGLETON(WaveManager)->init();
+	GET_SINGLETON(Player)->init();
 	std::fstream mapRead("Map\\Map1.txt");
 	if (mapRead.is_open())
 	{
