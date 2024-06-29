@@ -5,6 +5,7 @@
 #include"SceneManager.h"
 #include<conio.h>
 #include"mci.h"
+#include<iostream>
 
 BadAppleScene::BadAppleScene()
 {
@@ -16,17 +17,20 @@ BadAppleScene::~BadAppleScene()
 
 void BadAppleScene::init()
 {
-	PlayBgm(TEXT("Sounds\\bad_apple.mp3"), 100);
+	cout.tie(0);
+	cin.tie(0);
+	std::ios_base::sync_with_stdio(false);
 	_cap = cv::VideoCapture("Video\\bad_apple.mp4");
 	COORD resolution = getConsoleResolution();
 	_width = resolution.X;
 	_height = resolution.Y - 1;
+	PlayBgm(TEXT("Sounds\\bad_apple.mp3"), 100);
 }
 
 void BadAppleScene::update()
 {
 	_curFrame++;
-
+	_framePerSecond += 0.00025f;
 	KEY key = keyController();
 
 	if (key == KEY::ESC)
@@ -54,9 +58,8 @@ void BadAppleScene::render()
 			}
 			buffer += "\n";
 		}
-		gotoxy(0, 0);
 		cout << buffer;
-		Sleep(33);
+		Sleep(1000/_framePerSecond);
 	}
 	else
 	{

@@ -14,6 +14,7 @@ public:
 private:
 	KEY keyController();
 private:
+	float _framePerSecond = 31;
 	int _curFrame = 0;
 	int _width;
 	int _height;
