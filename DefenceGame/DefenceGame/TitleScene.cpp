@@ -37,7 +37,7 @@ void TitleScene::update()
 void TitleScene::render()
 {
     COORD Resolution = getConsoleResolution();
-    int x = Resolution.X / 3;
+    int x = Resolution.X / 2.5;
     int y = Resolution.Y / 2.5;
     int originy = y;
 
@@ -48,6 +48,9 @@ void TitleScene::render()
     gotoxy(x, y + 2);
     cout << "게임 종료";
 
+    gotoxy(x, y + 10);
+    cout << "  사과?";
+
     while (true)
     {
         KEY eKey = KeyController();
@@ -56,11 +59,21 @@ void TitleScene::render()
         case KEY::UP:
             if (y > originy)
             {
-                gotoxy(x - 2, y);
-                cout << " ";
-                gotoxy(x - 2, --y);
-                cout << ">";
-                Sleep(100);
+                if (y == originy + 10)
+                {
+                    gotoxy(x - 2, y);
+                    cout << " ";
+                    gotoxy(x - 2, y -= 8);
+                    cout << ">";
+                }
+                else
+                {
+                    gotoxy(x - 2, y);
+                    cout << " ";
+                    gotoxy(x - 2, --y);
+                    cout << ">";
+                    Sleep(100);
+                }
             }
             break;
         case KEY::DOWN:
@@ -71,6 +84,13 @@ void TitleScene::render()
                 gotoxy(x - 2, ++y);
                 cout << ">";
                 Sleep(100);
+            }
+            else if (y == originy + 2)
+            {
+                gotoxy(x - 2, y);
+                cout << " ";
+                gotoxy(x - 2, y+=8);
+                cout << ">";
             }
             break;
         case KEY::ENTER:
@@ -88,6 +108,10 @@ void TitleScene::render()
             if (originy + 2 == y)
             {
                 exit(0);
+            }
+            if (y == originy + 10)
+            {
+                GET_SINGLETON(SceneManager)->loadScene("BadAppleScene");
             }
             system("cls");
             return;

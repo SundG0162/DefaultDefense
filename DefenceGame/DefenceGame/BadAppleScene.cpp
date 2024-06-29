@@ -4,6 +4,7 @@
 #include"console.h"
 #include"SceneManager.h"
 #include<conio.h>
+#include"mci.h"
 
 BadAppleScene::BadAppleScene()
 {
@@ -19,6 +20,7 @@ void BadAppleScene::init()
 	COORD resolution = getConsoleResolution();
 	_width = resolution.X;
 	_height = resolution.Y - 1;
+	PlayBgm(TEXT("Sounds\\bad_apple.mp3"), 100);
 }
 
 void BadAppleScene::update()
@@ -47,7 +49,7 @@ void BadAppleScene::render()
 		for (int y = 0; y < _height; y++) {
 			for (int x = 0; x < _width; x++) {
 				int pixelValue = _resizedFrame.at<uchar>(y, x);
-				buffer += (pixelValue > 128) ? " " : "8";
+				buffer += (pixelValue > 128) ? "8" : " ";
 			}
 			buffer += "\n";
 		}

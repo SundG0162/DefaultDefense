@@ -28,7 +28,7 @@ void Core::init()
 	GET_SINGLETON(SceneManager)->registerScene("TransitionScene", new TransitionScene);
 	GET_SINGLETON(SceneManager)->registerScene("InfoScene", new InfoScene);
 	GET_SINGLETON(SceneManager)->registerScene("EndScene", new EndScene);
-	GET_SINGLETON(SceneManager)->registerScene("BadApple", new BadAppleScene);
+	GET_SINGLETON(SceneManager)->registerScene("BadAppleScene", new BadAppleScene);
 
 	GET_SINGLETON(SceneManager)->loadScene("TitleScene");
 }
