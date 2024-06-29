@@ -60,8 +60,6 @@ void WaveManager::spawnEnemy()
 	_spawnTimer = clock();
 	if (_lastSpawnTime + _waveInfoVec[_currentWave].spawnDelay < _spawnTimer)
 	{
-		gotoxy(0, 0);
-		cout << _waveInfoVec[_currentWave].spawnDelay;
 		_spawnRoad = _spawnRoad == ROAD_TYPE::FIRST ? ROAD_TYPE::SECOND : ROAD_TYPE::FIRST;
 		_lastSpawnTime = _spawnTimer;
 		_leftSpawnEnemy--;
