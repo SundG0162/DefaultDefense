@@ -13,6 +13,7 @@
 #include "SelectState.h"
 #include "RemoveState.h"
 #include "BattleState.h"
+#include "AskState.h"
 #include "Player.h"
 #include "mci.h"
 
@@ -73,6 +74,7 @@ void InGameScene::init()
 	_stateMap.insert(std::make_pair(INGAMESCENE_STATE::REMOVE, new RemoveState(this)));
 	_stateMap.insert(std::make_pair(INGAMESCENE_STATE::PLACE, new PlaceState(this)));
 	_stateMap.insert(std::make_pair(INGAMESCENE_STATE::BATTLE, new BattleState(this)));
+	_stateMap.insert(std::make_pair(INGAMESCENE_STATE::ASK, new AskState(this)));
 	
 	changeState(INGAMESCENE_STATE::IDLE);
 }

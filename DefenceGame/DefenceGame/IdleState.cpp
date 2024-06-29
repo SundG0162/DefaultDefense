@@ -33,8 +33,7 @@ void IdleState::update()
 	}
 	case KEY::FOUR:
 	{
-		GET_SINGLETON(SceneManager)->setTransition("TitleScene");
-		GET_SINGLETON(SceneManager)->loadScene("TransitionScene");
+		_inGameScene->changeState(INGAMESCENE_STATE::ASK);
 		break;
 	}
 	}

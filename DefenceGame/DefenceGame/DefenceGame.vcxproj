@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="Ally.cpp" />
     <ClCompile Include="Archer.cpp" />
+    <ClCompile Include="AskState.cpp" />
     <ClCompile Include="BadAppleScene.cpp" />
     <ClCompile Include="Ballista.cpp" />
     <ClCompile Include="BattleState.cpp" />
@@ -67,6 +68,7 @@
   <ItemGroup>
     <ClInclude Include="Ally.h" />
     <ClInclude Include="Archer.h" />
+    <ClInclude Include="AskState.h" />
     <ClInclude Include="BadAppleScene.h" />
     <ClInclude Include="Ballista.h" />
     <ClInclude Include="BattleState.h" />

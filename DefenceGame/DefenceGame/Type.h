@@ -58,5 +58,6 @@ enum class INGAMESCENE_STATE
 	PLACE,
 	BATTLE,
 	REMOVE,
+	ASK,
 	NONE
 };
