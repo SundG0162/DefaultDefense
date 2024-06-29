@@ -14,6 +14,7 @@
 #include "RemoveState.h"
 #include "BattleState.h"
 #include "Player.h"
+#include "mci.h"
 
 InGameScene::InGameScene()
 {
@@ -25,6 +26,7 @@ InGameScene::~InGameScene()
 
 void InGameScene::init()
 {
+	PlayBgm(TEXT("Sounds\\InGameBGM.mp3"), 500);
 	GET_SINGLETON(Player)->init();
 	std::fstream mapRead("Map\\Map1.txt");
 	if (mapRead.is_open())

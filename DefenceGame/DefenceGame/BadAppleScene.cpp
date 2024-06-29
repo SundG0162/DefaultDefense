@@ -16,11 +16,11 @@ BadAppleScene::~BadAppleScene()
 
 void BadAppleScene::init()
 {
+	PlayBgm(TEXT("Sounds\\bad_apple.mp3"), 100);
 	_cap = cv::VideoCapture("Video\\bad_apple.mp4");
 	COORD resolution = getConsoleResolution();
 	_width = resolution.X;
 	_height = resolution.Y - 1;
-	PlayBgm(TEXT("Sounds\\bad_apple.mp3"), 100);
 }
 
 void BadAppleScene::update()
@@ -31,7 +31,8 @@ void BadAppleScene::update()
 
 	if (key == KEY::ESC)
 	{
-		GET_SINGLETON(SceneManager)->loadScene("TitleScene");
+		GET_SINGLETON(SceneManager)->setTransition("TitleScene");
+		GET_SINGLETON(SceneManager)->loadScene("TransitionScene");
 	}
 }
 

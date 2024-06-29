@@ -8,6 +8,7 @@
 #include "SceneManager.h"
 #include "Key.h"
 #include<conio.h>
+#include"mci.h"
 
 using namespace std;
 
@@ -127,7 +128,12 @@ KEY TitleScene::KeyController()
         if (key == 0 || key == 224)
         {
             key = _getch();
-            return (KEY)key;
+            KEY eKey = (KEY)key;
+            if (eKey == KEY::SPACE || eKey == KEY::ENTER)
+            {
+                PlayEffect(TEXT("Sounds\\UISelect.mp3"));
+            }
+            return eKey;
         }
         return (KEY)key;
     }

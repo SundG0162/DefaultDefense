@@ -8,6 +8,7 @@
 #include "console.h"
 #include "Key.h"
 #include "TitleScene.h"
+#include"mci.h"
 #include<conio.h>
 
 using namespace std;
@@ -240,7 +241,7 @@ void InfoScene::render()
 		}
 
 	}
-	else if (_currentPage == 4)
+	else if (_currentPage == 3)
 	{
 		system("cls");
 		GET_SINGLETON(SceneManager)->setTransition("TitleScene");
@@ -257,7 +258,12 @@ KEY InfoScene::KeyController()
 		if (key == 0 || key == 224)
 		{
 			key = _getch();
-			return (KEY)key;
+			KEY eKey = (KEY)key;
+			if (eKey == KEY::SPACE || eKey == KEY::ENTER)
+			{
+				PlayEffect(TEXT("Sounds\\UISelect.mp3"));
+			}
+			return eKey;
 		}
 		return (KEY)key;
 	}
