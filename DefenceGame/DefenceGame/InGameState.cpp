@@ -1,6 +1,6 @@
 #include "InGameState.h"
 #include<conio.h>
-#include"mci.h"
+#include "mci.h"
 
 KEY InGameState::keyController()
 {

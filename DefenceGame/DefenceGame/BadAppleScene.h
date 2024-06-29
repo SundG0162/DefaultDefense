@@ -1,7 +1,7 @@
 #pragma once
-#include"Scene.h"
+#include "Scene.h"
 #include<opencv2/opencv.hpp>
-#include"Key.h"
+#include "Key.h"
 class BadAppleScene : public Scene
 {
 public:

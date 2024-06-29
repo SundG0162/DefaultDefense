@@ -8,7 +8,7 @@
 #include "console.h"
 #include "Key.h"
 #include "TitleScene.h"
-#include"mci.h"
+#include "mci.h"
 #include<conio.h>
 
 using namespace std;

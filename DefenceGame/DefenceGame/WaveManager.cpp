@@ -5,7 +5,7 @@
 #include "EntityManager.h"
 #include "Define.h"
 #include<sstream>
-#include"SceneManager.h"
+#include "SceneManager.h"
 
 WaveManager* WaveManager::m_pInst = nullptr;
 

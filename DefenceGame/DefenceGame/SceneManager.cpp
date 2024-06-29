@@ -1,7 +1,7 @@
 #include<string>
 #include "SceneManager.h"
 #include "Define.h"
-#include"mci.h"
+#include "mci.h"
 SceneManager* SceneManager::m_pInst = nullptr;
 
 void SceneManager::registerScene(const string& sceneName, Scene* scene)
