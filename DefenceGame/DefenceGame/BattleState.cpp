@@ -39,7 +39,7 @@ void BattleState::render()
 	gotoxy(49, 0);
 	cout << " 현재 웨이브 :  " << GET_SINGLETON(WaveManager)->getCurrentWave();
 	gotoxy(50, 1);
-	cout << "남은 적 수 : " << GET_SINGLETON(EntityManager)->getEnemies().size() << endl;
+	cout << "남은 적 수 : " << GET_SINGLETON(EntityManager)->getEnemies().size() << "   ";
 
 	if (GET_SINGLETON(WaveManager)->isSpawnEnd())
 	{

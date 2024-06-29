@@ -109,6 +109,11 @@ void InGameScene::mapRender()
 	setColor((int)COLOR::WHITE, (int)COLOR::BLACK);
 }
 
+void InGameScene::entityRender(const Vector2& pos)
+{
+	cout << GET_SINGLETON(MapManager)->getCell(pos)->renderString;
+}
+
 void InGameScene::uiRender()
 {
 	gotoxy(1, 1);
@@ -121,9 +126,4 @@ void InGameScene::uiRender()
 
 	gotoxy(1, 2);
 	cout << "°ñµå : " << GET_SINGLETON(Player)->getGold();
-}
-
-void InGameScene::entityRender(const Vector2& pos)
-{
-	cout << GET_SINGLETON(MapManager)->getCell(pos)->renderString;
 }
