@@ -6,6 +6,8 @@ class Enemy : public Entity
 public:
 	Enemy();
 	virtual ~Enemy();
+public:
+	bool isDead = false;
 protected:
 	int _hp;
 	int _rewardGold;
@@ -14,7 +16,6 @@ protected:
 	int _hitEffectTime = 200;
 	int _slowTime;
 	int _moveCount = 0;
-	bool _isDead = false;
 	bool _isHit = false;
 	bool _isSlowed = false;
 	Vector2 _facingDir = Vector2(1,0);
