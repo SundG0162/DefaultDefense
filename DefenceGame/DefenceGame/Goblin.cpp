@@ -8,7 +8,7 @@ Goblin::Goblin(ENTITY_TYPE type, std::string renderString, COLOR color, int hp, 
 	_type = type;
 	_renderString = renderString;
 	_color = color;
-	_hp = std::round((float)hp * (float)(1 + GET_SINGLETON(WaveManager)->getCurrentWave() / 40.0f));
+	_hp = std::round((float)hp * (float)(1 + GET_SINGLETON(WaveManager)->getCurrentWave() / 10.0f));
 	_moveTime = moveTime;
 	_defaultMoveTime = moveTime;
 	_rewardGold = rewardGold;
