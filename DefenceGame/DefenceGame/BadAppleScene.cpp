@@ -1,10 +1,10 @@
 #include "BadAppleScene.h"
 #include<opencv2/opencv.hpp>
-#include"Define.h"
-#include"console.h"
-#include"SceneManager.h"
+#include "Define.h"
+#include "console.h"
+#include "SceneManager.h"
 #include<conio.h>
-#include"mci.h"
+#include "mci.h"
 #include<iostream>
 
 BadAppleScene::BadAppleScene()

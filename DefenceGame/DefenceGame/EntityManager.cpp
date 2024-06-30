@@ -21,7 +21,7 @@
 #include "Sword.h"
 #include "Spear.h"
 #include "Slayer.h"
-#include"Greatsword.h"
+#include "Greatsword.h"
 #pragma endregion
 
 #include "MapManager.h"
@@ -33,7 +33,7 @@ void EntityManager::init()
 	_allyMap.insert(std::make_pair(ALLY_TYPE::CROSSBOW, []() -> Ally* { return new Crossbow(ENTITY_TYPE::ALLY, "¢·", COLOR::LIGHT_BLUE, 100, 9, 1, 50); }));
 	_allyMap.insert(std::make_pair(ALLY_TYPE::BALLISTA, []() -> Ally* { return new Ballista(ENTITY_TYPE::ALLY, "¢¼", COLOR::MINT, 10000, 17, 200, 1000); }));
 	_allyMap.insert(std::make_pair(ALLY_TYPE::GUNSLINGER, []() -> Ally* { return new Gunslinger(ENTITY_TYPE::ALLY, "¢¼", COLOR::VOILET, 1000, 11, 10, 100); }));
-	_allyMap.insert(std::make_pair(ALLY_TYPE::FIRE_WIZARD, []() -> Ally* { return new FireWizard(ENTITY_TYPE::ALLY, "¡Ú", COLOR::RED, 3000, 11, 10, 100); }));
+	_allyMap.insert(std::make_pair(ALLY_TYPE::FIRE_WIZARD, []() -> Ally* { return new FireWizard(ENTITY_TYPE::ALLY, "¡Ú", COLOR::RED, 3000, 11, 10, 400); }));
 	_allyMap.insert(std::make_pair(ALLY_TYPE::ICE_WIZARD, []() -> Ally* { return new IceWizard(ENTITY_TYPE::ALLY, "¡Ú", COLOR::BLUE, 5000, 11, 5, 500); }));
 	_allyMap.insert(std::make_pair(ALLY_TYPE::LIGHTNING_WIZARD, []() -> Ally* { return new LightningWizard(ENTITY_TYPE::ALLY, "¡Ú", COLOR::YELLOW, 1000, 0, 20, 500); }));
 	_allyMap.insert(std::make_pair(ALLY_TYPE::SWORD, []() -> Ally* { return new Sword(ENTITY_TYPE::ALLY, "¡á", COLOR::GRAY, 500, 3, 5, 50); }));

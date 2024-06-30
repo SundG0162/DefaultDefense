@@ -128,8 +128,8 @@ bool Enemy::checkDead()
 
 void Enemy::dead()
 {
-	if (_isDead) return;
-	_isDead = true;
+	if (isDead) return;
+	isDead = true;
 	GET_SINGLETON(EntityManager)->despawnEntity(this);
 	GET_SINGLETON(Player)->modifyGold(_rewardGold);
 }

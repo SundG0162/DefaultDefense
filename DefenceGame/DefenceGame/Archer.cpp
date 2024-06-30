@@ -35,6 +35,7 @@ vector<Enemy*> Archer::defineTargets()
 				vector<Enemy*> vec = cell->getEntities<Enemy>(ENTITY_TYPE::ENEMY);
 				for (auto i : vec)
 				{
+					if (i->isDead)continue;
 					if (target == nullptr)
 					{
 						target = i;
