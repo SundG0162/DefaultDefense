@@ -14,6 +14,8 @@ LightningWizard::LightningWizard(ENTITY_TYPE type, std::string renderString, COL
 	_attackRange = attackRange;
 	_damage = damage;
 	_price = price;
+	_lastAttackTime = -attackTime;
+
 }
 
 LightningWizard::~LightningWizard()

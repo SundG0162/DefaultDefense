@@ -8,6 +8,7 @@ public:
 	void init();
 public:
 	int getCurrentWave() { return _currentWave; }
+	void initWave() { _currentWave = -1; }
 	void nextWave();
 	void spawnEnemy();
 	bool isSpawnEnd() { return _currentSpawnEnemy == ENEMY_TYPE::END; }

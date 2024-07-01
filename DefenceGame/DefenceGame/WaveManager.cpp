@@ -50,6 +50,10 @@ void WaveManager::nextWave()
 		GET_SINGLETON(SceneManager)->loadScene("EndScene");
 		return;
 	}
+	for (auto& ally : GET_SINGLETON(EntityManager)->getAllies())
+	{
+		ally->resetAttackCooltime();
+	}
 	_currentSpawnEnemy = ENEMY_TYPE::GOBLIN;
 	_leftSpawnEnemy = _waveInfoVec[_currentWave].spawnEnemyMap[_currentSpawnEnemy];
 }

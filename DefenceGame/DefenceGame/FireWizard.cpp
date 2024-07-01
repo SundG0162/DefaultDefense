@@ -12,6 +12,8 @@ FireWizard::FireWizard(ENTITY_TYPE type, std::string renderString, COLOR color, 
 	_attackRange = attackRange;
 	_damage = damage;
 	_price = price;
+	_lastAttackTime = -attackTime;
+
 }
 
 FireWizard::~FireWizard()

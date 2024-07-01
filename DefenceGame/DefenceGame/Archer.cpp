@@ -11,6 +11,7 @@ Archer::Archer(ENTITY_TYPE type, std::string renderString, COLOR color, int atta
 	_attackRange = attackRange;
 	_damage = damage;
 	_price = price;
+	_lastAttackTime = -attackTime;
 }
 
 Archer::~Archer()

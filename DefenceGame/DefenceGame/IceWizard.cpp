@@ -12,6 +12,8 @@ IceWizard::IceWizard(ENTITY_TYPE type, std::string renderString, COLOR color, in
 	_attackRange = attackRange;
 	_damage = damage;
 	_price = price;
+	_lastAttackTime = -attackTime;
+
 }
 
 IceWizard::~IceWizard()

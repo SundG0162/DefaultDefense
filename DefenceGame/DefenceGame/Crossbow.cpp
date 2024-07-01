@@ -11,6 +11,8 @@ Crossbow::Crossbow(ENTITY_TYPE type, std::string renderString, COLOR color, int 
 	_attackRange = attackRange;
 	_damage = damage;
 	_price = price;
+	_lastAttackTime = -attackTime;
+
 }
 
 Crossbow::~Crossbow()

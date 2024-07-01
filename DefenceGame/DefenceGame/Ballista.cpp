@@ -10,6 +10,8 @@ Ballista::Ballista(ENTITY_TYPE type, std::string renderString, COLOR color, int 
 	_attackRange = attackRange;
 	_damage = damage;
 	_price = price;
+	_lastAttackTime = -attackTime;
+
 }
 
 Ballista::~Ballista()

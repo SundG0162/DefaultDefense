@@ -27,8 +27,9 @@ InGameScene::~InGameScene()
 
 void InGameScene::init()
 {
-	PlayBgm(TEXT("Sounds\\InGameBGM.mp3"), 500);
+	//PlayBgm(TEXT("Sounds\\InGameBGM.mp3"), 500);
 	GET_SINGLETON(Player)->init();
+	GET_SINGLETON(WaveManager)->initWave();
 	std::fstream mapRead("Map\\Map1.txt");
 	if (mapRead.is_open())
 	{
