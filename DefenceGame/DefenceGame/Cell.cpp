@@ -28,12 +28,6 @@ void Cell::deregisterEntity(Entity* entity)
 			charColor = entityVec.back()->getColor();
 		}
 	}
-	else
-	{
-		static int y = 4;
-		gotoxy(0, y++);
-		cout << "적을 찾았음.";
-	}
 }
 
 void Cell::setRenderString(const string& str)
