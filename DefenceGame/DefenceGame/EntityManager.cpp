@@ -26,6 +26,7 @@
 
 #include "MapManager.h"
 #include "Define.h"
+
 EntityManager* EntityManager::m_pInst = nullptr;
 void EntityManager::init()
 {
