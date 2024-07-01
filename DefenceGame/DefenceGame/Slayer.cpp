@@ -11,6 +11,8 @@ Slayer::Slayer(ENTITY_TYPE type, std::string renderString, COLOR color, int atta
 	_attackRange = attackRange;
 	_damage = damage;
 	_price = price;
+	_lastAttackTime = -attackTime;
+
 }
 
 Slayer::~Slayer()
@@ -36,6 +38,7 @@ vector<Enemy*> Slayer::defineTargets()
 				for (auto i : vec)
 				{
 					if (i->isDead)continue;
+					if (i == nullptr) continue;
 
 					if (target == nullptr)
 					{

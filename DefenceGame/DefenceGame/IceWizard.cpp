@@ -12,6 +12,8 @@ IceWizard::IceWizard(ENTITY_TYPE type, std::string renderString, COLOR color, in
 	_attackRange = attackRange;
 	_damage = damage;
 	_price = price;
+	_lastAttackTime = -attackTime;
+
 }
 
 IceWizard::~IceWizard()
@@ -36,6 +38,7 @@ vector<Enemy*> IceWizard::defineTargets()
 				vector<Enemy*> vec = cell->getEntities<Enemy>(ENTITY_TYPE::ENEMY);
 				for (auto i : vec)
 				{
+					if (i == nullptr) continue;
 					if (i->isDead) continue;
 
 					if (target == nullptr)
@@ -54,7 +57,7 @@ vector<Enemy*> IceWizard::defineTargets()
 	if (target != nullptr)
 	{
 		targetVec.push_back(target);
-		target->getSlow(5000, 12000);
+		target->getSlow(2000, 5000);
 	}
 	return targetVec;
 }

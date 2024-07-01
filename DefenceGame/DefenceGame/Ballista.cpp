@@ -10,6 +10,8 @@ Ballista::Ballista(ENTITY_TYPE type, std::string renderString, COLOR color, int 
 	_attackRange = attackRange;
 	_damage = damage;
 	_price = price;
+	_lastAttackTime = -attackTime;
+
 }
 
 Ballista::~Ballista()
@@ -34,7 +36,9 @@ vector<Enemy*> Ballista::defineTargets()
 				vector<Enemy*> vec = cell->getEntities<Enemy>(ENTITY_TYPE::ENEMY);
 				for (auto i : vec)
 				{
-					if (i->isDead)continue;
+					if (i == nullptr) continue;
+					if (i->isDead) continue;
+
 					if (target == nullptr)
 					{
 						target = i;

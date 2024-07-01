@@ -68,7 +68,7 @@ void EndScene::render()
     int curmode = _setmode(_fileno(stdout), prevmode);
 
     gotoxy(50, 10);
-    cout << "버틴 웨이브 : " << WaveManager::getInstance()->getCurrentWave() - 1;
+    cout << "버틴 웨이브 : " << WaveManager::getInstance()->getCurrentWave() + 1;
     gotoxy(50, 12);
     cout << "남은 골드 : " << GET_SINGLETON(Player)->getGold();
     gotoxy(50, 14);

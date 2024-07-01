@@ -11,6 +11,8 @@ Sword::Sword(ENTITY_TYPE type, std::string renderString, COLOR color, int attack
 	_attackRange = attackRange;
 	_damage = damage;
 	_price = price;
+	_lastAttackTime = -attackTime;
+
 }
 
 Sword::~Sword()

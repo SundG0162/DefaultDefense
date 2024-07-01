@@ -12,6 +12,8 @@ Greatsword::Greatsword(ENTITY_TYPE type, std::string renderString, COLOR color, 
 	_attackRange = attackRange;
 	_damage = damage;
 	_price = price;
+	_lastAttackTime = -attackTime;
+
 }
 
 Greatsword::~Greatsword()
@@ -31,6 +33,8 @@ vector<Enemy*> Greatsword::defineTargets()
 			vector<Enemy*> vec = cell->getEntities<Enemy>(ENTITY_TYPE::ENEMY);
 			for (auto* enemy : vec)
 			{
+				if (enemy == nullptr) continue;
+				if (enemy->isDead) continue;
 				targetVec.push_back(enemy);
 			}
 		}

@@ -11,6 +11,8 @@ Gunslinger::Gunslinger(ENTITY_TYPE type, std::string renderString, COLOR color, 
 	_attackRange = attackRange;
 	_damage = damage;
 	_price = price;
+	_lastAttackTime = -attackTime;
+
 }
 
 Gunslinger::~Gunslinger()
@@ -35,6 +37,7 @@ vector<Enemy*> Gunslinger::defineTargets()
 				vector<Enemy*> vec = cell->getEntities<Enemy>(ENTITY_TYPE::ENEMY);
 				for (auto i : vec)
 				{
+					if (i == nullptr) continue;
 					if (i->isDead)continue;
 
 					if (target == nullptr)
