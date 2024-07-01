@@ -33,6 +33,8 @@ vector<Enemy*> Greatsword::defineTargets()
 			vector<Enemy*> vec = cell->getEntities<Enemy>(ENTITY_TYPE::ENEMY);
 			for (auto* enemy : vec)
 			{
+				if (enemy == nullptr) continue;
+				if (enemy->isDead) continue;
 				targetVec.push_back(enemy);
 			}
 		}

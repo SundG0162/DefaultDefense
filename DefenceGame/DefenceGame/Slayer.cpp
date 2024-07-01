@@ -38,6 +38,7 @@ vector<Enemy*> Slayer::defineTargets()
 				for (auto i : vec)
 				{
 					if (i->isDead)continue;
+					if (i == nullptr) continue;
 
 					if (target == nullptr)
 					{
