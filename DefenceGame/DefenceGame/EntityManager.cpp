@@ -42,8 +42,8 @@ void EntityManager::init()
 	_allyMap.insert(std::make_pair(ALLY_TYPE::SLAYER, []() -> Ally* { return new Slayer(ENTITY_TYPE::ALLY, "в└", COLOR::RED, 3000, 3, 200, 1000); }));
 	_allyMap.insert(std::make_pair(ALLY_TYPE::GREATSWORD, []() -> Ally* { return new Greatsword(ENTITY_TYPE::ALLY, "б▄", COLOR::MINT, 100000, 0, 300, 1500); }));
 	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOBLIN, []() -> Enemy* { return new Goblin(ENTITY_TYPE::ENEMY, "бу", COLOR::GREEN, 10, 1000, 10); }));
-	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOLDGOBLIN, []() -> Enemy* { return new GoldGoblin(ENTITY_TYPE::ENEMY, "бу", COLOR::YELLOW, 10, 5000, 100); }));
-	_enemyMap.insert(std::make_pair(ENEMY_TYPE::OGRE, []() -> Enemy* { return new Ogre(ENTITY_TYPE::ENEMY, "бс", COLOR::GREEN, 50, 500, 100); }));
+	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOLDGOBLIN, []() -> Enemy* { return new GoldGoblin(ENTITY_TYPE::ENEMY, "бу", COLOR::YELLOW, 50, 5000, 100); }));
+	_enemyMap.insert(std::make_pair(ENEMY_TYPE::OGRE, []() -> Enemy* { return new Ogre(ENTITY_TYPE::ENEMY, "бс", COLOR::GREEN, 100, 500, 100); }));
 	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOLEM, []() -> Enemy* { return new Golem(ENTITY_TYPE::ENEMY, "в┬", COLOR::BLACK, 500, 100, 500); }));
 	_enemyMap.insert(std::make_pair(ENEMY_TYPE::DRAGON, []() -> Enemy* { return new Dragon(ENTITY_TYPE::ENEMY, "в╘", COLOR::RED, 1000, 1000, 1500); }));
 }
