@@ -40,7 +40,7 @@ void EntityManager::init()
 	_allyMap.insert(std::make_pair(ALLY_TYPE::SWORD, []() -> Ally* { return new Sword(ENTITY_TYPE::ALLY, "бс", COLOR::GRAY, 500, 3, 5, 50); }));
 	_allyMap.insert(std::make_pair(ALLY_TYPE::SPEAR, []() -> Ally* { return new Spear(ENTITY_TYPE::ALLY, "в╝", COLOR::GRAY, 1500, 5, 7, 80); }));
 	_allyMap.insert(std::make_pair(ALLY_TYPE::SLAYER, []() -> Ally* { return new Slayer(ENTITY_TYPE::ALLY, "в└", COLOR::RED, 3000, 3, 200, 1000); }));
-	_allyMap.insert(std::make_pair(ALLY_TYPE::GREATSWORD, []() -> Ally* { return new Greatsword(ENTITY_TYPE::ALLY, "б▄", COLOR::MINT, 100000, 0, 300, 1500); }));
+	_allyMap.insert(std::make_pair(ALLY_TYPE::GREATSWORD, []() -> Ally* { return new Greatsword(ENTITY_TYPE::ALLY, "б▄", COLOR::MINT, 3000, 0, 300, 1500); }));
 	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOBLIN, []() -> Enemy* { return new Goblin(ENTITY_TYPE::ENEMY, "бу", COLOR::GREEN, 10, 1000, 10); }));
 	_enemyMap.insert(std::make_pair(ENEMY_TYPE::GOLDGOBLIN, []() -> Enemy* { return new GoldGoblin(ENTITY_TYPE::ENEMY, "бу", COLOR::YELLOW, 50, 5000, 100); }));
 	_enemyMap.insert(std::make_pair(ENEMY_TYPE::OGRE, []() -> Enemy* { return new Ogre(ENTITY_TYPE::ENEMY, "бс", COLOR::GREEN, 100, 500, 100); }));
@@ -94,16 +94,10 @@ void EntityManager::despawnEntity(Ally* ally)
 
 void EntityManager::despawnEntity(Enemy* enemy)
 {
-	auto it = find(_enemyVec.begin(), _enemyVec.end(), enemy);
-
-	if (it != _enemyVec.end())
-	{
-		GET_SINGLETON(MapManager)->deregisterEntityInCell(enemy, enemy->getPos());
-		_enemyVec.erase(it);
-		_entityVec.erase(find(_entityVec.begin(), _entityVec.end(), (Entity*)enemy));
-		_lazyDeleteVec.push_back(enemy);
-	}
-
+	GET_SINGLETON(MapManager)->deregisterEntityInCell(enemy, enemy->getPos());
+	_enemyVec.erase(find(_enemyVec.begin(), _enemyVec.end(), enemy));
+	_entityVec.erase(find(_entityVec.begin(), _entityVec.end(), (Entity*)enemy));
+	_lazyDeleteVec.push_back(enemy);
 }
 
 void EntityManager::deleteEntity()

@@ -57,6 +57,7 @@ void Enemy::tryMove()
 
 void Enemy::move()
 {
+	if (isDead) return;
 	GET_SINGLETON(MapManager)->deregisterEntityInCell(this, _currentPos);
 	_currentPos += _facingDir;
 	_moveCount++;
