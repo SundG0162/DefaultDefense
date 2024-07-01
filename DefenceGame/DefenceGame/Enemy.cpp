@@ -144,6 +144,6 @@ void Enemy::getSlow(int value, int slowTime)
 	_lastSlowTime = _timer;
 	_slowTime = slowTime;
 	_isSlowed = true;
-	setMoveTime(value);
+	setMoveTime(_moveTime + value);
 }
 

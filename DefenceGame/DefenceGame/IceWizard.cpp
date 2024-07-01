@@ -56,7 +56,7 @@ vector<Enemy*> IceWizard::defineTargets()
 	if (target != nullptr)
 	{
 		targetVec.push_back(target);
-		target->getSlow(5000, 12000);
+		target->getSlow(2000, 5000);
 	}
 	return targetVec;
 }
