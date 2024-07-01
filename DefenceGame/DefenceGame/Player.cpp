@@ -6,7 +6,7 @@ void Player::init()
 {
 	_hp = 3;
 	_totalGold = 30;
-	_gold = 1500;
+	_gold = 30;
 }
 
 void Player::modifyHP(int value)
