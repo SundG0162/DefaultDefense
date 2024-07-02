@@ -6,7 +6,7 @@ Golem::Golem(ENTITY_TYPE type, std::string renderString, COLOR color, int hp, in
 	_type = type;
 	_renderString = renderString;
 	_color = color;
-	_hp = std::round((float)hp * (float)(1 + GET_SINGLETON(WaveManager)->getCurrentWave() / 5.0f));
+	_hp = std::round((float)hp * (float)(1 + GET_SINGLETON(WaveManager)->getCurrentWave() / 8.0f));
 	_moveTime = moveTime;
 	_defaultMoveTime = moveTime;
 	_rewardGold = rewardGold;
